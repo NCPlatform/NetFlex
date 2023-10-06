@@ -24,5 +24,7 @@ public class MovieDTO {
 	private int genrecode2;
 	private int genrecode3;
 	private String thumbnailSrc;
+	private String movieSrcUrl;
+	private int hit;
 	private String thumbnailSrcUrl;
 }

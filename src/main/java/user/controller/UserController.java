@@ -1,12 +1,16 @@
 package user.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import user.bean.MovieDTO;
@@ -65,5 +69,16 @@ public class UserController {
 	@ResponseBody
 	public void movie(@ModelAttribute MovieDTO movieDTO) {
 		userService.movie(movieDTO);
+	}
+	@GetMapping(value = "list")
+	public String list(@RequestParam(required = false, defaultValue = "1") String pg, Model model) {
+		model.addAttribute("pg", pg);
+
+		return "/user/list";
+	}
+	@PostMapping(value = "MovieList")
+	@ResponseBody
+	public Map<String, Object> movieList(@RequestParam String pg) {
+		return userService.movieList(pg);
 	}
 }

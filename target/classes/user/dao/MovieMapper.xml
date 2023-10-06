@@ -6,4 +6,9 @@
 	<select id="movie" parameterType="movie">
  		select * from movie
  	</select>
+ 	
+ 	<select id="movieList" parameterType="java.util.Map" resultType="movie">
+		<!-- MySQL : select * from usertable id limit 시작위치, 개수 (시작 위치는 0부터 시작한다) -->
+		select * from movietable id limit 0, 3
+ 	</select>
  </mapper>

@@ -71,6 +71,9 @@ header img{
     display: none;
 
 }
+.search-box {
+    margin-left: -100px !important;
+}
 .menu-icons .icons {
     background-size: cover;
     background-repeat: no-repeat;
