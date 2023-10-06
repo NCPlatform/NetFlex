@@ -13,5 +13,6 @@
 	<mvc:resources location="/WEB-INF/storage/" mapping="/storage/**" />
 	
 	<mvc:resources location="/bootstrap/" mapping="/bootstrap/**" />
-
+	
+	<mvc:resources location="/WEB-INF/asset/" mapping="/asset/**" />
 </beans>
