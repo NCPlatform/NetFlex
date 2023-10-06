@@ -14,6 +14,8 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import account.service.AccountServiceImpl;
+
 @Configuration
 @PropertySource("classpath:spring/db.properties")
 @EnableTransactionManagement
@@ -59,5 +61,7 @@ public class SpringConfiguration {
 		DataSourceTransactionManager transactionManager = new DataSourceTransactionManager(dataSource());
 		return transactionManager;
 	}
+	
+	
 	
 }
