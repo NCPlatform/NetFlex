@@ -6,12 +6,29 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<bean id = "viewResolver" class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name = "prefix" value = "/WEB-INF/Admin/movie/"></property>
+		<property name = "suffix" value = ".jsp"></property>
+	</bean>
+	
+	<bean id = "multipartResolver" class = "org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name = "maxUploadSize" value = "5000000"/><!-- 5MB 크기 제한 -->
+	</bean>
+	
+	<bean id = "modelAndView" class = "org.springframework.web.servlet.ModelAndView"></bean>
+	
+	<bean id = "userController" class = "admin.video.controller.VideoController">
+		<property name = "modelAndView">
+			<ref bean = "modelAndView"></ref>
+		</property>	
+	</bean>
+	
+	<context:component-scan base-package="user.controller"/>
 
 	<mvc:annotation-driven />
 	<mvc:resources location="/WEB-INF/js/" mapping="/js/**" />
-	<mvc:resources location="/WEB-INF/img/" mapping="/img/**" />
-	<mvc:resources location="/WEB-INF/storage/" mapping="/storage/**" />
-	
+	<mvc:resources location="/WEB-INF/asset/" mapping="/asset/**"/>
 	<mvc:resources location="/bootstrap/" mapping="/bootstrap/**" />
 
 </beans>
