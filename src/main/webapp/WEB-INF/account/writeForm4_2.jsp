@@ -124,7 +124,7 @@ li{
 					<input type="checkbox" id="agreement4" class="checkBox" name="agreement4" value="agreement4">
 					<label for="agreement4">
 						<span>
-						멤버십을 해지하지 않으면 Netflex 멤버십이 자동으로 계속되며, 멤버십 요금(현 17,000원)이 등록한 결제 수단으로 매월 청구됩니다. 멤버십은 www.netflex.com의 '계정' 페이지에서 언제든지 해지할 수 있습니다. 이 경우 결제 주기가 종료될 때 멤버십이 해지되며, 잔여 기간 동안은 서비스를 계속 이용할 수 있습니다. 단, 결제일로부터 7일 이내에 멤버십이 즉시 종료되도록 해지하고 해당 계정을 통해 Netflex 콘텐츠를 이용하지 않은 경우, 해당 결제 주기에 청구된 멤버십 요금을 전액 환불 요청할 수 있습니다.
+						멤버십을 해지하지 않으면 Netflex 멤버십이 자동으로 계속되며, 멤버십 요금 ${price}이 등록한 결제 수단으로 매월 청구됩니다. 멤버십은 www.netflex.com의 '계정' 페이지에서 언제든지 해지할 수 있습니다. 이 경우 결제 주기가 종료될 때 멤버십이 해지되며, 잔여 기간 동안은 서비스를 계속 이용할 수 있습니다. 단, 결제일로부터 7일 이내에 멤버십이 즉시 종료되도록 해지하고 해당 계정을 통해 Netflex 콘텐츠를 이용하지 않은 경우, 해당 결제 주기에 청구된 멤버십 요금을 전액 환불 요청할 수 있습니다.
 						</span>
 					</label>
 				</li>
@@ -136,6 +136,10 @@ li{
 			<button type="submit" id="submit">다음 페이지</button>
 		</div>
 </div>
+	<input type="hidden" id="email" name="email" value="${email }">
+	<input type="hidden" id="password" name="password" value="${password }">
+	<input type="hidden" id="level" name="level" value="${level }">
+	<input type="text" id="price" name="price" value="${price }">
 </form>		
 	
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

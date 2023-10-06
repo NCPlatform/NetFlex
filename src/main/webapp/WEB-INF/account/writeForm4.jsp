@@ -67,7 +67,7 @@ form {
 	</tr>
 </table>
 </form>
-<form method="post">
+<form method="post" id="form1" action="writeForm4_1">
 <div>
 	<button class="creditCard" type="button" id="creditCard">
 		<div><span>체크카드 또는 신용카드</span></div>
@@ -88,6 +88,14 @@ form {
 					</path></svg>
 				</span>
 	</button>
+	<input type="hidden" id="email" name="email" value="${email }">
+	<input type="hidden" id="password" name="password" value="${password }">
+	<input type="hidden" id="level" name="level" value="${level }">
+	<input type="hidden" id="price" name="price" value="${price }">
+</div>
+</form>
+<form method="post" id="form2" action="writeForm4_2">
+<div>
 	<button class="naverPay" type="button" id="naverPay">
 		<div><span>간편 결제</span></div>
 			<div>
@@ -99,6 +107,14 @@ form {
 					</path></svg>
 				</span>
 	</button>
+	<input type="hidden" id="email" name="email" value="${email }">
+	<input type="hidden" id="password" name="password" value="${password }">
+	<input type="hidden" id="level" name="level" value="${level }">
+	<input type="hidden" id="price" name="price" value="${price }">
+</div>
+</form>
+<form method="post" id="form3" action="writeForm4_3">
+<div>
 	<button class="phonePay" type="button" id="phonePay">
 		<div><span>통신사 요금에 통합하기</span></div>
 			<div>
@@ -110,27 +126,31 @@ form {
 					</path></svg>
 				</span>
 	</button>
+	<input type="hidden" id="email" name="email" value="${email }">
+	<input type="hidden" id="password" name="password" value="${password }">
+	<input type="hidden" id="level" name="level" value="${level }">
+	<input type="text" id="price" name="price" value="${price }">
 </div>
 </form>
 
 <script>
         document.getElementById('creditCard').addEventListener('click', function() {
             // 페이지 이동
-            window.location.href = 'writeForm4_1';
+        document.getElementById('form1').submit();
         });
 </script>
 
 <script>
         document.getElementById('naverPay').addEventListener('click', function() {
             // 페이지 이동
-            window.location.href = 'writeForm4_2';
+        document.getElementById('form2').submit();
         });
 </script>
 
 <script>
         document.getElementById('phonePay').addEventListener('click', function() {
             // 페이지 이동
-            window.location.href = 'writeForm4_3';
+        document.getElementById('form3').submit();
         });
 </script>
 

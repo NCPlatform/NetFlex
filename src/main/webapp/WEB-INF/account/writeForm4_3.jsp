@@ -124,6 +124,10 @@ li{
 			<button type="submit">유료 멤버십 시작</button>
 		</div>
 </div>
+	<input type="hidden" id="email" name="email" value="${email }">
+	<input type="hidden" id="password" name="password" value="${password }">
+	<input type="hidden" id="level" name="level" value="${level }">
+	<input type="hidden" id="price" name="price" value="${price }">
 </form>		
 	
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

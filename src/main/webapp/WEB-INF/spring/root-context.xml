@@ -7,5 +7,6 @@
  
 	<context:component-scan base-package="account.controller" />
 	<context:component-scan base-package="account.service" />
+	<context:component-scan base-package="user.bean" />
 	<!-- <context:component-scan base-package="spring.conf" /> -->
 </beans>

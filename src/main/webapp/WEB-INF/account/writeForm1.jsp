@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
@@ -70,13 +71,17 @@ tr{
 	<h2>복잡한 단계는 모두 없앴습니다.</h2>
 
 		<tr>
-		
-				<input type="text" placeholder="이메일 주소" name="email" id="email"  style="width:300px; height:50px;">
-			</td>
-		
-			<td>
-				<input type="password" placeholder="비밀번호를 추가하세요" id="password"  style="width:300px; height:50px;">
-			</td>
+			
+			<div class="form-floating mb-3">
+			  <input type="email" class="form-control" id="floatingInput" name="email" value="${email }"  placeholder="name@example.com">
+			  <label for="floatingInput">이메일 주소</label>
+			</div>
+			
+			<div class="form-floating">
+			  <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+			  <label for="floatingPassword">비밀번호를 추가하세요</label>
+			</div>	
+			
 			
 		</tr>
 	
@@ -103,7 +108,7 @@ tr{
 <script>
 function submitForm() {
     var email = $("#email").val();
-    var password = $("#password").val();
+    var password = $("#floatingPassword").val();
 
     if (email == "") {
         alert("이메일을 올바르게 입력하세요.");
@@ -127,5 +132,7 @@ function submitForm() {
     document.getElementById("termsForm").submit();
 }
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 </html>

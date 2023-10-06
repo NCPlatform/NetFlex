@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE html5>
 <html>
 <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
@@ -46,7 +47,10 @@ tr{
 <table border="1" cellspacing ="0" cellpadding ="7" style="margin: auto;">
 <tr>
 		<td>
-		<input type="text" value="이메일 주소" name="email" id="email"  style="width:300px; height:50px;" >
+		<div class="form-floating mb-3">
+		  <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
+		  <label for="floatingInput">이메일 주소</label>
+		</div>
 		<input type="button" value="시작하기" onclick="startAccount()">
 	
 		</td>
@@ -61,5 +65,6 @@ tr{
         	  document.getElementById('WriteForm0').submit(); // 이동할 주소를 여기에 입력하세요.
         }
  </script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 </html>

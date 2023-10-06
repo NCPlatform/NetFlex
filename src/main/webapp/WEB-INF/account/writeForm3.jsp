@@ -122,8 +122,14 @@ header {
 <p>함께 거주하는 사람들만 계정을 함께 이용할 수 있습니다.
  프리미엄 멤버십은 동시접속 4명, 스탠다드 또는 광고형 스탠다드는 2명, 베이식은 1명까지 가능합니다.</p>
 <form  id = "writeForm3" method="post" action="writeForm4" >
+	<input type="hidden" id="levelInput" name="level" value="">
+	<input type="hidden" id="priceInput" name="price" value="">
 <div style="text-align: center;">
 <input type="button" value="다음" onclick="payment()">
+
+	<input type="hidden" id="email" name="email" value="${email }">
+	<input type="hidden" id="password" name="password" value="${password }">
+	
 </div>
 </form>
 
@@ -150,35 +156,9 @@ header {
     });
   });
 </script>
-<script>
-  /* $(document).ready(function() {
-    // 공통적으로 수행할 작업을 함수로 묶습니다.
-	  function changeImageAndColor(element) {
-		  var newSrc = element.data("newsrc");
-		  element.find("img").attr("src", newSrc);
-
-		  //alert(element.attr("name"));
-		  
-		  $("." + element.attr("class")).each(function(index,item){
-			  //alert(element.attr("name"));
-			  $(this).css("color", "red");
-		  });
-		  // 해당 클래스에 속한 모든 글자의 색상을 변경합니다.
-		  $("." + element.attr("class")).css("color", "red");
-		}
-
-		$(".adStandard, .basic, .standard, .premium").click(function() {
-		  changeImageAndColor($(this));
-
-		  // 다른 클래스들의 글자 색상을 초기화합니다.
-		  $(".adStandard, .basic, .standard, .premium").not(this).css("color", "");
-
-		  $(".adStandard, .basic, .standard, .premium").not(this).each(function() {
-		    var originalSrc = $(this).data("originalsrc");
-		    $(this).find("img").attr("src", originalSrc);
-		  });
-		});
-  }); */
+<script type="text/javascript">
+</script>
+<script type="text/javascript">
   $(document).ready(function(){
 	  
 	  $('td').click(function(){
@@ -195,6 +175,22 @@ header {
 		  $(this).find("img").attr("src", newSrc);
 		  
 	  });
+  });
+</script>
+
+<script>
+  $(document).ready(function(){
+	  $('td[class!=header]').click(function(){
+		  var level = $(this).attr("class");
+		  var price = $(this).text();
+		  var cleanedPrice = parseInt(price.split('원')[0].replace(',', ''), 10);
+
+		  // DTO에 값을 넣습니다.
+		  $("#levelInput").val(level);
+		  $("#priceInput").val(cleanedPrice);
+
+		  document.getElementById('writeForm3').submit();
+		});
   });
 </script>
 </body>

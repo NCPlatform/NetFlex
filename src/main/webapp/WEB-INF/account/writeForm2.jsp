@@ -40,6 +40,9 @@ li{
 		<li> 하나의 요금으로 즐기는 끝없는 콘텐츠의 세계.</li>
 		<li> 모든 디바이스에서 무제한 시청.</li>
 		
+		<input type="hidden" id="email" name="email" value="${email }">
+		<input type="hidden" id="password" name="password" value="${password }">
+		
 		<input type="button" value="다음" onclick="membershipChoice()">
 
 
@@ -47,6 +50,7 @@ li{
 				
 </tr>	
 </table>
+
 </form>
 
 <script src="http://code.jquery.com/jquery-3.7.0.min.js"></script>

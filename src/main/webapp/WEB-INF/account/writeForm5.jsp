@@ -75,6 +75,10 @@ header {
 		<button type="submit" id="nextPage">다음</button>
 	</div>
 </div>
+	<input type="hidden" id="email" name="email" value="${email }">
+	<input type="hidden" id="password" name="password" value="${password }">
+	<input type="hidden" id="level" name="level" value="${level }">
+	<input type="hidden" id="price" name="price" value="${price }">
 </form>
 
 
