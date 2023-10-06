@@ -132,7 +132,7 @@ li{
 		</div>
 		<div class="">
 			<button type="button" id="submitBtn">유료 멤버십 시작</button>
-<<<<<<< HEAD
+
 			<button type="submit" id="submit">다음 페이지</button>
 		</div>
 </div>
@@ -204,30 +204,6 @@ $(document).ready(function() {
 });
 
 </script>
-=======
-			<button type="submit">다음 페이지</button>
-		</div>
-</div>
-</form>		
-	
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-  <script>
-        $(document).ready(function() {
-            $('.checkBox').change(function() {
-                if ($('.checkBox:checked').length == $('.checkBox').length) {
-                    $('#termsOfAllCheck').prop('checked', true);
-                } else {
-                    $('#termsOfAllCheck').prop('checked', false);
-                }
-            });
-
-            $('.selectAll').change(function() {
-                $('.checkBox').prop('checked', $(this).prop('checked'));
-            });
-        });
-  </script>
->>>>>>> branch 'AccountLee' of https://github.com/NCPlatform/NetFlex.git
 
 <script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"></script>
 <script>
