@@ -61,6 +61,7 @@ tr{
   <button type="button" onclick="loginForm()" id="writeForm0_headerLoginBtn">로그인</button>
 </header>
 <body>
+<<<<<<< HEAD
 <form style="text-align: center;" method="post" id="termsForm"  action="writeForm2">
 <div>
 <table style="margin: auto;">
@@ -127,6 +128,60 @@ function submitForm() {
     document.getElementById("termsForm").submit();
 }
 
+=======
+<form style="text-align: center;">
+<table style="margin: auto;">
+1/3단계<br>
+	<h1>비밀번호를 설정해 멤버십을 시작하세요.</h1>
+	<h2>몇 단계만 더 거치면 넷플릭스 가입 완료!</h2>
+	<h2>복잡한 단계는 모두 없앴습니다.</h2>
+
+		<tr>
+		
+				<input type="text" value="이메일 주소" name="email" id="email"  style="width:300px; height:50px;">
+			</td>
+		
+			<td>
+				<input type="password" value="비밀번호를 추가하세요" id="password"  style="width:300px; height:50px;">
+			</td>
+			
+		</tr>
+	
+	</table>
+</form>
+<div class="center-table">
+<table>
+ <form action="writeForm2" method="post" id="termsForm">
+        <label>
+            <input type="checkbox" name="terms_agreed" required>
+            <p>예, 저는 <span class="registration" onclick="registration1()">전자상거래(인터넷사이버몰)</span> 표준약관에 동의합니다.</p><br><br>
+	
+	     <input type="checkbox" name="terms_agreed" required>
+            <p>예, 저는 <span class="registration" onclick="registration2()">개인정보 처리방침에 </span> 따른 개인정보 수집 및 활용에 동의합니다.</p>
+        </label>
+        
+        <br><br>
+        
+        <button type="submit" id="terms_agreed">동의하고 계속</button>
+    </form>
+</table>
+</div>
+
+<script src="http://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+<script>
+function registration1() {
+    window.open('registration1', '_blank');
+}
+function registration2() {
+    window.open('registration2', '_blank');
+}
+
+$('#termsForm').submit(function() {
+    
+    return true; // 혹은 false (동의하지 않았을 경우)
+});
+>>>>>>> branch 'AccountLee' of https://github.com/NCPlatform/NetFlex.git
 </script>
 </body>
 </html>

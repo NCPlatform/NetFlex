@@ -84,6 +84,7 @@ public class AccountController {
 		return "/account/writeForm4_3";
 	}
 	
+<<<<<<< HEAD
 	@PostMapping(value="writeForm5")
 	public String writeForm5() {
 		return "/account/writeForm5";
@@ -94,4 +95,6 @@ public class AccountController {
 		return "/account/writeForm6";
 	}
 	
+=======
+>>>>>>> branch 'AccountLee' of https://github.com/NCPlatform/NetFlex.git
 }
