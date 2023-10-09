@@ -19,6 +19,16 @@ public class VideoDTO {
 	//table each_movie
 	private String tableName;
 	
+	// DBtest
+	private int seq;
+	public void  setSeq(int seq) {
+		this.seq = seq;
+	}
+	public int getSeq() {
+		return seq;
+	}
+	
+	
 	@Override
 	public String toString() {
 		

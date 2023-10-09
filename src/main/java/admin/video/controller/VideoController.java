@@ -1,13 +1,16 @@
 package admin.video.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import admin.video.bean.EpisodeDTO;
 import admin.video.bean.VideoDTO;
 import admin.video.dao.VideoDAO;
 import admin.video.service.VideoService;
@@ -31,24 +34,47 @@ public class VideoController {
 	@GetMapping(value = "videoUploadForm")
 	public ModelAndView videoUploadForm() {
 		mav.setViewName("videoUploadForm");
+		
 		return mav;
 	}
 	
+
 	@GetMapping(value = "videoUploadForm2")
-	public ModelAndView videoUploadForm2(@ModelAttribute VideoDTO videoDTO) {
+	public ModelAndView videoUploadForm2(@ModelAttribute VideoDTO videoDTO, HttpServletRequest request) {
 		
-		
+	//	int seqMovie = videoService.importSeq();
 		System.out.println(videoDTO.toString());
 		videoService.upload(videoDTO);
 		
-		VideoDTO videoDTO2 = videoService.searchMovie(videoDTO);
 		
+		int seqSearch = videoService.searchMovie(videoDTO).getSeqMovie();
+		int seq = 0;
+	//	System.out.println("seqMovie value is "+seqMovie);
+		System.out.println("searched seq value is "+seqSearch);
 		// 컨텐츠 테이블 만들기 --> seq으로 제작
-		videoService.create(videoDTO2.getSeqMovie());
+	//	System.out.println(seqMovie);
+	//	if(seqSearch>=seqMovie) {
+			seq = seqSearch;
+	//	}
+		videoService.create(seq);
 		
-		
-		
+		HttpSession session = request.getSession();
+		session.setAttribute("seq", seq);
 		mav.setViewName("videoUploadForm2"); // 페이지 이동
+		
+		return mav;
+	}
+	
+	@GetMapping(value = "videoUpload")
+	public ModelAndView videoUpload(@ModelAttribute EpisodeDTO epDTO, HttpServletRequest request) {
+		
+		//	int seqMovie = videoService.importSeq();
+		System.out.println(epDTO.toString());
+	//	videoService.addEpisodes(epDTO);
+		
+		
+		
+		mav.setViewName("videoUpload"); // 페이지 이동
 		
 		return mav;
 	}
