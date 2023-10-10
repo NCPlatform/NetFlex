@@ -12,5 +12,8 @@ public interface MemberDao {
 	//부모창 mail인증하기 버튼
 
 	public int completeAuth(String mail);  //인증완, 자식창 확인버튼
+	void write(UserDTO userDTO);
+	
+	
 	
 }

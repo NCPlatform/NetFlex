@@ -7,6 +7,9 @@
     INSERT INTO mail_auth (mail,auth_key,is_auth)
     values (#{mail},#{authKey},0)
 </insert>
+<insert id="insertUser" parameterType="userDTO">
+	
+</insert>
 <select id="getMailAuth" parameterType="String" resultType="user.bean.UserDTO">
     SELECT mail, auth_key, is_auth
     FROM mail_auth

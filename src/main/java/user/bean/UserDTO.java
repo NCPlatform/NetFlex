@@ -17,6 +17,9 @@ public class UserDTO {
 	private String password;
 	private int age;
 	private String phone;
+	private String tel1;
+	private String tel2;
+	private String tel3;
 	private int seqMembership;
 	private boolean active;
 	private Date membershipStartDate;

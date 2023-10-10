@@ -37,5 +37,14 @@ public class MemberDAOMybatis implements MemberDao {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	@Override
+	public void write(UserDTO userDTO) {
+	    // phone을 조합해서 한 번에 설정
+	    String phone = userDTO.getTel1() + userDTO.getTel2() + userDTO.getTel3();
+	    userDTO.setPhone(phone);
+
+	    sqlSession.insert("userSQL.write", userDTO);
+	}
 
 }

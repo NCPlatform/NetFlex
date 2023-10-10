@@ -32,7 +32,7 @@ header {
 </header>
 
 <body>
-<form method="post" action="writeForm6">
+<form method="post" action="processUserData">
 <div>
 	<h1>Netflex에 가입하신 것을 축하합니다.</h1>
 	<li>Netflex 멤버십이 시작되었으며, 한 달 동안 무료로 제공됩니다. 2023년 11월 15일 이전에 멤버십을 해제하시면 요금이 청구되지 않습니다.</li>

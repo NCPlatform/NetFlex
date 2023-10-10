@@ -4,18 +4,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.fasterxml.jackson.annotation.JacksonInject;
-
 import account.service.AccountService;
+import member.dao.MemberDao;
 import user.bean.UserDTO;
 
 @Controller
 @RequestMapping(value="account")
 public class AccountController {
+	
+	@Autowired
+	private MemberDao memberDao;
+	
 	@Autowired
 	private AccountService accountService;
 	
@@ -139,6 +144,18 @@ public class AccountController {
 		
 		return "/account/writeForm5";
 	}
+	
+	 @RequestMapping(value = "/processUserData", method = RequestMethod.POST)
+	    public String processUserData(@ModelAttribute UserDTO userDTO) {
+	        // userDTO 객체에는 클라이언트에서 전송한 데이터가 자동으로 매핑됩니다.
+	        // 이후 DB에 저장하거나 필요한 처리를 수행합니다.
+	        
+	        // 예시로, DB에 저장하는 코드
+	        memberDao.write(userDTO	);
+	        
+	        // 다음 페이지로 리다이렉트
+	        return "/account/writeForm6";
+	    }
 	
 	@PostMapping(value="writeForm6")
 	public String writeForm6() {

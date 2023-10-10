@@ -59,7 +59,7 @@ header {
 	</tr>
 	<tr>
 		<td width="100" align ="center">닉네임4</td>
-		<td><input type="text" id="nickname3" name="nickname3" placeholder= "닉네임 입력">
+		<td><input type="text" id="nickname4" name="nickname4" placeholder= "닉네임 입력">
 			<div id="nicknameDiv4"></div>
 		</td>
 	</tr>
