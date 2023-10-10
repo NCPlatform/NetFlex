@@ -14,6 +14,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import admin.video.bean.EpisodeDTO;
 import admin.video.bean.VideoDTO;
 import admin.video.controller.VideoController;
 import admin.video.dao.VideoMyBatis;
@@ -76,6 +77,11 @@ public class SpringConfiguration {
 	@Bean
 	public VideoDTO videoDTO() {
 		return new VideoDTO();
+	}
+	
+	@Bean
+	public EpisodeDTO episodeDTO() {
+		return new EpisodeDTO();
 	}
 	
 	@Bean

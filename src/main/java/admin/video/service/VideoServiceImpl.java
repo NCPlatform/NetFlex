@@ -2,6 +2,7 @@ package admin.video.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import admin.video.bean.EpisodeDTO;
 import admin.video.bean.VideoDTO;
 import admin.video.dao.VideoDAO;
 
@@ -20,8 +21,19 @@ public class VideoServiceImpl implements VideoService{
 	}
 
 	@Override
+	public int importSeq() {
+		int seqMovie= videoDAO.importSeq();
+		return seqMovie;
+	}
+
+	@Override
 	public VideoDTO searchMovie(VideoDTO videoDTO) {
-		VideoDTO videoDTO2 = videoDAO.searchMovie(videoDTO);
-		return videoDTO;
+		VideoDTO resultDTO = videoDAO.searchMovie(videoDTO);
+		return resultDTO;
+	}
+
+	@Override
+	public void addEpisodes(EpisodeDTO epDTO) {
+		videoDAO.addEpisodes(epDTO);
 	}
 }
