@@ -19,11 +19,7 @@
 				<td>제목</td>
 				<td><input name = 'title' type = "text"></td>
 			</tr>
-			<tr>
-				<td>영제</td>
-				<td><input name = 'tableName' type = "text" placeholder= "테이블의 이름입니다. 수정 및 공백 비허용"></td>
-				<!-- placeholder를 div로 줄 것인지 고민 중. div로 주면 focus 되었을 때 활성화. js로 공백이나 특수문자 포함 시 통제 가능 -->
-			</tr>
+			
 			<tr>
 				<td>공개 날짜</td>
 				<td>

@@ -16,7 +16,7 @@
 			</tr>
 			<tr>
 				<td>에피소드 번호</td>
-				<td><input type="number" name="ep"></td>
+				<td><input type="number" name="eplist"></td>
 				<td>에피소드 제목</td>
 				<td colspan="2"><input type="text" name="eptitle"></td>
 			</tr>
@@ -55,10 +55,10 @@
 		<div id="addTables"></div>
 		
 		<br>
-		<!-- 
+		
 		<input type="submit" value="완료하기" id = 'finish'>
-		-->
-		<button type = 'button' id = 'finish'>test</button>
+		<!-- 
+		<button type = 'button' id = 'finish'>test</button>-->
 	</form>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-3.7.0.min.js"></script>
 	<script>
@@ -73,9 +73,9 @@
 			tNum++;
 			var tables = "<br><hr><table class = 'tables'>"
  				tables += "<tr><td>등록번호</td>"
-				tables += "<td colspan = '3'><input type = 'text' id = 'seq' value = '${sessionScope.seq}' readonly name = 'seqMovie'></td></tr>"
+				tables += "<td colspan = '4'><input type = 'text' value = '${sessionScope.seq}' readonly name = 'seqMovie'></td></tr>"
 				
-				tables += "<td>에피소드 번호</td><td><input type = 'number' name = 'ep'></td>"
+				tables += "<td>에피소드 번호</td><td><input type = 'number' name = 'eplist'></td>"
 				tables += "<td>에피소드 제목</td><td colspan = '2'><input type = 'text' name = 'eptitle'></td>"
 				tables += "</tr><tr><td>썸네일 이미지</td><td>파일&nbsp;&nbsp;<input type = 'file' name = 'thumbnailSrc'>"
 				tables += "<br>URL&nbsp;&nbsp;<input type = 'text' name = 'thumbnailSrcUrl'></td>"
@@ -121,10 +121,15 @@
 			console.log('epStory value is : '+epStory)
 		});
 		
+		/*
 		$('#finish').click(function(){
-			console.log($('input:number[name=ep]').val())
 			
-		})
+			$('input[name="ep"]').each(function(){
+				
+				console.log($(this).val())
+			})
+			
+		})*/
 	</script>
 
 </body>

@@ -8,26 +8,30 @@
  		insert into movie(genrecode1, genrecode2, genrecode3, title, story, nation, director, actor, year, releasedate) values (#{genrecode1}, #{genrecode2}, #{genrecode3}, #{title}, #{story}, #{nation}, #{director}, #{actor}, #{year}, #{releasedate})
  	</insert>
  	
- 	
  	<select id = "importSeq" parameterType = "HashMap" resultType = "_int">
  		select max(${seqMovie}) as seqMovie from movie
  	</select>
  	
-<<<<<<< HEAD
- 	<select id = "importSeq" parameterType = "video" resultType = "video">
- 		select seqMovie from movie where title = #{title}
-=======
  	<select id = "searchMovie" parameterType = "video" resultType = "video">
- 		select * from movie where title like #{title}
->>>>>>> branch 'adminJY' of https://github.com/NCPlatform/NetFlex.git
+ 		select * from movie where title = #{title} order by seqMovie desc limit 1
  	</select>
+ 	
  	
  	<select id = "create" parameterType = "HashMap">
   		${sql}
   	</select>
   	
+  	<select id = "countAllVideos" resultType = "_int">
+  		select count(*) as count from movie 
+  	</select>
+  	
+  	<select id = "getVideoList" parameterType = "HashMap" resultType = "video">
+  		select * from movie limit #{startNum}, 15 
+  	</select>
+  	
   	<!-- Episodes -->
   	<insert id = "addEpisodes" parameterType = "ep">
-  		insert into ${tableName} values(#{ep}, #{eptitle}, #{epstory}, #{runtime}, #{thumbnail}, #{grade}, #{seqMovie})
+  		insert into `${seqMovie}` (ep, eptitle, epstory, runtime, thumbnail, grade, seqMovie) values(#{ep}, #{eptitle}, #{epstory}, #{runtime}, #{thumbnail}, #{grade}, #{seqMovie})
   	</insert>
+  	
  </mapper>

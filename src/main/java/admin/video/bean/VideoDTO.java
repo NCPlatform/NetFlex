@@ -13,11 +13,32 @@ public class VideoDTO {
 	private String title, story, nation, director, actor, thumbnailSrc, thumbnailSrcUrl, movieSrcUrl;
 	//private Date year, releasedate; -- 추후 releasedate(hh:mm) datetime 타입을 활용하게 되면 살릴 것
 	// 										jsp <input type = 'time'>도 아직 넘어오는 값이 없음
+	
 	private String year, releasedate;
 	//table genre
 	private String genrename1, genrename2, genrename3; // 컬럼에는 존재하지 않음, as로 불러올 예정
 	//table each_movie
-	private String tableName;
+	private String thumbnail; // 영화관리화면 게시용
+	// thumbnail은 thumbnailSrc와 thumbnailSrcUrl 중 null이 아닌 것 or 길이가 더 긴 것
+	// 으로 지정된다. 다만 이 방법은 임시이기 때문에 바뀔 수 있다.
+	
+	public void setThumbnail() {
+		
+		
+		if(this.thumbnailSrcUrl == null) {
+			this.thumbnail = this.thumbnailSrc;
+		}else if(this.thumbnailSrc == null){
+			this.thumbnail = this.thumbnailSrcUrl;
+		}else if(this.thumbnailSrc.length()>=this.thumbnailSrcUrl.length()) {
+			this.thumbnail = this.thumbnailSrc;
+		}else if(this.thumbnailSrcUrl.length()>this.thumbnailSrc.length()) {
+			this.thumbnail = this.thumbnailSrcUrl;
+		}
+	}
+	
+	public String getThumbnail() {
+		return thumbnail;
+	}
 	
 	// DBtest
 	private int seq;
@@ -32,7 +53,7 @@ public class VideoDTO {
 	@Override
 	public String toString() {
 		
-		return ""+seqMovie+" "+tableName+" "+title+" "+story+" "+nation+" "+director+" "+actor+" "+year+" "+releasedate+"\ncode:"+genrecode1+" "+genrecode2+" "+genrecode3; 
+		return ""+seqMovie+" "+title+" "+story+" "+nation+" "+director+" "+actor+" "+year+" "+releasedate+"\ncode:"+genrecode1+" "+genrecode2+" "+genrecode3; 
 		
 	}
 	
@@ -54,15 +75,6 @@ public class VideoDTO {
 		this.movieSrcUrl = movieSrcUrl;
 	}
 
-
-
-	public void setTableName(String tableName) {
-		this.tableName = tableName;
-	}
-	public String getTableName() {
-		return tableName;
-	}
-	
 	public int getSeqMovie() {
 		return seqMovie;
 	}
