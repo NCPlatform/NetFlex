@@ -13,6 +13,6 @@
  	</select>
  	
  	<select id = "importSeq" parameterType = "video" resultType = "video">
- 		select * from movie where title = #{title}
+ 		select seqMovie from movie where title = #{title}
  	</select>
  </mapper>

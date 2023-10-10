@@ -42,9 +42,9 @@ public class VideoController {
 		videoService.upload(videoDTO);
 		
 		VideoDTO videoDTO2 = videoService.searchMovie(videoDTO);
-		
+		System.out.println(videoDTO2.toString());
 		// 컨텐츠 테이블 만들기 --> seq으로 제작
-		videoService.create(videoDTO2.getSeqMovie());
+		// videoService.create(videoDTO2.getSeqMovie());
 		
 		
 		
