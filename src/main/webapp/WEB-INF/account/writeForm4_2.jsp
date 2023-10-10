@@ -45,33 +45,20 @@ li{
 			<ul>
 				<li>
 				
-		<tr>
+		<tr class="form-group-sm">
 				<th><label>이메일</label></th>
 				<td>
-				<input type="text" name="email1" id="email1" style="width:120px;">
-				@
-				<input type="text" name="email2" id="email2" value="naver.com" style="width:120px;" readonly>
+				<input type="text" name="email1" id="email1" style="width:200px;">
 				
-				<button onclick="emailAuthentication()" id="eamilAuthBtn" type="button" class="btnChk">인증 메일 보내기</button>
+				<form:input path="memMail" 	cssClass="form-control input-sm" />
+       			<form:errors path="memMail" />
+				<button onclick="return false;" type="button" id="mailAuth">이메일 인증하기</button>
 				</td>
 				
 		</tr>
 		
-		<tr>
-			<th><a>이메일 인증번호 입력</a></th>
-			<td><input type="text" name="authCode" id="inputAuthCode"  maxlength="10">
-			<button onclick="authCodeCheck()" id="authCodeCheckBtn" type="button" class="btnChk">인증</button>
-			<input type="hidden" name="authPass" id="authPass" value="false">
-		</td>	
-		</tr>	
 				</li>
 			</ul>
-		</div>
-		<div class="orderInfo">
-			<div class="orderType">
-				
-			</div>
-			<button type="button" class="orderChangeBtn">변경</button> 
 		</div>
 		
 		<div>
@@ -139,7 +126,7 @@ li{
 	<input type="hidden" id="email" name="email" value="${email }">
 	<input type="hidden" id="password" name="password" value="${password }">
 	<input type="hidden" id="level" name="level" value="${level }">
-	<input type="text" id="price" name="price" value="${price }">
+	<input type="hidden" id="price" name="price" value="${price }">
 </form>		
 	
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -160,30 +147,59 @@ li{
         });
   </script>
   
-<script type="text/javascript">
+<script>
+$(document).ready(function(){
+    var isMailAuthed = false; // DB 상관없이 무조건 mail 인증하기 버튼 누르도록 하기 위해..
+
+    // form 태그 내의 버튼 클릭
+    $("button[type=submit]").click(function(e) {
+        e.preventDefault();
+        if(isMailAuthed){  
+            // 인증확인 버튼은 무조건 눌러야 됩니다.
+            // vaildation에 의해 돌아왔어도 버튼은 누르도록 하자.
+            $.ajax({
+                url :"<c:url value='isMailAuthed.jsp' />",
+                type : "POST",
+                data : {"mail" : $("input[name=memMail]").val()},
+                success: function(data){
+                    if(data=="메일 인증 완료"){
+                        $("form").submit(); 
+                    } else {
+                        alert("mail 인증해주세요");    
+                    }
+                },
+                error : function(req,st,err){
+                    console.log(req);
+                }
+            });
+        } else {
+            alert("메일을 인증해주세요");
+        }
+    });
+
+    // mail 인증하기 버튼 클릭 
+    $("#mailAuth").on("click",function(e){
+        isMailAuthed = true;  // 다음버튼 누를 수 있게.
+        $.ajax({
+        	url : "/NetFlex/mailAuth",
+            data : {"mail" : $("input[name='memMail']").val()},
+            success: function(data){ 
+                // 1. 메일 보내고 DB에 넣었으면 자식창 띄우기
+               // var mailWindow = window.open("<c:url value='mailWindow.jsp' />","메일인증","_blank, width=500px, height=200px,left=500px,top=200px");
+                alert(data);
+            },
+            error : function(req,status,err){
+                console.log(req);
+            }
+        });
+    }); 
+});
+
 function validateEmail() {
     var email1 = $("#email1").val();
  
     if (email1 === "") {
         alert("이메일을 올바르게 입력하세요.");
-        return false;
-    }
-
-    return true;
-}
-
-function validateAuthCode() {
-    var authCode = $("#inputAuthCode").val();
-
-    if (authCode === "") {
-        alert("인증번호를 입력하세요.");
-        return false;
-    }
-
-    // 여기서 실제로 서버로부터 받은 인증번호와 비교하는 로직을 추가해야 합니다.
-    var receivedAuthCode = "123456"; // 서버로부터 받은 인증번호 (예시)
-    if (authCode !== receivedAuthCode) {
-        alert("인증번호가 올바르지 않습니다.");
         return false;
     }
 
@@ -207,8 +223,9 @@ $(document).ready(function() {
     });
 });
 
-</script>
 
+
+</script>
 <script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"></script>
 <script>
  var oPay = Naver.Pay.create({ //네이버페이 객체를 생성합니다.
@@ -225,9 +242,9 @@ $(document).ready(function() {
  elNaverPayBtn.addEventListener("click", function() {
  oPay.open({ // 네이버페이 결제 화면을 호출하며, 파라미터에 결제 데이터를 입력합니다.
  "merchantPayKey": "11111",
- "productName": "Netflex 월정액",
- "totalPayAmount": 17000,
- "taxScopeAmount": 17000,
+ "productName": "Netflex 월정액(${level })",
+ "totalPayAmount": "${pirce }",
+ "taxScopeAmount": "${pirce }",
  "taxExScopeAmount": 0,
  "productCount": 1,
  "returnUrl": "writeForm5"

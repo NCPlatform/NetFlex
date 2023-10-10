@@ -23,5 +23,7 @@ public class UserDTO {
 	private String level;
 	private int price;
 	private int cleanedPrice;
-	
+	private String authKey;
+	private int isAuth;
+	private String mail;
 }

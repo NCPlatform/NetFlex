@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
@@ -40,13 +41,13 @@ header {
 	<div class="personalInfo">
 		<tr>
 			<td width="100" align ="center">이 름</td>
-			<td><input type="text" id="name" name="name" placeholder= "이름 입력">
+			<td><input type="text" id="name" name="name"  value="${name }" placeholder= "이름 입력">
 				<div id="nameDiv"></div>
 			</td>
 		</tr>
 		<tr>
 			<td width="100" align ="center">나 이</td>
-			<td><input type="text" id="age" name="age" placeholder= "나이 입력">
+			<td><input type="text" id="age" name="age"  value="${age }" placeholder= "나이 입력">
 				<div id="ageDiv"></div>
 			</td>	
 		</tr>
@@ -54,14 +55,14 @@ header {
 		<tr>
 			<td><label>휴대폰</label></td>
 				<td>
-				<select name="tel1" id="tel1">
+				<select name="tel1" id="tel1"  value="${tel1 }">
 				<option value="010">010</option>
 				<option value="011">011</option>
 				<option value="016">016</option>
 				<option value="019">019</option>
 				</select>
-				<input type="tel" id="tel2" name="tel2">	
-				<input type="tel" id="tel3" name="tel3">
+				<input type="tel" id="tel2" value="${tel2 } name="tel2">	
+				<input type="tel" id="tel3" value="${tel3 } name="tel3">
 				<div id="phoneDiv"></div>
 			</td>
 		</tr>
@@ -111,5 +112,6 @@ $(document).ready(function(){
     });
 });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 </html>

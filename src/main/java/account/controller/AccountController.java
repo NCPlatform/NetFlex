@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.fasterxml.jackson.annotation.JacksonInject;
+
 import account.service.AccountService;
 import user.bean.UserDTO;
 
@@ -113,6 +115,8 @@ public class AccountController {
 		
 		return "/account/writeForm4_2";
 	}
+	
+	
 	
 	@PostMapping(value="writeForm4_3")
 	public String writeForm4_3(@RequestParam String email,@RequestParam String password, @RequestParam String level, @RequestParam int price, Model model) {

@@ -16,6 +16,10 @@
 	<context:component-scan base-package="account.controller" />
 	<context:component-scan base-package="account.service" />
 	
+		<context:component-scan base-package="member.service" />
+	<context:component-scan base-package="memberjoin.controller" />
+	<context:component-scan base-package="mailsend.service" />
+	
 	<mvc:annotation-driven />
 	<mvc:resources location="/WEB-INF/asset/" mapping="/asset/**" />
 	<mvc:resources location="/WEB-INF/account/" mapping="/account/**" />

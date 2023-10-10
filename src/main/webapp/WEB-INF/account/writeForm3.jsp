@@ -74,10 +74,10 @@ header {
 
 <tr>
 	<td>월 요금</td>
-	<td class="adStandard">5,500원</td>
-	<td class="basic">9,500원</td>
-	<td class="standard">13,500원</td>
-	<td class="premium">17,000원</td>
+	<td class="adStandard" data-type="monthlyPrice">5,500원</td>
+	<td class="basic" data-type="monthlyPrice">9,500원</td>
+	<td class="standard" data-type="monthlyPrice">13,500원</td>
+	<td class="premium" data-type="monthlyPrice">17,000원</td>
 </tr>
 
 <tr>
@@ -171,6 +171,14 @@ header {
 		  $(".adStandard, .basic, .standard, .premium").not(this).css("color", "");
 		  
 		  $("." + $(this).attr("class")).css("color", "red");
+		  var level = $(this).attr("class");
+		  var price = $('td[data-type="monthlyPrice"]').text();
+		  var cleanedPrice = parseInt(price.split('원')[0].replace(',', ''), 10);
+
+		  // DTO에 값을 넣습니다.
+		  $("#levelInput").val(level);
+		  $("#priceInput").val(cleanedPrice);
+
 		  var newSrc = $(this).data("newsrc");
 		  $(this).find("img").attr("src", newSrc);
 		  
@@ -178,20 +186,5 @@ header {
   });
 </script>
 
-<script>
-  $(document).ready(function(){
-	  $('td[class!=header]').click(function(){
-		  var level = $(this).attr("class");
-		  var price = $(this).text();
-		  var cleanedPrice = parseInt(price.split('원')[0].replace(',', ''), 10);
-
-		  // DTO에 값을 넣습니다.
-		  $("#levelInput").val(level);
-		  $("#priceInput").val(cleanedPrice);
-
-		  document.getElementById('writeForm3').submit();
-		});
-  });
-</script>
 </body>
 </html>

@@ -47,9 +47,9 @@ tr{
 <table border="1" cellspacing ="0" cellpadding ="7" style="margin: auto;">
 <tr>
 		<td>
-		<div class="form-floating mb-3">
-		  <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
-		  <label for="floatingInput">이메일 주소</label>
+		<div class="email">
+		  <input type="email" class="email" id="email" name="email" placeholder="name@example.com">
+		  <label for="email">이메일 주소</label>
 		</div>
 		<input type="button" value="시작하기" onclick="startAccount()">
 	
@@ -61,10 +61,15 @@ tr{
 <script src="http://code.jquery.com/jquery-3.7.0.min.js"></script>
 
  <script>
-        function startAccount() {
-        	  document.getElementById('WriteForm0').submit(); // 이동할 주소를 여기에 입력하세요.
-        }
- </script>
+function startAccount() {
+    var email = $("#email").val();
+    if (email == "") {
+        alert("이메일을 올바르게 입력하세요.");
+        return false;
+    }
+    document.getElementById('WriteForm0').submit(); // 이동할 주소를 여기에 입력하세요.
+}
+</script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 </html>

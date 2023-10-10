@@ -72,14 +72,14 @@ tr{
 
 		<tr>
 			
-			<div class="form-floating mb-3">
-			  <input type="email" class="form-control" id="floatingInput" name="email" value="${email }"  placeholder="name@example.com">
+			<div class="email">
+			  <input type="email" class="email" id="email" name="email" value="${email }"  placeholder="name@example.com">
 			  <label for="floatingInput">이메일 주소</label>
 			</div>
 			
-			<div class="form-floating">
-			  <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
-			  <label for="floatingPassword">비밀번호를 추가하세요</label>
+			<div class="password">
+			  <input type="password" class="password" id="password" name="password" placeholder="Password">
+			  <label for="password">비밀번호를 추가하세요</label>
 			</div>	
 			
 			
@@ -108,7 +108,7 @@ tr{
 <script>
 function submitForm() {
     var email = $("#email").val();
-    var password = $("#floatingPassword").val();
+    var password = $("#password").val();
 
     if (email == "") {
         alert("이메일을 올바르게 입력하세요.");
