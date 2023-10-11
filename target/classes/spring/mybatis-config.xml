@@ -4,6 +4,8 @@
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+		<typeAlias type="user.bean.MemberShipDTO" alias="membership"/>
 		<typeAlias type="user.bean.UserDTO" alias="user"/>
+		<typeAlias type="user.bean.ReportDTO" alias="report"/>
 	</typeAliases>
 </configuration>
