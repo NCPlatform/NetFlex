@@ -1,10 +1,15 @@
 package member.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
+import user.bean.MembershipDTO;
 import user.bean.UserDTO;
 
 public interface MemberDao {
+	
+	public List<MembershipDTO> listMembership();
 
 	public int insertMailAuth(@Param("mail")String mail,@Param("authKey")String authKey);
 	public UserDTO getMailAuth(String mail);   //여기저기서 쓰임. 인증되었는지 확인하는데에도 쓰임

@@ -25,4 +25,10 @@
     UPDATE mail_auth SET is_auth=1
     WHERE mail=#{mail}
 </update>
+
+
+    <select id="listMembership" parameterType="MembershipDTO" resultType="user.bean.MembershipDTO">
+        SELECT * FROM Membership = #{Membership}
+    </select>
+
 </mapper>

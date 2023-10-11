@@ -23,10 +23,8 @@ public class UserDTO {
 	private int seqMembership;
 	private boolean active;
 	private Date membershipStartDate;
-	private String level;
-	private int price;
-	private int cleanedPrice;
 	private String authKey;
 	private int isAuth;
 	private String mail;
+	
 }

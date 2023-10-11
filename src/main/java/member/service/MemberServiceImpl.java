@@ -1,19 +1,49 @@
 package member.service;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import member.dao.MemberDao;
+import user.bean.MembershipDTO;
 import user.bean.UserDTO;
 
 @Service
 public class MemberServiceImpl implements MemberService {
 	
+	 @Autowired
 	 private MemberDao memberDao; // 필요한 변수 추가
 
 	    public void setMemberDao(MemberDao memberDao) {
 	        this.memberDao = memberDao;
 	    }
 
+	    @Override
+	    public List<MembershipDTO> listMembership() {
+	    	List<MembershipDTO> membershipList = memberDao.listMembership();
+	    	
+	    	for (MembershipDTO membershipDTO : membershipList) {
+	    		
+	        String quality = membershipDTO.getQuality();
+	        String resolution = membershipDTO.getResolution();
+	        String type = membershipDTO.getType();
+	        int price = membershipDTO.getPrice();
+	        // 원하는 작업 수행
+	    	}
+	        return membershipList;
+	    	
+	    	
+	    	
+	    }
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
 	   @Override
 	    public void registMailAuth(String mail, String authKey) throws BizNotEffectedException {
 	        UserDTO userDTO= memberDao.getMailAuth(mail);
