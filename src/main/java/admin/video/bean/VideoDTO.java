@@ -168,9 +168,15 @@ public class VideoDTO {
 		this.actor = actor;
 	}
 	public void setThumbnailSrc(String thumbnailSrc) {
+		if(thumbnailSrc == null) {
+			thumbnailSrc = "";
+		}
 		this.thumbnailSrc = thumbnailSrc;
 	}
 	public void setThumbnailSrcUrl(String thumbnailSrcUrl) {
+		if(thumbnailSrcUrl == null) {
+			thumbnailSrcUrl = "";
+		}
 		this.thumbnailSrcUrl = thumbnailSrcUrl;
 	}
 	

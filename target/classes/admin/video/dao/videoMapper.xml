@@ -5,7 +5,7 @@
  <mapper namespace = "videoSQL">
  	<!-- Videos -->
  	<insert id = "upload" parameterType = "video">
- 		insert into movie(genrecode1, genrecode2, genrecode3, title, story, nation, director, actor, year, releasedate) values (#{genrecode1}, #{genrecode2}, #{genrecode3}, #{title}, #{story}, #{nation}, #{director}, #{actor}, #{year}, #{releasedate})
+ 		insert into movie(genrecode1, genrecode2, genrecode3, title, story, nation, director, actor, year, releasedate, thumbnailSrc, thumbnailSrcUrl) values (#{genrecode1}, #{genrecode2}, #{genrecode3}, #{title}, #{story}, #{nation}, #{director}, #{actor}, #{year}, #{releasedate}, #{thumbnailSrc}, #{thumbnailSrcUrl})
  	</insert>
  	
  	<select id = "importSeq" parameterType = "HashMap" resultType = "_int">
@@ -33,5 +33,9 @@
   	<insert id = "addEpisodes" parameterType = "ep">
   		insert into `${seqMovie}` (ep, eptitle, epstory, runtime, thumbnail, grade, seqMovie) values(#{ep}, #{eptitle}, #{epstory}, #{runtime}, #{thumbnail}, #{grade}, #{seqMovie})
   	</insert>
+  	
+  	<select id = "getEpisodeList" parameterType = "HashMap" resultType = "ep">
+  		select * from `${seqMovie}` where seqMovie = #{seqMovie}
+  	</select> 
   	
  </mapper>

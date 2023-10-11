@@ -21,4 +21,6 @@ public interface VideoDAO {
 	public int getTotalA();
 
 	public List<VideoDTO> getVideoList(Map<String, Integer> map);
+
+	public List<EpisodeDTO> getEpisodeList(int seqMovie);
 }

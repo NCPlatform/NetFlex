@@ -19,4 +19,6 @@ public interface VideoService {
 
 	public List<VideoDTO> getVideoList(String pg);
 
+	public List<EpisodeDTO> getEpisodeList(String seqMovie);
+
 }

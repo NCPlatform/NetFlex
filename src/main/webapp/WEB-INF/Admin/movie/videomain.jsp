@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<jsp:include page="/WEB-INF/Admin/headDefault.jsp" />
 
 <!DOCTYPE html>
 <html>
@@ -44,7 +44,7 @@
 	}
 	th:nth-child(3){
 
-		width: 400px;
+		width: 500px;
 
 	}
 	td{
@@ -63,8 +63,23 @@
 	img{
 		width: 150px;
 	}
+	summary::marker{
+		content: "";
+	}
+	details[open] summary{
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+	.videoTitles{
+		height: 300px;
+	}
+	
+	.minis img{
+		width: 75px;
+	}
 </style>
 </head>
+<jsp:include page="/WEB-INF/Admin/header.jsp" />
 <body>
 	<div id = 'disp'>
 	
@@ -105,46 +120,96 @@
 		 			console.log(JSON.stringify(data))
 		 			// stringify해서 콘솔에 찍어라
 		 			
+		 			var addcode;
 		 			$.each(data, function(index, items){
-		 			
-		 				$('<tr/>').append($('<td/>', {
-		 					text: items.seqMovie
-		 				})).append($('<td/>', {
+		 				addcode = `<tr><td>`+items.seqMovie+`</td>`
+		 				addcode += `<td><img src = \'`+items.thumbnail+`\'></td>`
+		 				addcode += `<td><details class = \'ds\' id = \'d`+items.seqMovie+`\'><summary class = \'title\'>`
+		 				addcode += items.title+`</summary><div id = \'c`+items.seqMovie+`\' class = \'videoTitles\'></div>`
+		 				addcode += `</details></td>`
+		 				addcode += `<td>`+items.director+"("+items.year.substring(0,4)+")"
+		 				addcode += `<td>`+items.genrecode1+","+items.genrecode2+","+items.genrecode3+`</td></tr>`
+		 				$('#videoListTable').append(addcode)
+		 					// details id = d+seqMovie
+		 					// div id = c+seqMovie
+		 					// details class = ds
 		 					
-		 				}).append($('<img/>', {
-		 					// videoDTO에서 thumbnail 부분 참고
-		 					src: items.thumbnail, 
-		 					class: 'thumbnail-image'
-		 				}))).append($('<td/>',{
-		 					
-		 				}).append($('<a/>', {
-		 					href: '#', 
-		 					text: items.title,
-		 					class: 'title'
-		 				}))).append($('<td/>', {
-		 					text: items.director+"("+items.year.substring(0,4)+")"
-		 				})).append($('<td/>', {
-		 					text: items.genrecode1+","+items.genrecode2+","+items.genrecode3
-		 				})).appendTo($('#videoListTable'));
-		 			 // 아이디 클릭했을 때
-					$('.title').click(function(){
+				//	$('.title').click(function(){
 					// 얘까지 success 함수에 들어가 있어야 한다 @@
 					// 아이디 선택자는(클릭한 개체) $(this).text()
 					// 이름 선택자는(왼쪽 td) $(this).
 						 // alert($(this).parent().prev().text());
 					//	 location.href = '/chapter06_Web/user/updateForm?id='+$(this).text()+'&pg='+$('#pg').val();
-						alert("기다려줘유");
-					});
 					
+						/*
+						
+					 			*/
+				//		alert("기다려줘유");
+				//	});
+					 	
 		 			
 		 			 
-		 			})},
+		 			})// each
+		 			
+		 			$('.title').click(function(){
+		 				var seqMovie = $(this).parent().parent().prev().prev().text()
+		 				$.ajax({
+					 		type: 'post',
+					 		url : '/NetFlex/admin/video/getEpisodeList',
+					 		data: 'seqMovie='+seqMovie,
+					 		dataType: 'json', 
+					 		
+					 		success: function(epdata){
+					 			console.log(JSON.stringify(epdata))
+					 			// stringify해서 콘솔에 찍어라
+					 			var minitable;
+					 			var tabletitle;
+					 			/**/
+					 				minitable = `<table id = \'`+'c'+seqMovie+`\' class = \'minis\'>`
+					 				minitable += `<tr>`
+					 				minitable += `<th>회차번호</th>`
+					 				minitable += `<th>썸네일</th>`
+					 				minitable += `<th>소제목</th>`
+					 				minitable += `<th>시청연령</th>`
+					 				minitable += `</tr>`
+					 				
+			 					var divid = '#c'+seqMovie
+				 				$(divid).append(tabletitle)
+				 				
+					 			$.each(epdata, function(index, episodes){
+					 				minitable += `<tr>`
+					 				minitable += `<td>`+episodes.ep+`</td>`
+					 				minitable += `<td><img src = \'`+episodes.thumbnail+`\'></td>`
+					 				minitable += `<td>`+episodes.eptitle+`</td>`
+					 				minitable += `<td>`+episodes.grade+`</td>`
+					 				minitable += `</tr>`
+					 				
+					 				
+					 				
+					 				
+					 				
+					 			})// each(Episodes)
+					 			
+					 			$(divid).append(minitable)
+					 		}, //success
+		 					error: function(e){
+				 			console.log(e) }
+				 	
+				 	
+				 	}); // $.ajax
+				 }); // $(click)
+		 				
+		 		//		})
+		 			
+		 		}, // success
 		 		error: function(e){
 		 			console.log(e) }
 		 	
 		 	
 		 	}); // $.ajax
 		 }); // $(function()
+				 
+				
 		 
 		function boardPaging(a){
 			location.href = "/NetFlex/admin/video?pg="+a
@@ -155,4 +220,5 @@
 			
 		
 	</script>
+	<jsp:include page="/WEB-INF/Admin/footer.jsp" /> 
 </html>

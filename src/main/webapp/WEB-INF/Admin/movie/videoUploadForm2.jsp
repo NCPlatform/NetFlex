@@ -1,15 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <jsp:include page="/WEB-INF/Admin/headDefault.jsp" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Episode Upload</title>
 </head>
+<jsp:include page="/WEB-INF/Admin/header.jsp" />
 <body>
 	<form action="/NetFlex/admin/video/videoUpload">
+	
+		<h3>에피소드 등록하기</h3>
 		<table class="tables">
-			<caption style="text-align:left;">회차 등록하기</caption>
+			
 			<tbody><tr>
 				<td>등록번호</td>
 				<td colspan="4"><input type="text" value="${sessionScope.seq}" readonly name="seqMovie"></td>
@@ -134,3 +138,4 @@
 
 </body>
 </html>
+<jsp:include page="/WEB-INF/Admin/footer.jsp" /> 

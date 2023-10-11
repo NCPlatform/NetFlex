@@ -1,15 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <jsp:include page="/WEB-INF/Admin/headDefault.jsp" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Uploading Video</title>
 </head>
+<jsp:include page="/WEB-INF/Admin/header.jsp" />
 <body>
 	<form id = 'videoUploadForm' action = '/NetFlex/admin/video/videoUploadForm2'>
+		<h3>컨텐츠 등록하기</h3>
 		<table>
-			<caption style ='text-align: left;'>컨텐츠 등록하기</caption>
 			
 			<tr>
 				<td><label><input type = 'radio' name = 'sortcode' value = '1'> 영화</label></td>
@@ -190,3 +192,5 @@
 			}
 		});
 	</script>
+	</html>
+	<jsp:include page="/WEB-INF/Admin/footer.jsp" /> 

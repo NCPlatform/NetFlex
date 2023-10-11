@@ -59,4 +59,11 @@ public class VideoServiceImpl implements VideoService{
 		
 		return list;
 	}
+
+	@Override
+	public List<EpisodeDTO> getEpisodeList(String seqMovie) {
+		List<EpisodeDTO> list = videoDAO.getEpisodeList(Integer.parseInt(seqMovie));
+		
+		return list;
+	}
 }

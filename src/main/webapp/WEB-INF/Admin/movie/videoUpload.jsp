@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <jsp:include page="/WEB-INF/Admin/headDefault.jsp" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +18,7 @@
 	}
 </style>
 </head>
+<jsp:include page="/WEB-INF/Admin/header.jsp" />
 <body>
 	<div id = 'disp'>
 		<table border = '1'>
@@ -48,4 +50,5 @@
 		});
 	</script>
 </body>
+<jsp:include page="/WEB-INF/Admin/footer.jsp" /> 
 </html>

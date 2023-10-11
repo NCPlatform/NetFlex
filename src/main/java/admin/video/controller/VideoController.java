@@ -63,11 +63,8 @@ public class VideoController {
 	@PostMapping(value="getVideoList")
 	@ResponseBody
 	public List<VideoDTO> getVideoList(@RequestParam String pg) {
-		// required = false, defualtValue = "1"은 바로 위(public String list())에서 
-		// 1로 세팅해서 던지기 때문에 굳이 설정할 필요는 없다.
-		// list를 JSON으로 바꾸어 보내야 한다. 
-	//	pg = "1";
-		System.out.println("UserController List<> getUserList : pg"+pg);
+		
+		System.out.println("UserController List<> getVideoList : pg"+pg);
 		
 		List<VideoDTO> DTOlist = videoService.getVideoList(pg);
 		
@@ -75,9 +72,27 @@ public class VideoController {
 			dto.setThumbnail();
 		} // videoDTO thumbnail 부분 참조. DTO와 videomain.jsp에 영향을 주고 있음 
 		
+		return DTOlist;
+	}
+	
+	@PostMapping(value="getEpisodeList")
+	@ResponseBody
+	public List<EpisodeDTO> getEpisodeList(@RequestParam String seqMovie) {
+		
+		System.out.println("UserController List<> getEpisodeList : pg"+seqMovie);
+		
+		List<EpisodeDTO> DTOlist = videoService.getEpisodeList(seqMovie);
+		
+		/*
+		for(EpisodeDTO dto : DTOlist) {
+			dto.setThumbnail();
+		} // videoDTO thumbnail 부분 참조. DTO와 videomain.jsp에 영향을 주고 있음 
+		*/
+		
 		// return videoService.getVideoList(pg);
 		return DTOlist;
 	}
+	
 	
 	
 	
