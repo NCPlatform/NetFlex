@@ -23,8 +23,8 @@
 			<ref bean = "modelAndView"></ref>
 		</property>	
 	</bean>
-
-	<context:component-scan base-package="admin.controller"></context:component-scan>
+	<context:component-scan base-package="account.controller" />
+	<context:component-scan base-package="admin.controller" />
 
 	<mvc:annotation-driven />
 	<mvc:resources location="/WEB-INF/Asset/" mapping="/asset/**" />
