@@ -20,7 +20,7 @@ public class MemberServiceImpl implements MemberService {
 	    }
 
 	    @Override
-	    public List<MembershipDTO> listMembership() {
+	    public UserDTO listMembership() {
 	    	List<MembershipDTO> membershipList = memberDao.listMembership();
 	    	
 	    	for (MembershipDTO membershipDTO : membershipList) {
@@ -31,7 +31,7 @@ public class MemberServiceImpl implements MemberService {
 	        int price = membershipDTO.getPrice();
 	        // 원하는 작업 수행
 	    	}
-	        return membershipList;
+	        return null;
 	    	
 	    	
 	    	

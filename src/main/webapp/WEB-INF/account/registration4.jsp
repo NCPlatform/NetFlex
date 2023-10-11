@@ -6,22 +6,11 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" /><!-- IE 호환성 -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<link rel="stylesheet" href="../asset/css/headerLogo2.css">
 
 
 <style>
-header {
-	display:flex;
-	justify-content: space-between;
-}
-#writeForm0_headerLogo{
-	width: 250px;
-	height: 150px;
-}
-#writeForm0_headerLoginBtn{
-	width: 100px;
-	height: 30px;
-}
+
 table {
 border: 1px solid gray;
 width : 100%;
@@ -45,8 +34,8 @@ font-weight: 900;
 
 
 <header>
-<img src="../asset/image/netflex.png" alt="넷플렉스" id="writeForm0_headerLogo">
-  <button type="button" onclick="loginForm()" id="writeForm0_headerLoginBtn">로그아웃</button>
+<img src="../asset/image/netflex.png" alt="넷플렉스" class="writeForm0_headerLogo">
+  <a href="../../index.jsp" class="writeForm0_headerLoginBtn">로그아웃</a>
 </header>
 
 

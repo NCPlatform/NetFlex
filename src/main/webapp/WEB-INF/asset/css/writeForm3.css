@@ -1,0 +1,38 @@
+@charset "UTF-8";
+h1{
+	font-weight: normal;
+}
+li{
+	list-style-type: none;
+	font-size: 18px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+tbody{
+	display: flex;
+    flex-direction: column;
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+    border-bottom-style: solid; 
+}
+.adStandard .basic .standard .premium{
+	
+}
+.checkmark-group--icon{
+	color: red;
+}
+.checkMembership{
+	text-align: center;
+	margin: auto;
+}
+.termsOfUse {
+	text-decoration: none;
+	color: blue;
+}
+
+.termsOfUse:hover {
+	text-decoration: underline;
+	cursor: pointer;
+	color: blue;
+}

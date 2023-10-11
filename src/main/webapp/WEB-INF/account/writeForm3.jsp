@@ -5,39 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-header {
-	display:flex;
-	justify-content: space-between;
-}
-#writeForm0_headerLogo{
-	width: 250px;
-	height: 150px;
-}
-#writeForm0_headerLoginBtn{
-	width: 100px;
-	height: 30px;
-}
-#checkMembership{
-	text-align: center;
-	margin: auto;
-}
-.termsOfUse {
-	text-decoration: none;
-	color: blue;
-}
+<link rel="stylesheet" href="../asset/css/headerLogo2.css">
+<link rel="stylesheet" href="../asset/css/writeForm3.css">
 
-.termsOfUse:hover {
-	text-decoration: underline;
-	cursor: pointer;
-	color: blue;
-}
-
-</style>
 </head>
 <header>
-<img src="../asset/image/netflex.png" alt="넷플렉스" id="writeForm0_headerLogo">
-  <button type="button" onclick="loginForm()" id="writeForm0_headerLoginBtn">로그아웃</button>
+<img src="../asset/image/netflex.png" alt="넷플렉스" class="writeForm0_headerLogo">
+  <a href="../../index.jsp" class="writeForm0_headerLoginBtn">로그아웃</a>
 </header>
 
 <body>
@@ -46,13 +20,33 @@ header {
 <table cellpadding ="7" width="500">
 <tr>
 	<td>
+		<span class="writeForm1-center2">
+		2/3단계
+		</span>
 		
-		<h2>원하는 멤버십을 선택하세요.</h2>
+		<h1>원하는 멤버십을 선택하세요.</h1>
 		
-		<li> TV, 컴퓨터, 스마트폰, 태블릿으로 마음껏 시청하세요.</li>
-		<li> 취향에 꼭 맞는 콘텐츠를 추천해 드립니다.</li>
-		<li> 멤버십은 언제든지 변경 또는 해지 가능합니다.</li>
-
+		<li>
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="checkmark-group--icon default-ltr-cache-4z3qvp e1svuwfo1" data-name="Checkmark" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M21.2928 4.29285L22.7071 5.70706L8.70706 19.7071C8.51952 19.8946 8.26517 20 7.99995 20C7.73474 20 7.48038 19.8946 7.29285 19.7071L0.292847 12.7071L1.70706 11.2928L7.99995 17.5857L21.2928 4.29285Z" fill="currentColor"></path></svg>
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M21.2928 4.29285L22.7071 5.70706L8.70706 19.7071C8.51952 19.8946 8.26517 20 7.99995 20C7.73474 20 7.48038 19.8946 7.29285 19.7071L0.292847 12.7071L1.70706 11.2928L7.99995 17.5857L21.2928 4.29285Z" fill="currentColor"></path>
+		<span class="checkMarkGroup">
+		TV, 컴퓨터, 스마트폰, 태블릿으로 마음껏 시청하세요.
+		</span>
+		</li>
+		<li>
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="checkmark-group--icon default-ltr-cache-4z3qvp e1svuwfo1" data-name="Checkmark" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M21.2928 4.29285L22.7071 5.70706L8.70706 19.7071C8.51952 19.8946 8.26517 20 7.99995 20C7.73474 20 7.48038 19.8946 7.29285 19.7071L0.292847 12.7071L1.70706 11.2928L7.99995 17.5857L21.2928 4.29285Z" fill="currentColor"></path></svg>
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M21.2928 4.29285L22.7071 5.70706L8.70706 19.7071C8.51952 19.8946 8.26517 20 7.99995 20C7.73474 20 7.48038 19.8946 7.29285 19.7071L0.292847 12.7071L1.70706 11.2928L7.99995 17.5857L21.2928 4.29285Z" fill="currentColor"></path>
+		<span class="checkMarkGroup">
+		취향에 꼭 맞는 콘텐츠를 추천해 드립니다.
+		</span>
+		</li>
+		<li>
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="checkmark-group--icon default-ltr-cache-4z3qvp e1svuwfo1" data-name="Checkmark" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M21.2928 4.29285L22.7071 5.70706L8.70706 19.7071C8.51952 19.8946 8.26517 20 7.99995 20C7.73474 20 7.48038 19.8946 7.29285 19.7071L0.292847 12.7071L1.70706 11.2928L7.99995 17.5857L21.2928 4.29285Z" fill="currentColor"></path></svg>
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M21.2928 4.29285L22.7071 5.70706L8.70706 19.7071C8.51952 19.8946 8.26517 20 7.99995 20C7.73474 20 7.48038 19.8946 7.29285 19.7071L0.292847 12.7071L1.70706 11.2928L7.99995 17.5857L21.2928 4.29285Z" fill="currentColor"></path>
+		<span class="checkMarkGroup">
+		멤버십은 언제든지 변경 또는 해지 가능합니다.
+		</span>
+		</li>
 	</td>
 				
 </tr>	
@@ -71,7 +65,7 @@ header {
 	<td class="premium"  data-originalsrc="../asset/image/writeForm3_4_1.png" data-newsrc="../asset/image/writeForm3_4.png">
 	<img src="../asset/image/writeForm3_4_1.png" alt="프리미엄"></td>
 </tr>
-
+<tbody>
 <tr>
 	<td>월 요금</td>
 	<td class="adStandard" data-type="monthlyPrice">5,500원</td>
@@ -111,9 +105,10 @@ header {
 	<td class="standard">예</td>
 	<td class="premium">예</td>
 </tr>
+</tbody>
 </table>
 <div style="text-align: center;">
-<input type="button" value="모든 멤버쉽 확인하기" id="checkMembership" >
+<input type="button" value="모든 멤버쉽 확인하기" id="checkMembership" class="checkMembership" >
 </div>
 </form>
 

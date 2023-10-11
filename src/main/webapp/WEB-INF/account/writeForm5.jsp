@@ -6,19 +6,9 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../asset/css/headerLogo2.css">
 <style type="text/css">
-header {
-	display:flex;
-	justify-content: space-between;
-}
-#writeForm0_headerLogo{
-	width: 250px;
-	height: 150px;
-}
-#writeForm0_headerLoginBtn{
-	width: 100px;
-	height: 30px;
-}
+
 #personalInfo{
 	background-color: gray;
 }
@@ -27,8 +17,8 @@ header {
 
 
 <header>
-<img src="../asset/image/netflex.png" alt="넷플렉스" id="writeForm0_headerLogo">
-  <button type="button" onclick="loginForm()" id="writeForm0_headerLoginBtn">로그아웃</button>
+<img src="../asset/image/netflex.png" alt="넷플렉스" class="writeForm0_headerLogo">
+  <a href="../../index.jsp" class="writeForm0_headerLoginBtn">로그아웃</a>
 </header>
 
 <body>

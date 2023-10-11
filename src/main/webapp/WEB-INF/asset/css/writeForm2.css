@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+li{
+	list-style-type: none;
+	font-size: 18px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.continueBtn{
+	background-color: red;
+	color: white;
+	width: 400px;
+	height: 60px;
+	border: none;
+	border-radius: 5px;
+}
+.checkmark-group--icon{
+	color: red;
+}

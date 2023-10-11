@@ -1,0 +1,88 @@
+@charset "UTF-8";
+h1{
+	font-weight: bold;
+}
+table{
+	width: 800px;
+	align-items: center;
+	display: flex;
+    justify-content: center;
+    margin: auto;
+    
+}
+.form-floating label{
+	color: gray;
+}
+
+.form-floating input.form-control:focus + label {
+    color: gray;
+}
+.form-control{
+	width: 450px;
+	height: 50px;
+	color: white; /* 텍스트 색상을 흰색으로 변경 */
+    background-color: black; /* 배경 색상을 검정색으로 변경 */
+    border-color: red; /* 테두리 색상을 흰색으로 변경 (선택적) */
+}
+.form-control:focus{
+	width: 450px;
+	height: 50px;
+	color: white; /* 텍스트 색상을 흰색으로 변경 */
+    background-color: black; /* 배경 색상을 검정색으로 변경 */
+    border-color: red; /* 테두리 색상을 흰색으로 변경 (선택적) */
+}
+.banner{
+	background: radial-gradient( 51.39% 511.66% at 47.68% -217.91%, #ff9900 0%, #e50914 17.27%, #0e1b4f 79.44%, #000413 100% );
+    box-shadow: 0px -8px 25px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    justify-content: center;
+    margin: 0 74px;
+    color: white;
+    padding: 22px;
+    display: flex;
+    position: relative;
+    -webkit-box-pack: center;
+}
+.banner-popcorn{
+	width: 96;
+    height: 96;
+    fill: none;
+}
+.banner-info1{
+	font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    margin: 0;
+    margin-left: 15px;
+}
+.banner-info2{
+	font-size: 16px;
+    line-height: 24px;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    margin-left: 15px;
+}
+.startBtn {
+    color: white; /* 글씨를 흰색으로 설정 */
+    background-color: red; /* 배경을 빨강으로 설정 */
+    border: none; /* 테두리 제거 */
+    height: 60px;
+    font-size: 25px;
+    padding: 10px 20px; /* 내부 여백 설정 */
+    margin-left: 10px;
+    border-radius: 10px;
+}
+.table-container1{
+	margin-bottom: 50px auto;
+	height: 200px;
+}
+.writeForm0Info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh; /* 뷰포트의 100% 높이만큼 설정 */
+    margin: 0; /* 기본 마진 제거 */
+    flex-direction: column; /* 내용을 수직으로 배치 */
+    color: white;
+    word-break: keep-all;
+}

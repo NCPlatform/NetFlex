@@ -1,0 +1,76 @@
+@charset "UTF-8";
+body{
+	word-break: keep-all;
+	-webkit-font-smoothing: antialiased;
+    color: #333;
+    direction: ltr;
+    font-family: Netflix Sans,Helvetica Neue,Segoe UI,Roboto,Ubuntu,sans-serif;
+    font-size: 16px;
+    
+}
+div{
+	max-width: 440px;
+}
+.continueBtn{
+	background-color: red;
+	color: white;
+	width: 400px;
+	height: 60px;
+	border: none;
+	border-radius: 5px;
+}
+.registration{
+	color: blue;
+
+}
+.registration:hover{
+	color: blue;
+	cursor: pointer;
+	text-decoration: underline;
+}
+.termsForm{
+	display: block;
+    margin-top: 0em;
+    
+    
+}
+.writeForm-center{
+    letter-spacing: 0!important;
+    display: block;
+    box-sizing: border-box;
+    margin: 0 auto 15px;
+    max-width: 440px;
+    text-align: left;
+    display: grid;
+  	place-items: center;
+}
+.writeForm-center1{
+	margin: 0 auto;
+    max-width: 440px;
+    text-align: left;
+    display: block;
+}
+.writeForm-center2{
+	display: block;
+	font-size: 13px;
+    line-height: 19px;
+    text-align: left;
+}
+.writeForm-center3{
+	display: inline-block;
+    font-size: 23px;
+    font-weight: 500;
+}
+}
+.writeForm-center4{
+	
+}
+#floatingInput{
+	border: none;
+	outline:none;
+    box-shadow:none;
+}
+#floatingInput:focus{
+	border: none;
+	outline: none;
+}
