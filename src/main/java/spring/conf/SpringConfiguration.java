@@ -14,6 +14,12 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import admin.video.bean.EpisodeDTO;
+import admin.video.bean.VideoDTO;
+import admin.video.controller.VideoController;
+import admin.video.dao.VideoMyBatis;
+import admin.video.service.VideoServiceImpl;
+
 @Configuration
 @PropertySource("classpath:spring/db.properties")
 @EnableTransactionManagement
@@ -42,8 +48,6 @@ public class SpringConfiguration {
 		SqlSessionFactoryBean sqlsessionFactoryBean = new SqlSessionFactoryBean();
 		sqlsessionFactoryBean.setDataSource(dataSource());
 		sqlsessionFactoryBean.setConfigLocation(new ClassPathResource("spring/mybatis-config.xml"));
-		// sqlsessionFactoryBean.setMapperLocations(new ClassPathResource("user/dao/UserMapper.xml"));
-		// sqlsessionFactoryBean.setMapperLocations(new ClassPathResource("user/dao/UserMapper.xml"), new ClassPathResource("user/dao/UserUploadMapper.xml"));
 		sqlsessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:*/dao/*Mapper.xml"));
 		return sqlsessionFactoryBean.getObject();
 	}
@@ -58,6 +62,31 @@ public class SpringConfiguration {
 	public DataSourceTransactionManager transactionManager() {
 		DataSourceTransactionManager transactionManager = new DataSourceTransactionManager(dataSource());
 		return transactionManager;
+	}
+	
+	@Bean
+	public VideoServiceImpl videoServiceImpl() {
+		return new VideoServiceImpl();
+	}
+	
+	@Bean 
+	public VideoController videoController() {
+		return new VideoController();
+	}
+	
+	@Bean
+	public VideoDTO videoDTO() {
+		return new VideoDTO();
+	}
+	
+	@Bean
+	public EpisodeDTO episodeDTO() {
+		return new EpisodeDTO();
+	}
+	
+	@Bean
+	public VideoMyBatis videoMyBatis() {
+		return new VideoMyBatis();
 	}
 	
 }

@@ -7,6 +7,11 @@
 
 	<context:component-scan base-package="admin.service"></context:component-scan>
 	<context:component-scan base-package="admin.dao"></context:component-scan>
+	
+	<context:component-scan base-package="admin.video.dao"/>
+	<context:component-scan base-package="admin.video.service"/>
+	<context:component-scan base-package="admin.video.bean"/><!-- ? -->
+	
 	<context:component-scan base-package="user.bean"></context:component-scan>
 		
 	<context:component-scan base-package="spring"></context:component-scan>

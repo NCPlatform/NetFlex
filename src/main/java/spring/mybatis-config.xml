@@ -7,5 +7,7 @@
 		<typeAlias type="user.bean.MemberShipDTO" alias="membership"/>
 		<typeAlias type="user.bean.UserDTO" alias="user"/>
 		<typeAlias type="user.bean.ReportDTO" alias="report"/>
+		<typeAlias type="admin.video.bean.VideoDTO" alias="video"/>
+		<typeAlias type="admin.video.bean.EpisodeDTO" alias="ep"/>
 	</typeAliases>
 </configuration>

@@ -10,7 +10,7 @@
  		$('#aDashboard').addClass("sidebar-link");
  		$('#aReport').addClass("sidebar-link");
  		$('#navTitle').text("USER");
- 	}else if(url.match("movie")){
+ 	}else if(url.match("video")){
  		$('#aUser').addClass("sidebar-link");
  		$('#aMovie').addClass("current");
  		$('#aDashboard').addClass("sidebar-link");

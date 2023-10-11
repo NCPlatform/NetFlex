@@ -7,6 +7,4 @@
 <title>Insert title here</title>
 </head>
 <body>
-	List
-</body>
-</html>
+

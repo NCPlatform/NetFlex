@@ -21,7 +21,7 @@
 								</a>
 							</li>
 							<li class="nav-item">
-								<a href="#" id="aMovie" class="nav-link text-white p-3 mb-2">
+								<a href="/NetFlex/admin/video" id="aMovie" class="nav-link text-white p-3 mb-2">
 									<i class="fas fa-film text-white fa-lg me-3"></i><span class="navDetail">MOVIE</span>
 								</a>
 							</li>

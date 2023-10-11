@@ -12,7 +12,7 @@
 
 <h3>유저</h3>
 <jsp:include page="/WEB-INF/Admin/user/userManageForm.jsp" />
-<h3>멤버십</h3>
+<h3 class="mt-5">멤버십</h3>
 <jsp:include page="/WEB-INF/Admin/user/membershipForm.jsp" />
 
 <!-- 웹 코드 -->

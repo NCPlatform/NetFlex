@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace = "videoSQL">
+ 	<!-- Videos -->
+ 	<insert id = "upload" parameterType = "video">
+ 		insert into movie(genrecode1, genrecode2, genrecode3, title, story, nation, director, actor, year, releasedate, thumbnailSrc, thumbnailSrcUrl) values (#{genrecode1}, #{genrecode2}, #{genrecode3}, #{title}, #{story}, #{nation}, #{director}, #{actor}, #{year}, #{releasedate}, #{thumbnailSrc}, #{thumbnailSrcUrl})
+ 	</insert>
+ 	
+ 	<select id = "importSeq" parameterType = "HashMap" resultType = "_int">
+ 		select max(${seqMovie}) as seqMovie from movie
+ 	</select>
+ 	
+ 	<select id = "searchMovie" parameterType = "video" resultType = "video">
+ 		select * from movie where title = #{title} order by seqMovie desc limit 1
+ 	</select>
+ 	
+ 	
+ 	<select id = "create" parameterType = "HashMap">
+  		${sql}
+  	</select>
+  	
+  	<select id = "countAllVideos" resultType = "_int">
+  		select count(*) as count from movie 
+  	</select>
+  	
+  	<select id = "getVideoList" parameterType = "HashMap" resultType = "video">
+  		select * from movie limit #{startNum}, 15 
+  	</select>
+  	
+  	<!-- Episodes -->
+  	<insert id = "addEpisodes" parameterType = "ep">
+  		insert into `${seqMovie}` (eptitle, epstory, runtime, thumbnail, grade, seqMovie) values(#{eptitle}, #{epstory}, #{runtime}, #{thumbnail}, #{grade}, #{seqMovie})
+  	</insert>
+  	
+  	<select id = "getEpisodeList" parameterType = "HashMap" resultType = "ep">
+  		select * from `${seqMovie}` where seqMovie = #{seqMovie}
+  	</select> 
+  	
+  	<select id="checkTable" parameterType="String" resultType="int">
+  		select count(*) from information_schema.tables
+		where table_schema = 'netflexdb'
+		and table_name = #{seqMovie}
+  	</select>
+  	
+ </mapper>
