@@ -79,4 +79,16 @@ public class VideoMyBatis implements VideoDAO {
 		map.put("seqMovie", seqMovie);
 		return sqlSession.selectList("videoSQL.getEpisodeList", seqMovie);
 	}
+
+	@Override
+	public VideoDTO searchVideo(HashMap<String, Integer> videoMap) {
+		VideoDTO resultDTO = sqlSession.selectOne("videoSQL.searchVideo", videoMap);
+		return resultDTO;
+	}
+
+	@Override
+	public EpisodeDTO searchEpisode(HashMap<String, Integer> episodeMap) {
+		EpisodeDTO episodeDTO = sqlSession.selectOne("videoSQL.searchEpisode", episodeMap);
+		return episodeDTO;
+	}
 }

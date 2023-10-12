@@ -1,6 +1,7 @@
 package admin.video.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,9 +20,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import admin.video.bean.EpisodeDTO;
 import admin.video.bean.VideoDTO;
+import admin.video.bean.userPaging;
 import admin.video.dao.VideoDAO;
 import admin.video.service.VideoService;
-import admin.video.bean.userPaging;
 @Controller
 @RequestMapping(value = "admin/video") // 협의 후 결정
 public class VideoController {
@@ -150,6 +151,62 @@ public class VideoController {
 		mav.setViewName("videoUpload"); // 페이지 이동
 		
 		return mav;
+	}
+	
+	@GetMapping(value = "videoUpdateForm") // Update를 Upload와 헷갈리지 않도록 주의 
+	public ModelAndView videoUpdateForm(@RequestParam int seqMovie, HttpServletRequest request) {
+		
+		System.out.println("seqMovie value = "+seqMovie);
+		HttpSession session = request.getSession();
+		
+		HashMap<String, Integer> videoMap = new HashMap<>();
+		
+		videoMap.put("seqMovie", seqMovie);
+		
+		VideoDTO videoDTO = videoService.searchVideo(videoMap);
+		videoDTO.setThumbnail();
+		
+		session.setAttribute("videoDTO", videoDTO);
+		
+		mav.setViewName("videoUpdateForm");
+		return mav;
+	}
+	
+	@PostMapping(value = "videoUpdate")
+	@ResponseBody
+	public void videoUpdate(@ModelAttribute VideoDTO videoDTO) {
+		
+		System.out.println(videoDTO.toString());
+		System.out.println(videoDTO.getEpisodeDTO().toString());
+		
+	}
+	
+	@GetMapping(value = "episodeUpdateForm") // Update를 Upload와 헷갈리지 않도록 주의 
+	public ModelAndView episodeUpdateForm(@RequestParam int seqMovie, int epNum, HttpServletRequest request) {
+		
+		System.out.println("seqMovie value = "+seqMovie);
+		System.out.println("epNum value = "+epNum);
+		HttpSession session = request.getSession();
+		HashMap<String, Integer> episodeMap = new HashMap<>();
+		
+		episodeMap.put("seqMovie", seqMovie);
+		episodeMap.put("epNum", epNum);
+		
+		EpisodeDTO episodeDTO = videoService.searchEpisode(episodeMap);
+		System.out.println(episodeDTO.toString());
+		
+		session.setAttribute("episodeDTO", episodeDTO);
+		
+		mav.setViewName("episodeUpdateForm");
+		return mav;
+	}
+	
+	@PostMapping(value = "episodeUpdate")
+	@ResponseBody
+	public void episodeUpdate(@ModelAttribute EpisodeDTO EpisodeDTO) {
+		
+		System.out.println(EpisodeDTO.toString());
+		
 	}
 	
 }

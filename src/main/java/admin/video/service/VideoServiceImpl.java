@@ -66,4 +66,20 @@ public class VideoServiceImpl implements VideoService{
 		
 		return list;
 	}
+
+	
+	// =========================== videoUpdateForm
+	@Override
+	public VideoDTO searchVideo(HashMap<String, Integer> videoMap) {
+		
+		VideoDTO resultDTO = videoDAO.searchVideo(videoMap);
+		return resultDTO;
+	}
+
+	@Override
+	public EpisodeDTO searchEpisode(HashMap<String, Integer> episodeMap) {
+		
+		EpisodeDTO episodeDTO = videoDAO.searchEpisode(episodeMap);
+		return episodeDTO;
+	}
 }

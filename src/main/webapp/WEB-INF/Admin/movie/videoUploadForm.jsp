@@ -140,11 +140,6 @@
 		$('#go').click(function(){
 			var checked = $('input:checkbox[name=genre]:checked').length;
 			
-			if(checked >= 4){
-				$('#themeCaution').html("<span style = 'color: red;'>장르는 세 개까지만 선택 가능합니다.</span>")
-				return false;	
-			}
-			
 			// ---------- 컨텐츠 코드 만들기
 			var sortcode = $('input:radio[name=sortcode]:checked').val();
 			var langcode = $('#language option:selected').val();

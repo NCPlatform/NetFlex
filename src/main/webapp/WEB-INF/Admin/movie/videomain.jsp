@@ -71,11 +71,15 @@
 		margin-bottom: 15px;
 	}
 	.videoTitles{
-		height: 300px;
+		
 	}
 	
 	.minis img{
 		width: 75px;
+	}
+	
+	.eptitles:hover{
+		cursor: pointer;
 	}
 </style>
 </head>
@@ -174,13 +178,15 @@
 					 				minitable += `</tr>`
 					 				
 			 					var divid = '#c'+seqMovie
-				 				$(divid).append(tabletitle)
+				 				$(divid).html(tabletitle)
 				 				
 					 			$.each(epdata, function(index, episodes){
 					 				minitable += `<tr>`
 					 				minitable += `<td>`+episodes.ep+`</td>`
 					 				minitable += `<td><img src = \'`+episodes.thumbnail+`\'></td>`
-					 				minitable += `<td>`+episodes.eptitle+`</td>`
+					 			// 231012 수정
+					 				minitable += `<td class = 'eptitles'>`+episodes.eptitle+`<br><div class = 'modifies' id = \'`+"ep"+seqMovie+"_"+episodes.ep+`\'></div></td>`
+					 			// ===============
 					 				minitable += `<td>`+episodes.grade+`</td>`
 					 				minitable += `</tr>`
 					 				
@@ -190,7 +196,28 @@
 					 				
 					 			})// each(Episodes)
 					 			
-					 			$(divid).append(minitable)
+					 			$(divid).html(minitable)
+					 			
+					 			$('.eptitles').click(function(){
+					 				
+					 				$('.modifies').html("");
+					 				
+					 				var epNum = $(this).prev().prev().text()
+					 				var seqMovie = $(this).closest('details').parent().prev().prev().text();
+					 				var eploca = "/NetFlex/admin/video/videoUpdateForm?seqMovie="+seqMovie
+					 				var epcont = "/NetFlex/admin/video/episodeUpdateForm?seqMovie="+seqMovie+"&epNum="+epNum
+					 				var addbtns = '<button type = "button" onclick= \"location.href=\''+eploca+'\'\" >컨텐츠 수정하기</button>'
+					 				addbtns += '<button type = "button" onclick= \"location.href=\''+epcont+'\'\">에피소드 수정하기</button>'
+					 				
+					 				var modifytag = '#ep'+seqMovie+"_"+epNum
+					 				$(modifytag).html(addbtns);
+					 				// location.href = '/NetFlex/admin/video/videoUpdateForm?seqMovie='+seqMovie+'&epNum='+epNum;
+					 				
+					 				
+					 			})
+					 			
+					 							 			
+					 			
 					 		}, //success
 		 					error: function(e){
 				 			console.log(e) }

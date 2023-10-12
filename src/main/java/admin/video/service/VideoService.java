@@ -1,5 +1,6 @@
 package admin.video.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import admin.video.bean.EpisodeDTO;
@@ -20,5 +21,9 @@ public interface VideoService {
 	public List<VideoDTO> getVideoList(String pg);
 
 	public List<EpisodeDTO> getEpisodeList(String seqMovie);
+
+	public VideoDTO searchVideo(HashMap<String, Integer> videoMap);
+
+	public EpisodeDTO searchEpisode(HashMap<String, Integer> episodeMap);
 
 }

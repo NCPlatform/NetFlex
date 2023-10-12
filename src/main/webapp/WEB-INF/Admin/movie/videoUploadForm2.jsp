@@ -50,7 +50,7 @@
 			<tr>
 				<td>줄거리</td>
 				<td colspan="3">
-					<textarea rows="10" cols="50" id="epStory0" name="epstory"></textarea>
+					<textarea rows="10" cols="50" id="epStory0" name="epstory" placeholder = '내용 중에 , 들어가지 않게 주의해 주세요!'></textarea>
 					<br><div id="byteCheck0"></div>
 				</td>
 				<td><button type="button" class="addBtn">+</button></td>
@@ -92,7 +92,7 @@
 				tables += "<input type = 'number' name = 'runtime'>초</td>"
 				tables += "<td colspan = '3'></td></tr>	"
 				tables += "<td></td></tr><tr><td>줄거리</td><td colspan = '3'>"
-				tables += "<textarea rows = '10' cols = '50' id = 'epStory"+tNum+"' name = 'epstory'></textarea>"
+				tables += "<textarea rows = '10' cols = '50' id = 'epStory"+tNum+"' placeholder = '내용 중에 , 들어가지 않게 주의해 주세요!' name = 'epstory'></textarea>"
 				tables += "<br><div id = 'byteCheck"+tNum+"'></div></td>"
 				tables += "<td><button type = 'button' class = 'addBtn'>+</button></td></tr></table>"
 			

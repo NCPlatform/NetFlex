@@ -16,7 +16,6 @@
  		select * from movie where title = #{title} order by seqMovie desc limit 1
  	</select>
  	
- 	
  	<select id = "create" parameterType = "HashMap">
   		${sql}
   	</select>
@@ -38,4 +37,14 @@
   		select * from `${seqMovie}` where seqMovie = #{seqMovie}
   	</select> 
   	
+  	<!-- videoUpdateForm -->
+ 	<select id = "searchVideo" parameterType = "HashMap" resultType = "video">
+ 		select * from movie where seqMovie = #{seqMovie}
+ 	</select>
+ 	
+ 	<select id = "searchEpisode" parameterType = "HashMap" resultType = "ep">
+ 		select * from `${seqMovie}` where ep = #{epNum}
+ 	</select>
+ 	
+ 	
  </mapper>

@@ -91,14 +91,27 @@ public class EpisodeDTO {
 		this.seqMovie = seqMovie;
 		
 		this.ep = Integer.parseInt(eplist);
+		
 		if(thumbnailSrc.length()>=thumbnailSrcUrl.length()) {
 			this.thumbnail = thumbnailSrc;
 		}else {
 			this.thumbnail = thumbnailSrcUrl;
 		}
+		
 	}
 	
 	public EpisodeDTO() {
+		
+		if(thumbnail!=null) { // 기존 썸네일 값이 있음.(수정 요청)
+			if(thumbnailSrc!=null||thumbnailSrcUrl!=null) { // 새로 입력한 값이 뭐라도 있을 때
+				if(thumbnailSrc!=null) { // 파일로 추가했다면
+					thumbnail = thumbnailSrc; // 파일 경로로 thumbnail을 지정하고
+				}
+				else if(thumbnailSrcUrl!=null) { // url로 추가했다면
+					thumbnail = thumbnailSrcUrl; // url 경로로 thumbnail을 지정하도록 함.
+				}
+			}
+		} // 기존 썸네일 값이 없는 경우(makeList)를 통해 생성된 경우가 아닌 경우(=신규 컨텐츠) 실행되지 않는다
 		
 		// 기본 생성자
 	}
@@ -148,7 +161,6 @@ public class EpisodeDTO {
 					newthumbnailSrc , newthumbnailSrcUrl , newgrade ,
 					neweplist , seqMovie));
 		
-			
 		}
 		
 		return DTOlist;

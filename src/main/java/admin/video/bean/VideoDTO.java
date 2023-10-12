@@ -22,8 +22,18 @@ public class VideoDTO {
 	// thumbnail은 thumbnailSrc와 thumbnailSrcUrl 중 null이 아닌 것 or 길이가 더 긴 것
 	// 으로 지정된다. 다만 이 방법은 임시이기 때문에 바뀔 수 있다.
 	
+	private EpisodeDTO episodeDTO; // 231012
+	
+	public void setEpisodeDTO(EpisodeDTO episodeDTO) {
+		this.episodeDTO = episodeDTO;
+	}
+	
+	public EpisodeDTO getEpisodeDTO() {
+		return episodeDTO;
+	}
+	// =========================
+	
 	public void setThumbnail() {
-		
 		
 		if(this.thumbnailSrcUrl == null) {
 			this.thumbnail = this.thumbnailSrc;
@@ -34,6 +44,22 @@ public class VideoDTO {
 		}else if(this.thumbnailSrcUrl.length()>this.thumbnailSrc.length()) {
 			this.thumbnail = this.thumbnailSrcUrl;
 		}
+	}
+	public void setThumbnail(String thumbnail) { // 썸네일 수정 시 요청됨. 
+		
+			if(this.thumbnailSrc == null && this.thumbnailSrcUrl == null && thumbnail!= null) {
+				this.thumbnail = thumbnail;
+			} // 기존 썸네일을 그대로 사용하는 경우. 
+			else if(this.thumbnailSrcUrl == null) {
+				this.thumbnail = this.thumbnailSrc;
+			}else if(this.thumbnailSrc == null){
+				this.thumbnail = this.thumbnailSrcUrl;
+			}else if(this.thumbnailSrc.length()>=this.thumbnailSrcUrl.length()) {
+				this.thumbnail = this.thumbnailSrc;
+			}else if(this.thumbnailSrcUrl.length()>this.thumbnailSrc.length()) {
+				this.thumbnail = this.thumbnailSrcUrl;
+			}
+		
 	}
 	
 	public String getThumbnail() {
@@ -206,7 +232,6 @@ public class VideoDTO {
 	public void setGenrename3(String genrename3) {
 		this.genrename3 = genrename3;
 	}
-	
 	
 	
 }
