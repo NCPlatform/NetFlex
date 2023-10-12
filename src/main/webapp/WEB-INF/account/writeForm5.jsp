@@ -21,46 +21,53 @@
 <div class="container">
 <form method="post" class="d-flex justify-content-center" action="processUserData">
 <div class="writeForm5">
+	<div class="writeForm5-center">
 	<h1>Netflex에 가입하신 것을 축하합니다.</h1>
 	<li>Netflex 멤버십이 시작되었으며, 한 달 동안 무료로 제공됩니다. </li>
 	<li>2023년 11월 15일 이전에 멤버십을 해제하시면 요금이 청구되지 않습니다.</li>
 	<li>무료 이용이 종료되기 전에 멤버십을 해지하시지 않으면 자동으로 연장됩니다.</li>
-<table class="writeForm5-center" id="personalInfo">
+	</div>
+	
 	<div class="writeForm5-center2">
 		<tr>
-			<td class="writeForm5-center3">이 름 </td>
-			<td><input type="text" id="name" name="name"  value="${name }" placeholder= "이름 입력">
-				<div id="nameDiv"></div>
-			</td>
-		</tr>
-		<tr>
-			<td class="writeForm5-center3">나 이 </td>
-			<td><input type="text" id="age" name="age"  value="${age }" placeholder= "나이 입력">
-				<div id="ageDiv"></div>
-			</td>	
-		</tr>
-		
-		<tr>
-			<td class="writeForm5-center3"><label>휴대폰 </label></td>
-				<td>
-				<select name="tel1" id="tel1"  value="${tel1 }">
+			<div class="form-floating mb-3">
+			<input type="text" class="form-control border border-secondary-subtle" id="name" name="name"  value="${name }" placeholder= "이름 입력">
+			<label for="floatingInput">이름 입력</label>
+			</div>
+			
+			<div class="form-floating mb-3">
+			<input type="text" class="form-control border border-secondary-subtle" id="age" name="age"  value="${age }" placeholder= "나이 입력">
+			<label for="floatingInput">나이 입력</label>
+			</div>
+				
+				<div class="row mb-3">
+				
+				<div class="col form-floating mb-3">
+				<select class="form-select phoneNumber border border-secondary-subtle" name="tel1" id="tel1"  value="${tel1 }">
 				<option value="010">010</option>
 				<option value="011">011</option>
 				<option value="016">016</option>
 				<option value="019">019</option>
 				</select>
-				<input type="tel" id="tel2" value="${tel2 }" name="tel2">	
-				<input type="tel" id="tel3" value="${tel3 }" name="tel3">
-				<div id="phoneDiv"></div>
-			</td>
-		</tr>
-	</div>
-</table>
-	<div class="writeForm5-center4" id="agreementMessage">
+				<label for="floatingSelect">앞자리 선택</label>
+				</div>
+				
+				<div class="col form-floating mb-3 pe-0 ps-0">
+				<input type="tel" class="form-control phoneNumber1 border border-secondary-subtle" id="tel2" value="${tel2 }" name="tel2" placeholder="가운데 번호">
+				<label for="floatingInput">가운데 번호</label>
+				</div>
+				
+				<div class="col form-floating mb-3 ps-0">
+				<input type="tel" class="form-control phoneNumber1 border border-secondary-subtle" id="tel3" value="${tel3 }" name="tel3" placeholder="마지막 번호">
+				<label for="floatingInput">마지막 번호</label>
+				</div>
+				
+				</div>
+	<div class="writeForm5-center3" id="agreementMessage">
 		<input type="checkbox">
 		<a>예, 영화와 TV 프로그램 및 특별 할인 행사에 대한 문자 메세지를 받겠습니다.</a>
 	</div>
-	<div>
+	<div class="d-grid gap-2 col">
 		<button type="submit" class="continueBtn" id="nextPage">다음</button>
 	</div>
 </div>
