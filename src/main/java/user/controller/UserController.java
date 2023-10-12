@@ -51,45 +51,38 @@ public class UserController {
 		
 	}
 	
-	@GetMapping(value="find_password")
+	@GetMapping(value="find_password_form")
 	public String findPassword() {
-		return "/user/find_password";
+		return "/user/find_password_form";
 		
 	}
 		
+	//로그인
 	@PostMapping("/login")
 	@ResponseBody
-	public int login2(@RequestParam String email, @RequestParam String password) {
+	public int login2(HttpSession httpSession, @RequestParam String email, @RequestParam String password) {
+		httpSession.setAttribute("email", email);
+		
 		System.out.println("loginForm의 요청처리");		
 			return service.login(email, password);
 	}
-	
-	
-	
-	
-	/*
-	 * // 로그인
-	 * 
-	 * @RequestMapping(value = "/loginForm", method = RequestMethod.POST) public
-	 * String login(@ModelAttribute UserDTO userDTO, HttpSession session,
-	 * HttpServletResponse response) throws Exception{ userDTO =
-	 * service.login(userDTO, response); session.setAttribute("user", userDTO);
-	 * return "index"; }
-	 */
-	
-		
+			
 	// 아이디 찾기
-	@RequestMapping(value = "/find_email.do", method = RequestMethod.POST)
-	public String find_email(HttpServletResponse response, @RequestParam("name") String name, Model md) throws Exception{
-		md.addAttribute("email", service.find_email(response, name));
-		return "/user/find_email";
+	@PostMapping("/find_email")
+	@ResponseBody
+	public String find_email(@RequestParam String name, @RequestParam int age){
+	
+		System.out.println("find_emailForm의 요청처리");
+			return service.find_email(name, age);
 	}
 	
-	
-// 비밀번호 찾기 폼
-	@RequestMapping(value = "/find_pw_form.do")
-	public String find_pw_form() throws Exception{
-		return "/user/find_pw_form";
+// 비밀번호 찾기 
+	@PostMapping("/find_password")
+	@ResponseBody
+	public String find_password(@RequestParam String email, @RequestParam String name){
+		
+		System.out.println("find_password_form의 요청 처리");
+			return service.find_password(email, name);
 	}
 	
 	@GetMapping(value="loginOk")

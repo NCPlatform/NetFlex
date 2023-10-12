@@ -7,11 +7,17 @@ import user.bean.UserDTO;
 
 public interface UserService {
 
+	//로그인	
 	int login(String email, String password);
+	
+	//이메일 찾기
+	String find_email(String name, int age);
 
-	void check_email(String email, HttpServletResponse response) throws Exception;
-
+	//비밀번호 찾기
+	String find_password(String email, String name);
+		
 	void logout(HttpServletResponse response) throws Exception;
+	
 	
 	
 

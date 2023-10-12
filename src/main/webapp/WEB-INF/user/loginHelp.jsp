@@ -43,7 +43,7 @@
 				    &nbsp;&nbsp;&nbsp;&nbsp;잊으셨나요?</h1>
 				    <p class="card-text"></p>
   &nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary"><a href="/NetFlex/user/find_email_form" class="card-link">이메일 찾기</a></button>
-				    <button type="button" class="btn btn-primary"><a href="/NetFlex/user/find_password" class="card-link">비밀번호 찾기</a></button>
+				    <button type="button" class="btn btn-primary"><a href="/NetFlex/user/find_password_form" class="card-link">비밀번호 찾기</a></button>
 				  </div>
 				</div>
 			</section>

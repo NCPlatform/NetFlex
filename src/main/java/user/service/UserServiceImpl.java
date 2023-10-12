@@ -26,23 +26,25 @@ public class UserServiceImpl implements UserService {
 			out.println("</script>");
 			out.close();
 		}
-		
-		
-
-		@Override
-		public void check_email(String email, HttpServletResponse response) throws Exception {
-			// TODO Auto-generated method stub
-			
-		}
-
-		public Object find_email(HttpServletResponse response, String name) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
+				
+		//로그인
 		public int login(String email, String password) {
 			
 			return manager.login(email, password);
+		}
+
+		//이메일 찾기
+		public String find_email(String name, int age) {
+			String email = manager.find_email(name, age);
+			System.out.println(email);
+			return email;
+		}
+
+		//비밀번호 찾기
+		public String find_password(String email, String name) {
+			String password = manager.find_password(email, name);
+			System.out.println(password); 
+			return password;
 		}
 
 }
