@@ -18,7 +18,7 @@ public class MovieDTO {
 	private String director;
 	private String actor;
 	private Date year;
-	private Date relesedate;
+	private Date releasedate;
 	private int liked;
 	private int genrecode1;
 	private int genrecode2;

@@ -42,18 +42,6 @@ div {
     left: 90% !important;
     padding: 0 !important;
 }
-/* .container {
-    background: url('../asset/img/maskmain.jpg') no-repeat bottom;
-    background-size: cover; 
-   background-repeat: no-repeat;
-   background-position: 50%;
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column; 글 여러 줄이 쌓이는 방향대로 고정
-    justify-content: center;
-    align-items: flex-start;
-} */
 body {
     background: url('../asset/img/maskmain.jpg') no-repeat bottom;
     background-size: cover; 
@@ -62,8 +50,7 @@ body {
     height: 100vh;
     width: 100%;
     display: flex;
-    flex-direction: column; /*글 여러 줄이 쌓이는 방향대로 고정*/
-
+    flex-direction: column;
 }
 .movie-main{
     padding: 40px;
@@ -71,18 +58,15 @@ body {
     color: black;
     color: white;
 }
-
 .movie-main img{
     width: 550px;
     height: 200px;
 }
-
 .movie-main p{
     margin-top: -50px;
     width: 35%;
     font-weight: bold;
 }
-
 .buttons{
     padding: 0 30px;
 }
@@ -101,17 +85,14 @@ body {
     cursor: pointer;
     transition: .3s ease all;
 }
-
 .btn.info{
     background-color: #6D6D6Eb3;
     color: var(--white);
 }
-
 .btn.play:hover,
 .btn.info:hover{
     opacity: 0.7;
 }
-
 .btn i{
     margin-right: 8px;
 }
@@ -130,13 +111,12 @@ body {
     width: 100%;
 }
 .button-container {
-    text-align: center; /* 가운데 정렬 */
-    margin-top: 10px; /* 이미지와의 간격 조정 */
+    text-align: center;
+    margin-top: 10px;
     
 }
-
 .button-container button {
-    margin: 0 5px; /* 버튼 간의 간격 조정 */
+    margin: 0 5px;
     background-color: #F0F0F0; 
     color: #000000; 
     outline: none;
@@ -144,28 +124,23 @@ body {
 }
 .button-container .details-button:hover,
 .button-container .details-button2:hover {
-    background-color: black; /* 배경색 검정색으로 변경 */
-    color: white; /* 글자색을 흰색으로 변경 */
-    opacity: 1; /* 투명도를 완전히 표시되도록 리셋 */
+    background-color: black;
+    color: white;
+    opacity: 1;
 }
-
 .button-container .details-button2{
    background-color: #6D6D6Eb3;
     color: var(--white);
     margin-right: 8px;
 }
-
-/* 어두운 배경을 가진 모달 */
 .dark-mode .modal-content {
     background-color: rgba(0, 0, 0, 0.9);
-    color: #fff; /* 텍스트 색상을 흰색으로 설정 */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* 테두리 설정 */
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
-
 .dark-mode .modal-header {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* 테두리 설정 */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
-
 .dark-mode .modal-footer {
-    border-top: 1px solid rgba(255, 255, 255, 0.2); /* 테두리 설정 */
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
