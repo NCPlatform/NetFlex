@@ -1,0 +1,53 @@
+@charset "UTF-8";
+button{
+	background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+    transition: position .5s ease-in;
+    width: 100%;
+}
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h2{
+	font-size: 32px;
+}
+h2 + li {
+    margin-top: 20px; /* 원하는 만큼의 여백을 설정합니다. */
+}
+li{
+	list-style-type: none;
+	margin-top: 10px;
+	font-size: 18px;
+}
+.arrow {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translate(-50%, -50%);
+}
+.creditCard, .naverPay, .phonePay {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px; /* 버튼 사이에 간격을 추가합니다. */
+  position: relative;
+  width: 600px;
+  font-size: 15px;
+  padding: 15px;
+}
+
+.creditCard img, .naverPay img, .phonePay img {
+  width: 27px; /* 이미지 크기를 조정합니다. */
+  height: 27px;
+  margin: 10px 0px 10px 0px;
+}
+.writeForm4-center1{
+	font-size: 13px;
+}

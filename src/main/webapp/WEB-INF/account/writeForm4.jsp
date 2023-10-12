@@ -5,49 +5,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../asset/css/headerLogo2.css">
-<style type="text/css">
-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.creditCard, .naverPay, .phonePay {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px; /* 버튼 사이에 간격을 추가합니다. */
-  position: relative;
-  width: 600px;
-  font-size: 15px;
-  padding: 15px;
-}
+<link rel="stylesheet" href="../asset/css/writeForm4.css">
 
-.creditCard img, .naverPay img, .phonePay img {
-  width: 27px; /* 이미지 크기를 조정합니다. */
-  height: 27px;
-  margin: 10px 0px 10px 0px;
-}
-
-.arrow {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  transform: translate(-50%, -50%);
-}
-</style>
 </head>
 
 <header>
 <img src="../asset/image/netflex.png" alt="넷플렉스" class="writeForm0_headerLogo">
   <a href="../../index.jsp" class="writeForm0_headerLoginBtn">로그아웃</a>
 </header>
-
+<br><br><br><br><br>
 <body>
+<div class="container">
 <form>
-<table cellpadding ="7" width="500" style="margin: auto;">
+<table class="d-flex justify-content-center" cellpadding ="7" width="500" style="margin: auto; text-align: center;">
 	<tr>
 		<td>
+			<span class="writeForm4-center1">
+			<b>3/3단계</b>
+			</span>
+			
 			<h2>결제 방법 선택</h2>
 			<li>결제 정보는 암호화되며, 결제 방법은 언제든지 변경할 수 있습니다.</li>
 			<li>안심하고 즐기세요.</li>
@@ -122,6 +101,7 @@ form {
 </div>
 </form>
 
+</div>
 <script>
         document.getElementById('creditCard').addEventListener('click', function() {
             // 페이지 이동
@@ -142,6 +122,8 @@ form {
         document.getElementById('form3').submit();
         });
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
 </body>
 </html>

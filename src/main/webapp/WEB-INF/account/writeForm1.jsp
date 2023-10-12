@@ -14,9 +14,10 @@
 <img src="../asset/image/netflex.png" alt="넷플렉스" class="writeForm0_headerLogo">
   <a href="loginForm" class="writeForm0_headerLoginBtn">로그인</a>
 </header>
+<br><br>
 <body>
-<div class="writeForm1-center">
-<form style="text-align: left;" method="post" id="termsForm" class="termsForm" action="writeForm2">
+<div class="writeForm1-center container">
+<form style="text-align: left;" method="post" id="termsForm" class="termsForm d-flex justify-content-center" action="writeForm2">
 <div class="writeForm1-center1">
 <table cellpadding ="7" width="500" style="margin: auto;">
 	<tr>

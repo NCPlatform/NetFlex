@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../asset/css/headerLogo2.css">
 <link rel="stylesheet" href="../asset/css/writeForm3.css">
@@ -15,16 +16,16 @@
 </header>
 
 <body>
-
+<div class="writeForm3">
 <form>
-<table cellpadding ="7" width="500">
+<table class="writeForm3-center">
 <tr>
 	<td>
-		<span class="writeForm1-center2">
+		<span class="writeForm3-center1">
 		2/3단계
 		</span>
 		
-		<h1>원하는 멤버십을 선택하세요.</h1>
+		<h1>원하는 멤버십을 선택하세요.</h1><br>
 		
 		<li>
 		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="checkmark-group--icon default-ltr-cache-4z3qvp e1svuwfo1" data-name="Checkmark" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M21.2928 4.29285L22.7071 5.70706L8.70706 19.7071C8.51952 19.8946 8.26517 20 7.99995 20C7.73474 20 7.48038 19.8946 7.29285 19.7071L0.292847 12.7071L1.70706 11.2928L7.99995 17.5857L21.2928 4.29285Z" fill="currentColor"></path></svg>
@@ -52,7 +53,7 @@
 </tr>	
 </table>
 
-<table  style="margin: auto;">
+<table class="writeForm3-center2" style="margin: auto;">
 
 <tr>
 	<td></td>
@@ -100,10 +101,42 @@
 
 <tr>
 	<td>저장</td>
-	<td class="adStandard">아니요</td>
-	<td class="basic">예</td>
-	<td class="standard">예</td>
-	<td class="premium">예</td>
+	<td class="adStandard">
+		<span class="planGrid__booleanlabel">아니오</span>
+		<span class="planGrid__booleanIcon" aria-hidden="true">
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="planGrid__booleanGraphic planGrid__booleanGraphic--isX default-ltr-cache-4z3qvp e1svuwfo1" data-name="Minus" aria-hidden="true" focusable="false">
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M24 13L-1.74846e-07 13L0 11L24 11L24 13Z" fill="currentColor">
+				</path>
+			</svg>
+		</span>
+	</td>
+	<td class="basic">
+		<span class="planGrid__booleanlabel">예</span>
+		<span class="planGrid__booleanIcon" aria-hidden="true">
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="planGrid__booleanGraphic planGrid__booleanGraphic--isCheck default-ltr-cache-4z3qvp e1svuwfo1" data-name="Checkmark" aria-hidden="true" focusable="false">
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M21.2928 4.29285L22.7071 5.70706L8.70706 19.7071C8.51952 19.8946 8.26517 20 7.99995 20C7.73474 20 7.48038 19.8946 7.29285 19.7071L0.292847 12.7071L1.70706 11.2928L7.99995 17.5857L21.2928 4.29285Z" fill="currentColor">
+				</path>
+			</svg>
+		</span>
+	</td>
+	<td class="standard">
+		<span class="planGrid__booleanlabel">예</span>
+		<span class="planGrid__booleanIcon" aria-hidden="true">
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="planGrid__booleanGraphic planGrid__booleanGraphic--isCheck default-ltr-cache-4z3qvp e1svuwfo1" data-name="Checkmark" aria-hidden="true" focusable="false">
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M21.2928 4.29285L22.7071 5.70706L8.70706 19.7071C8.51952 19.8946 8.26517 20 7.99995 20C7.73474 20 7.48038 19.8946 7.29285 19.7071L0.292847 12.7071L1.70706 11.2928L7.99995 17.5857L21.2928 4.29285Z" fill="currentColor">
+				</path>
+			</svg>
+		</span>
+	</td>
+	<td class="premium">
+		<span class="planGrid__booleanlabel">예</span>
+		<span class="planGrid__booleanIcon" aria-hidden="true">
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="planGrid__booleanGraphic planGrid__booleanGraphic--isCheck default-ltr-cache-4z3qvp e1svuwfo1" data-name="Checkmark" aria-hidden="true" focusable="false">
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M21.2928 4.29285L22.7071 5.70706L8.70706 19.7071C8.51952 19.8946 8.26517 20 7.99995 20C7.73474 20 7.48038 19.8946 7.29285 19.7071L0.292847 12.7071L1.70706 11.2928L7.99995 17.5857L21.2928 4.29285Z" fill="currentColor">
+				</path>
+			</svg>
+		</span>
+	</td>
 </tr>
 </tbody>
 </table>
@@ -120,14 +153,14 @@
 	<input type="hidden" id="levelInput" name="level" value="">
 	<input type="hidden" id="priceInput" name="price" value="">
 <div style="text-align: center;">
-<input type="button" value="다음" onclick="payment()">
+<input type="button" value="다음" class="continueBtn" onclick="payment()">
 
 	<input type="hidden" id="email" name="email" value="${email }">
 	<input type="hidden" id="password" name="password" value="${password }">
 	
 </div>
 </form>
-
+</div>
 <script src="http://code.jquery.com/jquery-3.7.0.min.js"></script>
 
  <script>
@@ -163,7 +196,7 @@
 		    $(this).find("img").attr("src", originalSrc);
 		  });
 		  
-		  $(".adStandard, .basic, .standard, .premium").not(this).css("color", "");
+		  $(".adStandard, .basic, .standard, .premium").not(this).css("color", "gray");
 		  
 		  $("." + $(this).attr("class")).css("color", "red");
 		  var level = $(this).attr("class");
@@ -180,6 +213,7 @@
 	  });
   });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
 </body>
 </html>

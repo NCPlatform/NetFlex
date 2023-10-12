@@ -4,18 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
 <title>Insert title here</title>
 <link rel="stylesheet" href="../asset/css/headerLogo2.css">
-<style>
-
-#naverPayLogo{
-	width: 50px;
-	height: 50px;
-}
-li{
-	list-style: none;
-}
-</style>
+<link rel="stylesheet" href="../asset/css/writeForm4-2.css">
 </head>
 
 <header>
@@ -24,11 +17,20 @@ li{
 </header>
 
 <body>
-<form method="post" action="writeForm5">
-	<div>
+<div class="container">
+<form method="post" class="d-flex justify-content-center" action="writeForm5">
+	<div class="writeForm4-center">
+		<span class="writeForm4-center1">
+		<b>3/3단계</b>
+		</span>
+		
+		
 		<h1>NaverPay 결제 정보 등록</h1>
 		<div>
-		<img src="https://up.wepick.kr/wp-content/uploads/2023/06/naver_pay.png" id="naverPayLogo">
+		<img src="https://up.wepick.kr/wp-content/uploads/2023/06/naver_pay.png" class="naverPayLogo" id="naverPayLogo">
+		</div>
+		<div>
+		<p>Naver 이메일 주소를 입력하세요</p>
 		</div>
 		
 		<div class="emailAddress">
@@ -51,17 +53,20 @@ li{
 			</ul>
 		</div>
 		
-		<div>
+		<div class="writeForm4-center2">
+			
+			<div class="writeForm4-center3">
 			<input type="checkbox" id="termsOfAllCheck" class="selectAll" name="termsOfAllCheck" value="termsOfAllCheck">
 			<label for="termsOfAllCheck">19세 이상이며, 아래의 약관에 모두 동의합니다.</label><br>
+			</div>
 			
 			<ul>
 				<li>
 					<input type="checkbox" id="termsOfUse" class="checkBox" name="termsOfUse" value="termsOfUse">
 					<label for="termsOfUse">
-						<span>
-						Netflex<a href="termsOfUse">이용약관</a> 및 <a href="registration5">개인정보 처리방침</a>에 동의합니다.<br>
-						(<a href="registration3">상세정보</a>)
+						<span style="margin-left: 0;">
+						<br>Netflex<a class="agreementBtn" href="termsOfUse">이용약관</a> 및 <a class="agreementBtn" href="registration5">개인정보 처리방침</a>에 동의합니다.<br>
+						(<a class="agreementBtn" href="registration3">상세정보</a>)
 						</span>
 					</label>
 				</li>
@@ -91,7 +96,7 @@ li{
 					<input type="checkbox" id="agreement3" class="checkBox" name="agreement3" value="agreement3">
 					<label for="agreement3">
 						<span>
-						본인의 개인 정보를 <a href="registration4">결제 서비스업체</a>에 제공하는 데에 동의합니다.
+						본인의 개인 정보를 <a class="agreementBtn" href="registration4">결제 서비스업체</a>에 제공하는 데에 동의합니다.
 						</span>
 					</label>
 				</li>
@@ -101,16 +106,16 @@ li{
 					<input type="checkbox" id="agreement4" class="checkBox" name="agreement4" value="agreement4">
 					<label for="agreement4">
 						<span>
-						멤버십을 해지하지 않으면 Netflex 멤버십이 자동으로 계속되며, 멤버십 요금 ${price}이 등록한 결제 수단으로 매월 청구됩니다. 멤버십은 www.netflex.com의 '계정' 페이지에서 언제든지 해지할 수 있습니다. 이 경우 결제 주기가 종료될 때 멤버십이 해지되며, 잔여 기간 동안은 서비스를 계속 이용할 수 있습니다. 단, 결제일로부터 7일 이내에 멤버십이 즉시 종료되도록 해지하고 해당 계정을 통해 Netflex 콘텐츠를 이용하지 않은 경우, 해당 결제 주기에 청구된 멤버십 요금을 전액 환불 요청할 수 있습니다.
+						멤버십을 해지하지 않으면 Netflex 멤버십이 자동으로 계속되며, 멤버십 요금 ${price}원이 등록한 결제 수단으로 매월 청구됩니다. 멤버십은 www.netflex.com의 '계정' 페이지에서 언제든지 해지할 수 있습니다. 이 경우 결제 주기가 종료될 때 멤버십이 해지되며, 잔여 기간 동안은 서비스를 계속 이용할 수 있습니다. 단, 결제일로부터 7일 이내에 멤버십이 즉시 종료되도록 해지하고 해당 계정을 통해 Netflex 콘텐츠를 이용하지 않은 경우, 해당 결제 주기에 청구된 멤버십 요금을 전액 환불 요청할 수 있습니다.
 						</span>
 					</label>
 				</li>
 			</ul>
 		</div>
 		<div class="">
-			<button type="button" id="submitBtn">유료 멤버십 시작</button>
+			<button type="button" class="continueBtn" id="submitBtn">유료 멤버십 시작</button>
 
-			<button type="submit" id="submit">다음 페이지</button>
+			<button type="submit" class="continueBtn1" id="submit">다음 페이지</button>
 		</div>
 </div>
 	<input type="hidden" id="email" name="email" value="${email }">
@@ -118,7 +123,7 @@ li{
 	<input type="hidden" id="level" name="level" value="${level }">
 	<input type="hidden" id="price" name="price" value="${price }">
 </form>		
-	
+</div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <script>
@@ -137,7 +142,7 @@ li{
         });
   </script>
   
-<script>
+<!-- <script>
 $(document).ready(function(){
     var isMailAuthed = false; // DB 상관없이 무조건 mail 인증하기 버튼 누르도록 하기 위해..
 
@@ -184,7 +189,8 @@ $(document).ready(function(){
         });
     }); 
 });
-
+ -->
+ <script type="text/javascript">
 function validateEmail() {
     var email1 = $("#email1").val();
  
@@ -205,7 +211,7 @@ function validateCheckBox() {
     return true;
 }
 
-$(document).ready(function() {
+/* $(document).ready(function() {
     $("#submit").click(function(event) {
         if (!validateEmail() || !validateAuthCode() || !validateCheckBox()) {
             event.preventDefault();
@@ -213,7 +219,7 @@ $(document).ready(function() {
     });
 });
 
-
+ */
 
 </script>
 <script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"></script>
@@ -241,5 +247,7 @@ $(document).ready(function() {
  });
  });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
 </body>
 </html>
