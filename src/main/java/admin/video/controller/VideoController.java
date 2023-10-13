@@ -138,6 +138,8 @@ public class VideoController {
 		
 		for(EpisodeDTO dto : DTOlist) {
 			System.out.println(dto.toString());
+			dto.setThumbnail(1);
+			System.out.println(dto.getThumbnail());
 			videoService.addEpisodes(dto);
 		}
 		

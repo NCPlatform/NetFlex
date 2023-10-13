@@ -27,7 +27,7 @@ public class EpisodeDTO {
 		this.thumbnail = thumbnail;
 	}
 	
-	public void setThumbnail() {
+	public void setThumbnail() { // 만들어진 DTO 썸네일 부를 떄
 		
 		if(thumbnailSrc == null) {
 			thumbnailSrc = "";
@@ -45,6 +45,41 @@ public class EpisodeDTO {
 				if(thumbnail.length()== 0) {
 					thumbnail = "https://cheeeeese.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F0bd5faf4-018f-4750-a3f7-ea2be6bf53c0%2Fcfe9dff7-07b9-4a1c-afd2-4a2ca43915d7%2FUntitled.png?table=block&id=e831864f-8582-44ce-8425-55f95d8b5ed5&spaceId=0bd5faf4-018f-4750-a3f7-ea2be6bf53c0&width=470&userId=&cache=v2";
 			
+				}	
+			}
+		}else if(thumbnailSrc.length()>=thumbnailSrcUrl.length()) { // 기존 썸네일 값은 있든 말든
+			thumbnail = thumbnailSrc;
+			
+		}else if(thumbnailSrcUrl.length()>thumbnailSrc.length()) {
+			thumbnail = thumbnailSrcUrl;
+		}
+		
+		
+		
+	}
+	public void setThumbnail(int a) { // 에피소드 추가해서 DTO 집어넣을때
+		
+		if(thumbnailSrc == null) {
+			thumbnailSrc = "";
+		}
+		if(thumbnailSrcUrl == null) {
+			thumbnailSrcUrl = "";
+		}
+		
+		if(thumbnail == null) {
+			thumbnail = "";
+		}
+		
+		if(thumbnail.length()==0) {
+			if(thumbnailSrc.length()==0) {	
+				if(thumbnailSrcUrl.length()== 0) {
+					thumbnail = "https://cheeeeese.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F0bd5faf4-018f-4750-a3f7-ea2be6bf53c0%2Fcfe9dff7-07b9-4a1c-afd2-4a2ca43915d7%2FUntitled.png?table=block&id=e831864f-8582-44ce-8425-55f95d8b5ed5&spaceId=0bd5faf4-018f-4750-a3f7-ea2be6bf53c0&width=470&userId=&cache=v2";
+					
+				}else if(thumbnailSrc.length()>=thumbnailSrcUrl.length()) { // 기존 썸네일 값은 있든 말든
+					thumbnail = thumbnailSrc;
+					
+				}else if(thumbnailSrcUrl.length()>thumbnailSrc.length()) {
+					thumbnail = thumbnailSrcUrl;
 				}	
 			}
 		}else if(thumbnailSrc.length()>=thumbnailSrcUrl.length()) { // 기존 썸네일 값은 있든 말든
