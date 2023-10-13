@@ -5,16 +5,30 @@
 <head>
 <meta charset="UTF-8">
 <title>footer</title>
+<style type="text/css">
+a {
+   border: 0 !important;
+   text-decoration: none !important;
+}
+</style>
 <link rel="stylesheet" href="../css/footer.css">
 </head>
 <body>
-	<footer>
+   <footer>
         <div class="container-footer">
             <div class="sns">
-                <img src="/NetFlex/asset/img/fb.png" alt="">
-                <img src="/NetFlex/asset/img/instagram.png" alt="">
-                <img src="/NetFlex/asset/img/twitter.png" alt="">
-                <img src="/NetFlex/asset/img/youtube.png" alt="">
+            <a href="https://www.facebook.com/NetflixKR/?locale=ko_KR">
+                <img src="/NetFlex/asset/img/fb.png" alt="페이스북">
+            </a>
+            <a href="https://www.instagram.com/netflixkr/">
+                <img src="/NetFlex/asset/img/instagram.png" alt="인스타그램">
+            </a>
+            <a href="https://twitter.com/NetflixKR?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
+                <img src="/NetFlex/asset/img/twitter.png" alt="트위터">            
+            </a>
+            <a href="https://www.youtube.com/channel/UCiEEF51uRAeZeCo8CJFhGWw">
+                <img src="/NetFlex/asset/img/youtube.png" alt="유튜브">
+            </a>
 
             </div>
 

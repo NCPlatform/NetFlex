@@ -1,15 +1,10 @@
 package user.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import user.bean.MovieDTO;
 import user.service.UserService;
 
 @Controller
@@ -61,9 +56,9 @@ public class UserController {
 	public String watch() { 
 		return "/user/watch"; 
 	}
-	@PostMapping(value = "movie")
-	@ResponseBody
-	public void movie(@ModelAttribute MovieDTO movieDTO) {
-		userService.movie(movieDTO);
+	@GetMapping(value = "watchAll") 
+	public String watchAll() { 
+		return "/user/watchAll"; 
 	}
+
 }

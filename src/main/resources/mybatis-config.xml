@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="movie.bean.MovieDTO" alias="movie"/>
+		<typeAlias type="movie.bean.MovieDTO" alias="liked"/>
+		<typeAlias type="movie.bean.EpisodeDTO" alias="episode"/>
+	</typeAliases>
+
+	<mappers>
+		<mapper resource="MovieMapper.xml" />
+	</mappers>
+</configuration>

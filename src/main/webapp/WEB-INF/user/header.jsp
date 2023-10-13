@@ -10,7 +10,7 @@
 </head>
 <body>
    <header>
-      <a href="/NetFlex/user/home"><img src="../asset/img/netflex.png"></a>
+      <a href="/NetFlex/movie/home"><img src="../asset/img/netflex.png"></a>
       <nav class="navbar navbar-expand-lg bg-dark-body-tertiary">
         <div class="container-fluid">
           <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +22,7 @@
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="">홈</a>
+                <a class="nav-link" href="/NetFlex/movie/home">홈</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/NetFlex/user/series">시리즈</a>
@@ -45,7 +45,7 @@
         
            <!-- 검색 칸 -->
          <div id="searchBox" class="search-box">
-             <input type="text" placeholder="검색어를 입력하세요">
+             <input type="text" placeholder="제목, 사람, 장르">
          </div>
           <li>
             <button class="btn btn-dark">

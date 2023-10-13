@@ -15,7 +15,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@PropertySource("classpath:spring/db.properties")
+@PropertySource("classpath:db.properties")
 @EnableTransactionManagement
 public class SpringConfiguration {
 	
@@ -41,10 +41,10 @@ public class SpringConfiguration {
 	public SqlSessionFactory sqlSessionFactory() throws Exception {
 		SqlSessionFactoryBean sqlsessionFactoryBean = new SqlSessionFactoryBean();
 		sqlsessionFactoryBean.setDataSource(dataSource());
-		sqlsessionFactoryBean.setConfigLocation(new ClassPathResource("spring/mybatis-config.xml"));
+		sqlsessionFactoryBean.setConfigLocation(new ClassPathResource("mybatis-config.xml"));
 		// sqlsessionFactoryBean.setMapperLocations(new ClassPathResource("user/dao/UserMapper.xml"));
 		// sqlsessionFactoryBean.setMapperLocations(new ClassPathResource("user/dao/UserMapper.xml"), new ClassPathResource("user/dao/UserUploadMapper.xml"));
-		sqlsessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:*/dao/*Mapper.xml"));
+		//sqlsessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:*/dao/*Mapper.xml"));
 		return sqlsessionFactoryBean.getObject();
 	}
 	

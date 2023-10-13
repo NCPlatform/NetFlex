@@ -6,7 +6,7 @@
     font-family: sans-serif;
 }
 :root{
-    --red: #E50914;
+   /*  --red: #E50914; */
     --white: #FFFFFF;
     --black: #000000;
 }
@@ -69,7 +69,7 @@ header img{
 }
 #searchBox {
     display: none;
-
+	margin-left: -100px !important;
 }
 .menu-icons .icons {
     background-size: cover;
