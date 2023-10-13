@@ -1,37 +1,93 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>비밀번호 찾기</title>
+<meta charset="UTF-8">
+<title>find password</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+    * {
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    body {
+        background-color: #000000;
+    }
+
+    div {
+        margin-top: 30;
+        margin-left: 30%;
+        width: 300px;
+        background-color: #EEEFF1;
+        border-radius: 5px;
+        text-align: center;
+        padding: 150px;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: none;
+    }
+    
+    button {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: none;
+    }
+
+    .in {
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        background-color: #1BBC9B;
+        margin-bottom: 30px;
+        color: white;
+    }
+
+    a {
+        text-decoration: none;
+        color: #9B9B9B;
+        font-size: 12px;
+    }
+    
+    p{
+    	color: #b00b3c;
+    	font-size: 30px;
+    }
+</style>
 </head>
+
 <body>
-	<div class="w3-content w3-container w3-margin-top">
-		<div class="w3-container w3-card-4">
-			<form action="find_password" method="post">
-				<div class="w3-center w3-large w3-margin-top">
-					<h3>비밀번호 찾기</h3>
-				</div>
-				<div>
-					<p>
-						<label>이메일</label>
-						<input class="w3-input" type="text" id="email" name="email" required>
-					</p>
-					<p>
-						<label>이름</label>
-						<input class="w3-input" type="text" id="name" name="name" required>
-					</p>
-					<p class="w3-center">
-						<button type="button" id=pwdFindBtn class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">find</button>
-						<button type="button" onclick="history.go(-1);" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-margin-bottom w3-round">Cancel</button>
-					</p>
-				</div>
-			</form>
-		</div>
-	</div>
+	<span>
+		<a href="../index.jsp"; >
+           	<img alt="넷플릭스홈" src="../asset/img/imagelogo.png" style="width: 199px; height: 51px;">                        
+        </a>
+	</span>
+    <div>
+    	<p data-uia="email-description">비밀번호 찾기</p>
+
+        <form action="find_email" method="post">
+            <input type="text" id="email" name="email" required placeholder="이메일" class="in">
+			<input type="text" id="name" name="name" required placeholder="이름" >
+			<br>
+			<br>
+			<br>
+			<br>
+            <button type="button" id="pwdFindBtn" class="btn btn-primary btn-lg">찾기</button>
+            <button type="button" class="btn btn-primary btn-lg" onclick="history.go(-1);">취소</button>
+    
+        </form>
+
+    </div>
+    
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>	
 <!-- 유효성검사 -->
 <script type="text/javascript">

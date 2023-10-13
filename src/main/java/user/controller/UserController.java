@@ -28,35 +28,24 @@ public class UserController {
 	@Autowired
 	private UserServiceImpl service;
 	
+	//로그인창 이동
 	@GetMapping(value="loginForm")
 	public String loginForm() {
 		return "/user/loginForm";
 	}
 	
-	
+	//로그인창내_무엇을 도와드릴까요?-이메일_비밀번호찾기 페이지 연결페이지
 	 @GetMapping(value="loginHelp") 
 	 public String loginHelp() { 
 		return "/user/loginHelp"; 
 	}
 	 
-	
+	//회원가입창 연결_비어있음
 	@GetMapping(value="writeForm")
 	public String writeForm() {
 		return "/user/writeForm";
 	}
-
-	@GetMapping(value="find_email_form")
-	public String find_email_form() {
-		return "/user/find_email_form";
-		
-	}
 	
-	@GetMapping(value="find_password_form")
-	public String findPassword() {
-		return "/user/find_password_form";
-		
-	}
-		
 	//로그인
 	@PostMapping("/login")
 	@ResponseBody
@@ -64,10 +53,25 @@ public class UserController {
 		httpSession.setAttribute("email", email);
 		
 		System.out.println("loginForm의 요청처리");		
-			return service.login(email, password);
+		return service.login(email, password);
 	}
+
+	//이메일 찾기 폼 페이지
+	@GetMapping(value="find_email_form")
+	public String find_email_form() {
+		return "/user/find_email_form";
+		
+	}
+	
+	//비밀번호 찾기 폼 페이지
+	@GetMapping(value="find_password_form")
+	public String findPassword() {
+		return "/user/find_password_form";
+		
+	}
+		
 			
-	// 아이디 찾기
+	// 이메일 찾기 결과 페이지 이동
 	@PostMapping("/find_email")
 	@ResponseBody
 	public String find_email(@RequestParam String name, @RequestParam int age){
@@ -76,7 +80,7 @@ public class UserController {
 			return service.find_email(name, age);
 	}
 	
-// 비밀번호 찾기 
+	// 비밀번호 찾기 결과 페이지 이동
 	@PostMapping("/find_password")
 	@ResponseBody
 	public String find_password(@RequestParam String email, @RequestParam String name){
@@ -85,50 +89,16 @@ public class UserController {
 			return service.find_password(email, name);
 	}
 	
+	//로그인 성공시 페이지 (미구현)
 	@GetMapping(value="loginOk")
 	public String loginOk() {
 		return "/user/loginOk";
 	}
 	
+	//로그인 실패시 페이지 (미구현)
 	@GetMapping(value="loginFail")
 	public String loginFail() {
 		return "/user/loginFail";
 	}
 
-	/*
-	 * @RequestMapping(value="/callback", method=RequestMethod.GET) public String
-	 * callBack(){ return "callback"; }
-	 */
-    
-	/*
-	 * @RequestMapping(value="naverSave", method=RequestMethod.POST)
-	 * public @ResponseBody String naverSave(@RequestParam("n_age") String
-	 * n_age, @RequestParam("n_birthday") String
-	 * n_birthday, @RequestParam("n_email") String
-	 * n_email, @RequestParam("n_gender") String n_gender, @RequestParam("n_id")
-	 * String n_id, @RequestParam("n_name") String
-	 * n_name, @RequestParam("n_nickName") String n_nickName) {
-	 * System.out.println("#############################################");
-	 * System.out.println(n_age); System.out.println(n_birthday);
-	 * System.out.println(n_email); System.out.println(n_gender);
-	 * System.out.println(n_id); System.out.println(n_name);
-	 * System.out.println(n_nickName);
-	 * System.out.println("#############################################");
-	 * 
-	 * NaverVo naver = new NaverVo(); naver.setN_age(n_age);
-	 * naver.setN_birthday(n_birthday); naver.setN_email(n_email);
-	 * naver.setN_gender(n_gender); naver.setN_id(n_id); naver.setN_name(n_name);
-	 * naver.setN_nickName(n_nickName);
-	 * 
-	 * 
-	 * System.out.println("zzzzz =" +naver.getN_age());
-	 * 
-	 * String result = "no";
-	 * 
-	 * if(naver!=null) { result = "ok"; }
-	 * 
-	 * return result;
-	 * 
-	 * }
-	 */
 }
