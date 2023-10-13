@@ -82,4 +82,29 @@ public class VideoServiceImpl implements VideoService{
 		EpisodeDTO episodeDTO = videoDAO.searchEpisode(episodeMap);
 		return episodeDTO;
 	}
+
+	@Override
+	public void videoUpdate(VideoDTO videoDTO) {
+		videoDAO.videoUpdate(videoDTO);
+	}
+
+	@Override
+	public void episodeUpdate(EpisodeDTO episodeDTO) {
+		videoDAO.episodeUpdate(episodeDTO);
+	}
+
+	@Override
+	public void videoDelete(int seqMovie) {
+		videoDAO.videoDelete(seqMovie);
+	}
+
+	@Override
+	public void episodeDelete(int seqMovie, int epNum) {
+		videoDAO.episodeDelete(seqMovie, epNum);
+	}
+
+	@Override
+	public void dropTable(int seqMovie) {
+		videoDAO.dropTable(seqMovie);
+	}
 }

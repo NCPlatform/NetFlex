@@ -30,7 +30,7 @@
   	
   	<!-- Episodes -->
   	<insert id = "addEpisodes" parameterType = "ep">
-  		insert into `${seqMovie}` (ep, eptitle, epstory, runtime, thumbnail, grade, seqMovie) values(#{ep}, #{eptitle}, #{epstory}, #{runtime}, #{thumbnail}, #{grade}, #{seqMovie})
+  		insert into `${seqMovie}` (ep, eptitle, epstory, runtime, thumbnail, grade, seqMovie, movieSrcUrl) values(#{ep}, #{eptitle}, #{epstory}, #{runtime}, #{thumbnail}, #{grade}, #{seqMovie}, #{movieSrcUrl})
   	</insert>
   	
   	<select id = "getEpisodeList" parameterType = "HashMap" resultType = "ep">
@@ -46,5 +46,26 @@
  		select * from `${seqMovie}` where ep = #{epNum}
  	</select>
  	
+ 	<!-- Update -->
+ 	<update id = "videoUpdate" parameterType = "video">
+ 		update movie set title = #{title}, story = #{story}, nation = #{nation}, director = #{director}, actor = #{actor}, year = #{year}, releasedate = #{releasedate}, genrecode1 = #{genrecode1}, genrecode2 = #{genrecode2}, genrecode3 = #{genrecode3}, thumbnailSrc = #{thumbnailSrc}, thumbnailSrcUrl = #{thumbnailSrcUrl} where seqMovie = #{seqMovie} 
+ 	</update>
+ 	
+ 	<update id = "episodeUpdate" parameterType = "ep">
+ 		update `${seqMovie}` set eptitle = #{eptitle}, epstory = #{epstory}, runtime = #{runtime}, thumbnail = #{thumbnail}, grade = #{grade}, seqMovie = #{seqMovie}, movieSrcUrl = #{movieSrcUrl} where ep = #{ep}
+ 	</update>
+ 	
+ 	<!-- delete -->
+ 	<delete id = "videoDelete" parameterType = "HashMap">
+ 		delete from movie where seqMovie = #{seqMovie}
+ 	</delete>
+ 	<delete id = "episodeDelete" parameterType = "HashMap">
+ 		delete from `${seqMovie}` where ep = #{epNum}
+ 	</delete>
+ 	
+ 	<!--  DROP TABLE  -->
+ 	<select id = "dropTable" parameterType = "HashMap">
+ 		${sql}
+ 	</select>
  	
  </mapper>

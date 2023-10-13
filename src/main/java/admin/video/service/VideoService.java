@@ -26,4 +26,14 @@ public interface VideoService {
 
 	public EpisodeDTO searchEpisode(HashMap<String, Integer> episodeMap);
 
+	public void videoUpdate(VideoDTO videoDTO);
+
+	public void episodeUpdate(EpisodeDTO episodeDTO);
+
+	public void videoDelete(int seqMovie);
+
+	public void episodeDelete(int seqMovie, int epNum);
+
+	public void dropTable(int seqMovie);
+
 }

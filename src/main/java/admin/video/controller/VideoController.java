@@ -32,7 +32,6 @@ public class VideoController {
 	@Autowired
 	private VideoDAO videoDAO;
 	
-	// model n view 방식 / or ?
 	private ModelAndView mav;
 	
 	public void setModelAndView(ModelAndView mav) {
@@ -84,11 +83,11 @@ public class VideoController {
 		
 		List<EpisodeDTO> DTOlist = videoService.getEpisodeList(seqMovie);
 		
-		/*
+		/**/
 		for(EpisodeDTO dto : DTOlist) {
 			dto.setThumbnail();
 		} // videoDTO thumbnail 부분 참조. DTO와 videomain.jsp에 영향을 주고 있음 
-		*/
+		
 		
 		// return videoService.getVideoList(pg);
 		return DTOlist;
@@ -108,7 +107,6 @@ public class VideoController {
 	@GetMapping(value = "videoUploadForm2")
 	public ModelAndView videoUploadForm2(@ModelAttribute VideoDTO videoDTO, HttpServletRequest request) {
 		
-	//	int seqMovie = videoService.importSeq();
 		System.out.println(videoDTO.toString());
 		videoService.upload(videoDTO);
 		
@@ -117,14 +115,9 @@ public class VideoController {
 		
 		int seqSearch = videoService.searchMovie(videoDTO).getSeqMovie();
 		int seq = 0;
-	//	System.out.println("seqMovie value is "+seqMovie);
 		System.out.println("searched seq value is "+seqSearch);
 		// 컨텐츠 테이블 만들기 --> seq으로 제작
-		// videoService.create(videoDTO2.getSeqMovie());
-	//	System.out.println(seqMovie);
-	//	if(seqSearch>=seqMovie) {
 			seq = seqSearch;
-	//	}
 		videoService.create(seq);
 		
 		HttpSession session = request.getSession();
@@ -139,7 +132,7 @@ public class VideoController {
 		
 		//	int seqMovie = videoService.importSeq();
 		System.out.println(epDTO.toString());
-		
+		/**/
 		ArrayList<EpisodeDTO> DTOlist = new ArrayList<>();
 		DTOlist = epDTO.makeList();
 		
@@ -156,7 +149,7 @@ public class VideoController {
 	@GetMapping(value = "videoUpdateForm") // Update를 Upload와 헷갈리지 않도록 주의 
 	public ModelAndView videoUpdateForm(@RequestParam int seqMovie, HttpServletRequest request) {
 		
-		System.out.println("seqMovie value = "+seqMovie);
+		System.out.println("videoUpdateForm required : seqMovie value = "+seqMovie);
 		HttpSession session = request.getSession();
 		
 		HashMap<String, Integer> videoMap = new HashMap<>();
@@ -175,14 +168,13 @@ public class VideoController {
 	@PostMapping(value = "videoUpdate")
 	@ResponseBody
 	public void videoUpdate(@ModelAttribute VideoDTO videoDTO) {
-		
 		System.out.println(videoDTO.toString());
-		System.out.println(videoDTO.getEpisodeDTO().toString());
+		videoService.videoUpdate(videoDTO);
 		
 	}
 	
 	@GetMapping(value = "episodeUpdateForm") // Update를 Upload와 헷갈리지 않도록 주의 
-	public ModelAndView episodeUpdateForm(@RequestParam int seqMovie, int epNum, HttpServletRequest request) {
+	public ModelAndView episodeUpdateForm(@RequestParam Integer seqMovie, Integer epNum, HttpServletRequest request) {
 		
 		System.out.println("seqMovie value = "+seqMovie);
 		System.out.println("epNum value = "+epNum);
@@ -193,8 +185,9 @@ public class VideoController {
 		episodeMap.put("epNum", epNum);
 		
 		EpisodeDTO episodeDTO = videoService.searchEpisode(episodeMap);
-		System.out.println(episodeDTO.toString());
-		
+		if(episodeDTO!=null) {
+			System.out.println(episodeDTO.toString());
+		}
 		session.setAttribute("episodeDTO", episodeDTO);
 		
 		mav.setViewName("episodeUpdateForm");
@@ -203,10 +196,40 @@ public class VideoController {
 	
 	@PostMapping(value = "episodeUpdate")
 	@ResponseBody
-	public void episodeUpdate(@ModelAttribute EpisodeDTO EpisodeDTO) {
+	public void episodeUpdate(@ModelAttribute EpisodeDTO episodeDTO) {
 		
-		System.out.println(EpisodeDTO.toString());
+		System.out.println(episodeDTO.toString());
+		episodeDTO.modifyDTO();
+		System.out.println(episodeDTO.toString());
+		videoService.episodeUpdate(episodeDTO);
 		
 	}
 	
+	@GetMapping(value = "addEpisodeForm")
+	public ModelAndView addEpisodeForm(@RequestParam int seq, HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("seq", seq);
+		mav.setViewName("addEpisodeForm");
+		return mav;
+	}
+	
+	// 삭제
+	@PostMapping(value = "videoDelete")
+	@ResponseBody
+	public void videoDelete(@RequestParam int seqMovie) {
+		
+		System.out.println("delete required."+seqMovie);
+		videoService.dropTable(seqMovie); // 참조 무결성 때문에 drop이 먼저 수행되어야 함
+		videoService.videoDelete(seqMovie);
+	}
+	@PostMapping(value = "episodeDelete")
+	@ResponseBody
+	public void episodeDelete(@RequestParam int seqMovie, @RequestParam int epNum) {
+														// 어노테이션 한 번 더 붙여야 함
+		System.out.println("episode delete required. seq = "+seqMovie);
+		System.out.println("episode delete required. epnum = "+epNum);
+		
+		videoService.episodeDelete(seqMovie, epNum);
+	}
 }

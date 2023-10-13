@@ -22,43 +22,35 @@ public class VideoDTO {
 	// thumbnail은 thumbnailSrc와 thumbnailSrcUrl 중 null이 아닌 것 or 길이가 더 긴 것
 	// 으로 지정된다. 다만 이 방법은 임시이기 때문에 바뀔 수 있다.
 	
-	private EpisodeDTO episodeDTO; // 231012
-	
-	public void setEpisodeDTO(EpisodeDTO episodeDTO) {
-		this.episodeDTO = episodeDTO;
-	}
-	
-	public EpisodeDTO getEpisodeDTO() {
-		return episodeDTO;
-	}
 	// =========================
 	
 	public void setThumbnail() {
 		
-		if(this.thumbnailSrcUrl == null) {
-			this.thumbnail = this.thumbnailSrc;
-		}else if(this.thumbnailSrc == null){
-			this.thumbnail = this.thumbnailSrcUrl;
-		}else if(this.thumbnailSrc.length()>=this.thumbnailSrcUrl.length()) {
-			this.thumbnail = this.thumbnailSrc;
-		}else if(this.thumbnailSrcUrl.length()>this.thumbnailSrc.length()) {
-			this.thumbnail = this.thumbnailSrcUrl;
+		if(thumbnailSrc == null) {
+			thumbnailSrc = "";
 		}
-	}
-	public void setThumbnail(String thumbnail) { // 썸네일 수정 시 요청됨. 
+		if(thumbnailSrcUrl == null) {
+			thumbnailSrcUrl = "";
+		}
 		
-			if(this.thumbnailSrc == null && this.thumbnailSrcUrl == null && thumbnail!= null) {
-				this.thumbnail = thumbnail;
-			} // 기존 썸네일을 그대로 사용하는 경우. 
-			else if(this.thumbnailSrcUrl == null) {
-				this.thumbnail = this.thumbnailSrc;
-			}else if(this.thumbnailSrc == null){
-				this.thumbnail = this.thumbnailSrcUrl;
-			}else if(this.thumbnailSrc.length()>=this.thumbnailSrcUrl.length()) {
-				this.thumbnail = this.thumbnailSrc;
-			}else if(this.thumbnailSrcUrl.length()>this.thumbnailSrc.length()) {
-				this.thumbnail = this.thumbnailSrcUrl;
+		if(thumbnail == null) {
+			thumbnail = "";
+		}
+		
+		if(thumbnailSrcUrl.length()==0) {
+			if(thumbnailSrc.length()==0) {	
+				if(thumbnail.length()== 0) {
+					thumbnail = "https://cheeeeese.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F0bd5faf4-018f-4750-a3f7-ea2be6bf53c0%2Fcfe9dff7-07b9-4a1c-afd2-4a2ca43915d7%2FUntitled.png?table=block&id=e831864f-8582-44ce-8425-55f95d8b5ed5&spaceId=0bd5faf4-018f-4750-a3f7-ea2be6bf53c0&width=470&userId=&cache=v2";
+			
+				}	
 			}
+		}else if(thumbnailSrcUrl.length()>thumbnailSrc.length()) {
+			thumbnail = thumbnailSrcUrl;
+		}else if(thumbnailSrc.length()>=thumbnailSrcUrl.length()) { // 기존 썸네일 값은 있든 말든
+			thumbnail = thumbnailSrc;
+			
+		}
+		
 		
 	}
 	

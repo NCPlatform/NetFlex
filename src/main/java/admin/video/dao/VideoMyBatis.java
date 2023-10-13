@@ -30,10 +30,9 @@ public class VideoMyBatis implements VideoDAO {
 		sql += "`eptitle` varchar(255) NOT NULL, `epstory` varchar(255) NOT NULL,";
 		sql += " `runtime` time DEFAULT NULL,  `thumbnail` varchar(1000) NOT NULL,";
 		sql += "`grade` varchar(255) NOT NULL DEFAULT 'all',";
-		sql += " `seqMovie` int NOT NULL,";
+		sql += " `seqMovie` int NOT NULL, `movieSrcUrl` varchar(1000),";
 		sql += " KEY `seqMovie` (`seqMovie`),";
-		sql += "CONSTRAINT `"+tableName+"_ibfk_1` FOREIGN KEY (`seqMovie`) REFERENCES `movie` (`seqMovie`),";
-		sql += "CONSTRAINT `"+tableName+"_ibfk_2` FOREIGN KEY (`seqMovie`) REFERENCES `movie` (`seqMovie`)";
+		sql += "CONSTRAINT `"+tableName+"_ibfk_1` FOREIGN KEY (`seqMovie`) REFERENCES `movie` (`seqMovie`)";
 		sql += ")";
 		// thumbnail 컬럼 varchar(255)였는데 url이 들어갈 수도 있어 컬럼 하나만 잡는 대신 varchar(1000)으로 늘렸다
 		System.out.println(sql);
@@ -90,5 +89,39 @@ public class VideoMyBatis implements VideoDAO {
 	public EpisodeDTO searchEpisode(HashMap<String, Integer> episodeMap) {
 		EpisodeDTO episodeDTO = sqlSession.selectOne("videoSQL.searchEpisode", episodeMap);
 		return episodeDTO;
+	}
+
+	@Override
+	public void videoUpdate(VideoDTO videoDTO) {
+		sqlSession.update("videoSQL.videoUpdate", videoDTO);
+	}
+
+	@Override
+	public void episodeUpdate(EpisodeDTO episodeDTO) {
+		sqlSession.update("videoSQL.episodeUpdate", episodeDTO);
+		
+	}
+
+	@Override
+	public void videoDelete(int seqMovie) {
+		HashMap<String, Integer> map = new HashMap<>();
+		map.put("seqMovie", seqMovie);
+		sqlSession.delete("videoSQL.videoDelete", map);
+	}
+
+	@Override
+	public void episodeDelete(int seqMovie, int epNum) {
+		HashMap<String, Integer> map = new HashMap<>();
+		map.put("seqMovie", seqMovie);
+		map.put("epNum", epNum);
+		sqlSession.delete("videoSQL.episodeDelete", map);
+	}
+
+	@Override
+	public void dropTable(int seqMovie) {
+		HashMap<String, String> map = new HashMap<>();
+		String sql = "drop table `"+seqMovie+"`";
+		map.put("sql", sql);
+		sqlSession.update("videoSQL.dropTable", map);
 	}
 }

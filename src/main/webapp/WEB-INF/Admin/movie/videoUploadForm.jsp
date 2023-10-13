@@ -26,7 +26,7 @@
 				<td>공개 날짜</td>
 				<td>
 					<input name = 'releasedate' id = 'releasedate1' type = 'date'>
-					<input name = 'releasedate2' id = 'releasedate2' type = 'time'>
+					<!-- <input name = 'releasedate2' id = 'releasedate2' type = 'time'> -->
 					<!-- <input name = 'releasedate' id = 'releasedate' type = 'hidden'> -->
 				</td>
 			</tr>

@@ -55,6 +55,13 @@
 				</td>
 				<td><button type="button" class="addBtn">+</button></td>
 			</tr>
+			
+			<tr>
+				<td>영상 링크</td>
+				<td colspan = '4'>
+					<input type = "text" name = "movieSrcUrl">
+				</td>
+			</tr>
 		</tbody></table>
 		<div id="addTables"></div>
 		
@@ -94,7 +101,8 @@
 				tables += "<td></td></tr><tr><td>줄거리</td><td colspan = '3'>"
 				tables += "<textarea rows = '10' cols = '50' id = 'epStory"+tNum+"' placeholder = '내용 중에 , 들어가지 않게 주의해 주세요!' name = 'epstory'></textarea>"
 				tables += "<br><div id = 'byteCheck"+tNum+"'></div></td>"
-				tables += "<td><button type = 'button' class = 'addBtn'>+</button></td></tr></table>"
+				tables += "<td><button type = 'button' class = 'addBtn'>+</button></td></tr>"
+				tables += "<tr><td>영상 링크</td><td colspan = '4'><input type = 'text' name = 'movieSrcUrl'></tr></table>"
 			
 			var script = "<script>"
 			script += "$('#epStory"+tNum+"').keyup(function(e){"

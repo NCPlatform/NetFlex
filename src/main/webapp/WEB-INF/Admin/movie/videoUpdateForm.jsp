@@ -1,28 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<jsp:include page="/WEB-INF/Admin/headDefault.jsp" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Update Contents</title>
 </head>
+
+<jsp:include page="/WEB-INF/Admin/header.jsp" />
 <body>
 	<form>
 		<table id = "Video">
 			<tr>
 				<td><label><input type = 'radio' name = 'sortcode' value = '1' id = 's1'> 영화</label></td>
 				<td><label><input type = 'radio' name = 'sortcode' value = '2' id = 's2'> 시리즈</label></td>
+				
 			</tr>
 			<tr>
 				<td>제목</td>
-				<td><input name = 'title' type = "text" value = '${videoDTO.title }'></td>
+				<td><input name = 'title' type = "text" value = '${videoDTO.title }'>
+					<input type = 'hidden' type = 'text' name = 'seqMovie' value = '${videoDTO.seqMovie }'>
+				</td>
 			</tr>
 			
 			<tr>
 				<td>공개 날짜</td>
 				<td>
 					<input name = 'releasedate' id = 'releasedate1' type = 'date' value = '${videoDTO.releasedate }'>
-					<input name = 'releasedate2' id = 'releasedate2' type = 'time' value = '00:00'>
+					<!-- <input name = 'releasedate2' id = 'releasedate2' type = 'time' value = '00:00'> -->
 					<!-- <input name = 'releasedate' id = 'releasedate' type = 'hidden'> -->
 				</td>
 			</tr>
@@ -130,11 +137,34 @@
 				
 		<hr class = 'hrs'><hr class = 'hrs'>
 				
-		<button id = 'go' type = 'button'>Let's Update!</button>
+		<button id = 'go' type = 'button'>Let's Update!</button>&nbsp;&nbsp;
+		<button id = 'delete' type = 'button'>이 컨텐츠 삭제하기</button>
 	</form>
 </body>
 <script type = "text/javascript" src = "http://code.jquery.com/jquery-3.7.0.min.js"></script>
 	<script>
+		$('#delete').click(function(){
+			
+			if(confirm('정말 이 컨텐츠를 삭제할까요? 등록된 회차가 모두 사라집니다.')){
+				 $.ajax({
+						type: 'post',
+						url: "/NetFlex/admin/video/videoDelete?seqMovie="+'${videoDTO.seqMovie}',
+						
+						success : function(){
+							alert("삭제가 완료되었습니다.");
+							location.href = "/NetFlex/admin/video"						
+						},error: function(e){
+							
+							console.log(e);
+						}
+						
+						
+					});
+			}else{
+				
+			}
+		})
+	
 		$(function(){
 			var dtogcode1 = parseInt('${videoDTO.genrecode1}')%100;
 			var dtogcode2 = '${videoDTO.genrecode2}';
@@ -250,15 +280,30 @@
 			 //  var releasedate = document.getElementById('releasedate1')
 			 //  releasedate += document.getElementById('releasedate2')
 			 //  document.getElementById('releeasedate').value = releasedate
-			 
-			 
+		
+			  /*
 			 return false;
-			 /*
+			*/	
 			   $.ajax({
 					type: 'post',
-					url: "/NetFlex/admin/video/videoUpload",
-					data: {'subject' : $('#subject').val()
-					, 'content' : $('#content').val()
+					url: "/NetFlex/admin/video/videoUpdate",
+					data: {
+						'seqMovie' : ${videoDTO.seqMovie},
+						'title' : $('[name=title]').val(),
+						'releasedate' : $('[name=releasedate]').val(),
+						'genrecode1': $('#genrecode1').val(),
+						'genrecode2':$('#genrecode2').val(),
+						'genrecode3':$('#genrecode3').val(),
+						'nation':$('option:selected').val(),
+						'director':$('[name=director]').val(),
+						'year':$('[name=year]').val(),
+						'story':$('[name=story]').val(),
+						'actor':$('[name=actor]').val(),
+						'thumbnailSrc':$('[name=thumbnailSrc]').val(),
+						'thumbnailSrcUrl':$('[name=thumbnailSrcUrl]').val(),
+						'thumbnail':$('[name=thumbnail]').val()
+						
+							
 					},
 					success : function(){
 						alert("작성하신 수정사항을 저장하였습니다.");
@@ -271,7 +316,7 @@
 					
 				});
 			   
-			   */
+			   
 			   
 			}
 			
@@ -287,4 +332,5 @@
 			}
 		});
 	</script>
+		<jsp:include page="/WEB-INF/Admin/footer.jsp" /> 
 	</html>

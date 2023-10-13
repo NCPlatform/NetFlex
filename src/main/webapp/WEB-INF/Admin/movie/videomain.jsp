@@ -127,7 +127,7 @@
 		 			var addcode;
 		 			$.each(data, function(index, items){
 		 				addcode = `<tr><td>`+items.seqMovie+`</td>`
-		 				addcode += `<td><img src = \'`+items.thumbnail+`\'></td>`
+		 				addcode += `<td><img src = \'`+items.thumbnail+`\' class = \'titleImages\'><div id = \'tI`+items.seqMovie+`\' class = \'tIclass\'></div></td>`
 		 				addcode += `<td><details class = \'ds\' id = \'d`+items.seqMovie+`\'><summary class = \'title\'>`
 		 				addcode += items.title+`</summary><div id = \'c`+items.seqMovie+`\' class = \'videoTitles\'></div>`
 		 				addcode += `</details></td>`
@@ -137,23 +137,22 @@
 		 					// details id = d+seqMovie
 		 					// div id = c+seqMovie
 		 					// details class = ds
-		 					
-				//	$('.title').click(function(){
-					// 얘까지 success 함수에 들어가 있어야 한다 @@
-					// 아이디 선택자는(클릭한 개체) $(this).text()
-					// 이름 선택자는(왼쪽 td) $(this).
-						 // alert($(this).parent().prev().text());
-					//	 location.href = '/chapter06_Web/user/updateForm?id='+$(this).text()+'&pg='+$('#pg').val();
-					
-						/*
-						
-					 			*/
-				//		alert("기다려줘유");
-				//	});
-					 	
-		 			
-		 			 
+		 				
 		 			})// each
+		 			
+		 			$('.titleImages').hover(function(){
+		 				$('.tIclass').html("")
+		 				var thisSeq = $(this).parent().prev().text();
+		 				var tIdiv = '#tI'+thisSeq
+		 				var tIurl = '/NetFlex/admin/video/addEpisodeForm?seq='+thisSeq
+		 				var tIbtn = '<button type = "button" onclick = "location.href = \''+tIurl+'\'">추가</button>'
+
+		 				var eploca = "/NetFlex/admin/video/videoUpdateForm?seqMovie="+thisSeq
+		 				tIbtn += '<button type = "button" onclick= \"location.href=\''+eploca+'\'\" >수정</button>'
+		 				
+		 				$(tIdiv).html(tIbtn)
+		 				
+		 			})
 		 			
 		 			$('.title').click(function(){
 		 				var seqMovie = $(this).parent().parent().prev().prev().text()
@@ -185,7 +184,7 @@
 					 				minitable += `<td>`+episodes.ep+`</td>`
 					 				minitable += `<td><img src = \'`+episodes.thumbnail+`\'></td>`
 					 			// 231012 수정
-					 				minitable += `<td class = 'eptitles'>`+episodes.eptitle+`<br><div class = 'modifies' id = \'`+"ep"+seqMovie+"_"+episodes.ep+`\'></div></td>`
+					 				minitable += `<td class = \'eptitles\'>`+episodes.eptitle+`<br><div class = \'modifies\' id = \'`+"ep"+seqMovie+"_"+episodes.ep+`\'></div></td>`
 					 			// ===============
 					 				minitable += `<td>`+episodes.grade+`</td>`
 					 				minitable += `</tr>`
@@ -198,16 +197,14 @@
 					 			
 					 			$(divid).html(minitable)
 					 			
-					 			$('.eptitles').click(function(){
+					 			$('.eptitles').hover(function(){
 					 				
 					 				$('.modifies').html("");
 					 				
 					 				var epNum = $(this).prev().prev().text()
 					 				var seqMovie = $(this).closest('details').parent().prev().prev().text();
-					 				var eploca = "/NetFlex/admin/video/videoUpdateForm?seqMovie="+seqMovie
 					 				var epcont = "/NetFlex/admin/video/episodeUpdateForm?seqMovie="+seqMovie+"&epNum="+epNum
-					 				var addbtns = '<button type = "button" onclick= \"location.href=\''+eploca+'\'\" >컨텐츠 수정하기</button>'
-					 				addbtns += '<button type = "button" onclick= \"location.href=\''+epcont+'\'\">에피소드 수정하기</button>'
+					 				var addbtns = '<button type = "button" onclick= \"location.href=\''+epcont+'\'\">에피소드 수정</button>'
 					 				
 					 				var modifytag = '#ep'+seqMovie+"_"+epNum
 					 				$(modifytag).html(addbtns);
@@ -227,6 +224,7 @@
 				 }); // $(click)
 		 				
 		 		//		})
+		 			
 		 			
 		 		}, // success
 		 		error: function(e){
