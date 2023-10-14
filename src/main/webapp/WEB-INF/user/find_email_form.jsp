@@ -14,6 +14,7 @@
 
     body {
         background-color: #000000;
+        background-image: url("../asset/img/findBack.jpg");
     }
 
     div {
@@ -62,6 +63,22 @@
     	color: #b00b3c;
     	font-size: 30px;
     }
+    
+    #nameCheck{
+    	color: blue;   	
+    }
+    
+    #ageCheck{
+    	color: blue;   	
+    }
+    
+    button:hover {
+            border-color: red;
+            color: white;
+            box-shadow: 0 0.5em 0.5em -0.4em red;
+            color: red;
+        }
+    
 </style>
 </head>
 
@@ -73,7 +90,8 @@
 	</span>
     <div>
     	<p data-uia="email-description">이메일 찾기</p>
-
+    	<span id="nameCheck"></span>
+    	<span id="ageCheck"></span>
         <form action="find_email" method="post">
             <input type="text" id="name" name="name" required placeholder="이름" class="in">
 			<input type="text" id="age" name="age" required placeholder="나이" >
@@ -81,11 +99,9 @@
 			<br>
 			<br>
 			<br>
-            <button type="button" id="emailFindBtn" class="btn btn-primary btn-lg">찾기</button>
-            <button type="button" class="btn btn-primary btn-lg" onclick="history.go(-1);">취소</button>
-    
-        </form>
-
+            <button type="button" id="emailFindBtn" class="btn btn-primary btn-lg" >찾기</button>
+            <button type="button" class="btn btn-primary btn-lg" onclick="history.go(-1);">취소</button>  
+        </form>		
     </div>
     
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>	
@@ -95,14 +111,16 @@ $(function(){
 	$('#emailFindBtn').click(function(){
 		$('#name').empty();
 		$('#age').empty();
+		$('#nameCheck').empty();
+		$('#ageCheck').empty();
 		
 		if($('#name').val() == ''){
-			$('#name').text('정확한 이름을 입력하세요.');
-			$('name').focus();
+			$('#nameCheck').text('이름을 올바르게 입력하세요!');
+			$('#name').focus();
 			
 		}else if($('#age').val() == ''){
-			$('#age').text('나이를 숫자 형태로 입력하세요');
-			$('age').focus();
+			$('#ageCheck').text('나이를 숫자형태로 입력하세요!');
+			$('#age').focus();
 			
 		} else{
 			$.ajax({

@@ -14,6 +14,7 @@
 
     body {
         background-color: #000000;
+        background-image: url("../asset/img/findBack.jpg");
     }
 
     div {
@@ -62,6 +63,22 @@
     	color: #b00b3c;
     	font-size: 30px;
     }
+    
+    #emailCheck{
+    	color: blue;   	
+    }
+    
+    #nameCheck{
+    	color: blue;   	
+    }
+    
+    button:hover {
+        border-color: red;
+        color: white;
+        box-shadow: 0 0.5em 0.5em -0.4em red;
+        color: red;
+    }
+    
 </style>
 </head>
 
@@ -73,7 +90,9 @@
 	</span>
     <div>
     	<p data-uia="email-description">비밀번호 찾기</p>
-
+		<span id="emailCheck"></span>
+    	<span id="nameCheck"></span>
+    	
         <form action="find_email" method="post">
             <input type="text" id="email" name="email" required placeholder="이메일" class="in">
 			<input type="text" id="name" name="name" required placeholder="이름" >
@@ -95,13 +114,15 @@ $(function(){
 	$('#pwdFindBtn').click(function(){
 		$('#email').empty();
 		$('#name').empty();
+		$('#emailCheck').empty();
+		$('#nameCheck').empty();
 		
 		if($('#email').val() == ''){
-			$('#email').text('정확한 이메일주소를 입력하세요.');
+			$('#emailCheck').text('정확한 이메일주소를 입력하세요!');
 			$('email').focus();
 			
 		}else if($('#name').val() == ''){
-			$('#name').text('정확한 이름을 입력하세요.');
+			$('#nameCheck').text('정확한 이름을 입력하세요!');
 			$('name').focus();
 			
 		} else{
