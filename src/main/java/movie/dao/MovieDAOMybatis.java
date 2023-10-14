@@ -1,6 +1,7 @@
 package movie.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import movie.bean.EpisodeDTO;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -26,5 +27,10 @@ public class MovieDAOMybatis implements MovieDAO {
     @Override
     public List<EpisodeDTO> findEpisode(int seqMovie) {
         return sqlSession.selectList("movieSQL.findEpisode",seqMovie);
+    }
+
+    @Override
+    public List<MovieDTO> findLikedMovie(String email, int seqNick) {
+        return sqlSession.selectList("movieSQL.findLikedMovie", Map.of("email", email, "seqNick", seqNick));
     }
 }

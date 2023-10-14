@@ -22,9 +22,11 @@ public class MovieServiceImpl implements MovieService {
 
 	@Override
 	public List<EpisodeDTO> getEpisode(int seqMovie) {
-		List<EpisodeDTO> episode = movieDAO.findEpisode(seqMovie);
-		System.out.println("episode = " + episode);
-		return episode;
+		return movieDAO.findEpisode(seqMovie);
+	}
+	@Override
+	public List<MovieDTO> findLikedMovie(String email, int seqNick) {
+		return movieDAO.findLikedMovie(email,seqNick);
 	}
 
 }

@@ -1,9 +1,7 @@
 package liked.service;
 
-import java.util.List;
-
-import user.bean.LikedDTO;
-
 public interface LikedService {
-	List<LikedDTO> liked();
+	void liked(String userEmail, int seqMovie, int seqNick);
+
+	boolean isLiked(String userEmail, int seqMovie, int seqNick);
 }

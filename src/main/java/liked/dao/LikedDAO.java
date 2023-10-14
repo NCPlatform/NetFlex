@@ -1,9 +1,12 @@
 package liked.dao;
 
-import java.util.List;
-
-import user.bean.LikedDTO;
-
 public interface LikedDAO {
-	public List<LikedDTO> liked();
+
+	int countLiked(String userEmail, int seqMovie, int seqNick);
+
+	void liked(String userEmail, int seqMovie, int seqNick);
+
+	void unliked(String userEmail, int seqMovie, int seqNick);
+
+	void updateLikedCount(int seqMovie, int count);
 }

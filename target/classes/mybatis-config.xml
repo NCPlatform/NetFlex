@@ -11,5 +11,6 @@
 
 	<mappers>
 		<mapper resource="MovieMapper.xml" />
+		<mapper resource="LikedMapper.xml" />
 	</mappers>
 </configuration>

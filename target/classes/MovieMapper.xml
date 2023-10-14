@@ -12,4 +12,7 @@
 	<select id="findEpisode" parameterType="int" resultType="episode">
  		select * from `${seqMovie}`
  	</select>
+	<select id="findLikedMovie" resultType="movie">
+		select * from movie where seqMovie in (select seqMovie from liked where email=#{email} and seqNick=#{seqNick})
+	</select>
  </mapper>

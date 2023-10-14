@@ -10,4 +10,5 @@ public interface MovieDAO {
 	List<MovieDTO> findAll();
 
 	List<EpisodeDTO> findEpisode(int seqMovie);
+	List<MovieDTO> findLikedMovie(String email, int seqNick);
 }

@@ -10,4 +10,6 @@ public interface MovieService {
 	List<MovieDTO> findAll();
 
 	List<EpisodeDTO> getEpisode(int seqMovie);
+
+	List<MovieDTO> findLikedMovie(String email, int seqNick);
 }

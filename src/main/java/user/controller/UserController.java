@@ -1,17 +1,21 @@
 package user.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import movie.service.MovieService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import user.service.UserService;
 
 @Controller
 @RequestMapping(value = "user")
+@RequiredArgsConstructor
 public class UserController {
-	@Autowired
-	private UserService userService;
+
+	private final UserService userService;
+
+	private final MovieService movieService;
 	
 	@GetMapping(value = "search")
 	public String serach() {
@@ -49,7 +53,15 @@ public class UserController {
 		return "/user/newContents";
 	}
 	@GetMapping(value = "dibsList") 
-	public String dibsList() { 
+	public String dibsList(Model model) {
+		//세션 처리부분
+		//String email = (String) session.getAttribute("email");
+		//int seqNick = (int) session.getAttribute("nickname");
+		//테스트용 아이디
+		String userEmail="admin@gmail.com";
+		//테스트용 닉네임(프로필)
+		int seqNick =29;
+		model.addAttribute("likeMovie",movieService.findLikedMovie(userEmail,seqNick));
 		return "/user/dibsList"; 
 	}
 	@GetMapping(value = "watch") 

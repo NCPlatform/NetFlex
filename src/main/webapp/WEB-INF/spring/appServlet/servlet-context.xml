@@ -17,7 +17,8 @@
 	</bean>
 	<context:component-scan base-package="movie" />
 	<context:component-scan base-package="user.controller" />
-	
+	<context:component-scan base-package="liked" />
+
 	<mvc:annotation-driven />
 	<mvc:resources location="/WEB-INF/js/" mapping="/js/**" />
 	<mvc:resources location="/WEB-INF/css/" mapping="/css/**" />
