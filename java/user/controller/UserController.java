@@ -1,9 +1,11 @@
 package user.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,9 +41,19 @@ public class UserController {
 	public String series() {
 		return "/user/series";
 	}
+	@PostMapping(value = "getSeries")
+	@ResponseBody
+	public List<MovieDTO> getSeries(){
+		return userService.getSerise();
+	}
 	@GetMapping(value = "movie")
 	public String movie() {
 		return "/user/movie";
+	}
+	@PostMapping(value = "getMovie")
+	@ResponseBody
+	public List<MovieDTO> getMovie(){
+		return userService.getMovie();
 	}
 	@GetMapping(value = "newContents")
 	public String newContents() {

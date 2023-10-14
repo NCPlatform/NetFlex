@@ -21,4 +21,8 @@ public class MovieDAOMybatis implements MovieDAO {
     public List<MovieDTO> findAll() {
         return sqlSession.selectList("movieSQL.movie");
     }
+    @Override
+    public Object serise() {
+    	return sqlSession.selectList("movieSQL.serise");
+    }
 }

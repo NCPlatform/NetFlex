@@ -6,5 +6,7 @@ import java.util.List;
 
 public interface MovieService {
 
-	List<MovieDTO> findAll();
+	public List<MovieDTO> findAll();
+
+	public Object serise();
 }

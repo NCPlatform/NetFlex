@@ -6,4 +6,7 @@
 	<typeAliases>
 		<typeAlias type="user.bean.MovieDTO" alias="movie"/>
 	</typeAliases>
+	<mappers>
+		<mapper resource="MovieMapper.xml" />
+	</mappers>
 </configuration>

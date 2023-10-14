@@ -18,5 +18,9 @@ public class MovieServiceImpl implements MovieService {
 	public List<MovieDTO> findAll() {
 		return movieDAO.findAll();
 	}
-
+	@Override
+	public Object serise() {
+		// TODO Auto-generated method stub
+		return movieDAO.serise();
+	}
 }

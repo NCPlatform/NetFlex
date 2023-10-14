@@ -6,4 +6,15 @@
 	<select id="findAll" resultType="movie">
  		select * from movie
  	</select>
+ 	<select id="getSerise" resultType="user.bean.MovieDTO">
+       SELECT * FROM movie WHERE seqmovie in(SELECT table_name FROM Information_schema.tables
+       WHERE table_schema = 'netflexdb' AND table_name in (select seqmovie from movie)
+       and table_rows > 1)
+    </select>
+    <select id="getMovie" resultType="user.bean.MovieDTO">
+    	select * from movie where seqMovie in(select table_name FROM Information_schema.tables
+		WHERE table_schema = 'netflexdb' AND table_name in (select seqmovie from movie)
+		and table_rows = 1)
+    </select>
  </mapper>
+ 
