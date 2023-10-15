@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="movieSQL">
+	<select id="findAll" resultType="movie">
+ 		select * from movie
+ 	</select>
+ 	<select id="findAllLiked" resultType="liked">
+ 		select * from liked
+ 	</select>
+	<select id="findEpisode" parameterType="int" resultType="episode">
+ 		select * from `${seqMovie}`
+ 	</select>
+ 	<select id="getNickname" parameterType="String" resultType="nickname">
+ 		select * from nickname where email = #{email}
+ 	</select>
+	<select id="findLikedMovie" parameterType="map" resultType="movie">
+		select * from movie where seqMovie in (select seqMovie from liked where email=#{email} and seqNick=#{seqNick})
+	</select>
+	<select id="search" parameterType="String" resultType="movie">
+		select * from movie where title like "%${value}%" or actor like "%${value}%"
+	</select>
+	<select id="getSerise" resultType="movie">
+		select * from movie where seqMovie in(select table_name 
+		FROM Information_schema.tables
+		WHERE table_schema = 'netflexdb'
+		AND table_name in (select seqmovie from movie)
+		and table_rows > 1)
+	</select>
+	<select id="getMovie" resultType="movie">
+		select * from movie where seqMovie in(select table_name 
+		FROM Information_schema.tables
+		WHERE table_schema = 'netflexdb'
+		AND table_name in (select seqmovie from movie)
+		and table_rows = 1)
+	</select>
+ </mapper>

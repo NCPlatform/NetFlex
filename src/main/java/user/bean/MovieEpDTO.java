@@ -16,5 +16,6 @@ public class MovieEpDTO {
 	Date runtime;
 	String thumbnail;
 	String Grade;
+	String url;
 	int seqMovie;
 }

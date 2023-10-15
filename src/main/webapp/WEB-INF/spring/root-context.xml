@@ -14,6 +14,9 @@
 	<context:component-scan base-package="account.service" />
 	<context:component-scan base-package="account.dao" />
 	
+	<context:component-scan base-package="user.service" />
+	<context:component-scan base-package="user.dao" />
+	
 	<context:component-scan base-package="admin.video.bean"/>
 	<context:component-scan base-package="user.bean" />
 		

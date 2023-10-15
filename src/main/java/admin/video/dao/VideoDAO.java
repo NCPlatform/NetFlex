@@ -1,5 +1,6 @@
 package admin.video.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -24,5 +25,21 @@ public interface VideoDAO {
 
 	public List<EpisodeDTO> getEpisodeList(int seqMovie);
 
-	public int checkTable(String seqMovie);
+	public VideoDTO searchVideo(HashMap<String, Integer> videoMap);
+
+	public EpisodeDTO searchEpisode(HashMap<String, Integer> episodeMap);
+
+	public void videoUpdate(VideoDTO videoDTO);
+
+	public void episodeUpdate(EpisodeDTO episodeDTO);
+
+	public void videoDelete(int seqMovie);
+
+	public void episodeDelete(int seqMovie, int epNum);
+
+	public void dropTable(int seqMovie);
+
+	public List<VideoDTO> getVideoListbyName(Map<String, Object> map);
+
+	public List<VideoDTO> search(String value);
 }

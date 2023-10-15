@@ -51,4 +51,5 @@
 	</script>
 </body>
 <jsp:include page="/WEB-INF/Admin/footer.jsp" /> 
+<jsp:include page="/WEB-INF/Admin/footDefault.jsp" /> 
 </html>

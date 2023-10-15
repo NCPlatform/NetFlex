@@ -25,11 +25,12 @@ public class VideoMyBatis implements VideoDAO {
 
 	@Override
 	public void create(int tableName) {
-	 	String sql = "CREATE TABLE `"+tableName+"`(`ep` int NOT NULL auto_increment primary key,";
+	 	String sql = "CREATE TABLE `"+tableName+"`(`ep` int NOT NULL,";
+	 
 		sql += "`eptitle` varchar(255) NOT NULL, `epstory` varchar(255) NOT NULL,";
 		sql += " `runtime` time DEFAULT NULL,  `thumbnail` varchar(1000) NOT NULL,";
 		sql += "`grade` varchar(255) NOT NULL DEFAULT 'all',";
-		sql += " `seqMovie` int NOT NULL,";
+		sql += " `seqMovie` int NOT NULL, `movieSrcUrl` varchar(1000),";
 		sql += " KEY `seqMovie` (`seqMovie`),";
 		sql += "CONSTRAINT `"+tableName+"_ibfk_1` FOREIGN KEY (`seqMovie`) REFERENCES `movie` (`seqMovie`)";
 		sql += ")";
@@ -70,6 +71,11 @@ public class VideoMyBatis implements VideoDAO {
 	public List<VideoDTO> getVideoList(Map<String, Integer> map) {
 		return sqlSession.selectList("videoSQL.getVideoList", map);
 	}
+	
+	@Override
+	public List<VideoDTO> getVideoListbyName(Map<String, Object> map) {
+		return sqlSession.selectList("videoSQL.getVideoListbyName", map);
+	}
 
 	@Override
 	public List<EpisodeDTO> getEpisodeList(int seqMovie) {
@@ -79,7 +85,53 @@ public class VideoMyBatis implements VideoDAO {
 	}
 
 	@Override
-	public int checkTable(String seqMovie) {
-		return sqlSession.selectOne("videoSQL.checkTable", seqMovie);
+	public VideoDTO searchVideo(HashMap<String, Integer> videoMap) {
+		VideoDTO resultDTO = sqlSession.selectOne("videoSQL.searchVideo", videoMap);
+		return resultDTO;
+	}
+
+	@Override
+	public EpisodeDTO searchEpisode(HashMap<String, Integer> episodeMap) {
+		EpisodeDTO episodeDTO = sqlSession.selectOne("videoSQL.searchEpisode", episodeMap);
+		return episodeDTO;
+	}
+
+	@Override
+	public void videoUpdate(VideoDTO videoDTO) {
+		sqlSession.update("videoSQL.videoUpdate", videoDTO);
+	}
+
+	@Override
+	public void episodeUpdate(EpisodeDTO episodeDTO) {
+		sqlSession.update("videoSQL.episodeUpdate", episodeDTO);
+		
+	}
+
+	@Override
+	public void videoDelete(int seqMovie) {
+		HashMap<String, Integer> map = new HashMap<>();
+		map.put("seqMovie", seqMovie);
+		sqlSession.delete("videoSQL.videoDelete", map);
+	}
+
+	@Override
+	public void episodeDelete(int seqMovie, int epNum) {
+		HashMap<String, Integer> map = new HashMap<>();
+		map.put("seqMovie", seqMovie);
+		map.put("epNum", epNum);
+		sqlSession.delete("videoSQL.episodeDelete", map);
+	}
+
+	@Override
+	public void dropTable(int seqMovie) {
+		HashMap<String, String> map = new HashMap<>();
+		String sql = "drop table `"+seqMovie+"`";
+		map.put("sql", sql);
+		sqlSession.update("videoSQL.dropTable", map);
+	}
+
+	@Override
+	public List<VideoDTO> search(String value) {
+		return sqlSession.selectList("videoSQL.search", value);
 	}
 }

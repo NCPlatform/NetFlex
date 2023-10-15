@@ -18,14 +18,16 @@
 	
 	<bean id = "modelAndView" class = "org.springframework.web.servlet.ModelAndView"></bean>
 	
-	<bean id = "userController" class = "admin.video.controller.VideoController">
+	<bean id = "videoController" class = "admin.video.controller.VideoController">
 		<property name = "modelAndView">
 			<ref bean = "modelAndView"></ref>
 		</property>	
 	</bean>
+	
+	<context:component-scan base-package="user.controller" />
 	<context:component-scan base-package="account.controller" />
 	<context:component-scan base-package="admin.controller" />
-
+	
 	<mvc:annotation-driven />
 	<mvc:resources location="/WEB-INF/Asset/" mapping="/asset/**" />
 

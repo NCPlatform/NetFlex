@@ -1,0 +1,115 @@
+@charset "UTF-8";
+div{
+	display: block;
+}
+h1{
+	font-weight: normal;
+	font-size: 32px;
+}
+li{
+	list-style-type: none;
+	font-size: 18px;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-weight: normal;
+}
+td>img{
+	width: 120px;
+	height: 120px;
+}
+p{
+	color: #737373;
+    display: block;
+    font-size: 13px;
+    padding: 0 16px;
+}
+table{
+	border-spacing: 30px;
+	border-collapse: separate;
+	
+}
+tbody{
+	display: flex;
+    flex-direction: column;
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+    border-bottom-style: solid; 
+}
+td{
+	font-weight: bold;
+	border-spacing: 70px;
+}
+.adStandard .basic .standard .premium{
+	
+}
+.container{
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+    overflow: hidden;
+    width: 100%;
+    display: block;
+    transform: none;
+    opacity: 1;
+    transition-duration: 250ms;
+}
+.checkmark-group--icon{
+	color: red;
+}
+.checkMembership{
+	text-align: center;
+	margin: auto;
+	border: none;
+	background: rgba(128, 128, 128, 0.3);
+    color: rgb(0, 0, 0);
+	border-radius: 0.25rem;
+	font-size: 0.875rem;	
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.continueBtn{
+	background-color: red;
+	color: white;
+	width: 350px;
+	height: 60px;
+	box-shadow: 0 1px 1px rgba(0,0,0,.25);
+    box-sizing: border-box;
+	border: none;
+	border-radius: 5px;
+    margin: 0 auto;
+    font-size: 25px;
+}
+.planGrid__booleanlabel{
+	display: none;
+}
+.planGrid__booleanlabel svg {
+  visibility: visible;
+}
+.termsOfUse {
+	text-decoration: none;
+	color: blue;
+}
+
+.termsOfUse:hover {
+	text-decoration: underline;
+	cursor: pointer;
+	color: blue;
+}
+.writeForm3{
+	box-sizing: border-box;
+    margin: 0 auto 15px;
+    max-width: 1050px;
+}
+.writeForm3-center2 {
+  margin: auto;
+  max-width: 1050px;
+  border-collapse: collapse; /* 셀 경계선을 합치도록 설정 */
+}
+
+.writeForm3-center2 td {
+  border-bottom: 2px solid #ccc; /* 회색 경계선 설정 */
+  padding: 10px; /* 셀 안에 여백 추가 (선택적) */
+}
+
+.writeForm3-center2 tr:last-child td {
+  border-bottom: none; /* 마지막 행의 아래쪽 경계선을 제거 */
+}
