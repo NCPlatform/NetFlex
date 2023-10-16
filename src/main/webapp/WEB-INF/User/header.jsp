@@ -14,19 +14,19 @@
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="/NetFlex/movie/home">홈</a>
+                <a class="nav-link" href="/NetFlex/movie/home" id="home" >홈</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/NetFlex/movie/series">시리즈</a>
+                <a class="nav-link" href="/NetFlex/movie/series" id="series" >시리즈</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/NetFlex/movie/movie">영화</a>
+                <a class="nav-link" href="/NetFlex/movie/movie" id="movie" >영화</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" onclick="alert('준비중입니다');">NEW! 요즘 대세 콘텐츠</a>
+                <a class="nav-link" onclick="alert('준비중입니다');" id="newContents" >NEW! 요즘 대세 콘텐츠</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/NetFlex/movie/dibsList">내가 찜한 리스트</a>
+                <a class="nav-link" href="/NetFlex/movie/dibsList" id="dibsList" >내가 찜한 리스트</a>
               </li>
             </ul>
           </div>
@@ -44,11 +44,11 @@
               <img src="/NetFlex/asset/image/search.png" class="icons" id="searchIcon">
             </button>
           </li>
-          <li>
+          <!-- <li>
             <button class="btn btn-dark">
               <img src="/NetFlex/asset/image/species.png" class="icons">
             </button>
-          </li>
+          </li> -->
           <li>
             <button class="btn btn-dark" id="logout">
               로그아웃

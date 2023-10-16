@@ -167,6 +167,7 @@
     }
 </script>
 <script type="text/javascript" src="/NetFlex/asset/js/user/iconsearch.js"></script>
+<script type="text/javascript" src="/NetFlex/asset/js/user/header.js"></script>
 
 </body>
 </html>

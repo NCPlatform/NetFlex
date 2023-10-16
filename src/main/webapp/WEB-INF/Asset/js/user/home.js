@@ -69,6 +69,7 @@ $(document).on("click",".details-button2", function(){
             },
             error: function (xhr, status, error) {
                 // 에러 처리
+                $('#contents').html("");
                 console.log('에러 발생: ' + error);
             }
         });

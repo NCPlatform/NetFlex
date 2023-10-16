@@ -21,14 +21,15 @@ a {
 }
 
 .container-footer a{
+	border: none;
     height: 30px;
     width: 110px;
     padding: 5px;
     font-size: 12px;
     background-color: rgba(0, 0, 0, 1);
-    border: 1px solid #757575;
     color: #757575;
     border-radius: 2px;
+    text-decoration: none;
 }
 
 .container-footer a:hover{

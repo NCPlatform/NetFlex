@@ -24,7 +24,7 @@
 </div>
 <div class="modal" id="movieModal">
     <div class="modal-content">
-        <button class="close-button">닫기</button>
+        <button class="close-button btn btn-dark">닫기</button>
         <hr>
         <h3 id="modalTitle"></h3>
         <div id="youtubeVideo"></div>
@@ -33,9 +33,7 @@
         <p><strong>감독:  </strong> <span id="director"></span></p>
         <p><strong>스토리: </strong> <span id="story"></span></p>
         <hr>
-		<button class="details-buttons" 
-		>에피소드 열기	
-		</button>        
+		<button class="details-buttons btn btn-dark" >에피소드 열기	</button>        
         <div id="contents"></div>
     </div>
 </div>
@@ -60,5 +58,6 @@
 <script type="text/javascript" src="/NetFlex/asset/js/user/movie.js"></script>
 <script type="text/javascript" src="/NetFlex/asset/js/user/episode.js"></script>
 <script type="text/javascript" src="/NetFlex/asset/js/user/iconsearch.js"></script>
+<script type="text/javascript" src="/NetFlex/asset/js/user/header.js"></script>
 </body>
 </html>
