@@ -1,0 +1,21 @@
+@charset "UTF-8";
+header {
+	display:flex;
+	justify-content: space-between;
+	height: 90px;
+	position: relative;
+	align-items: center;
+}
+.writeForm0_headerLogo{
+	width: 250px;
+	height: 150px;
+}
+.writeForm0_headerLoginBtn{
+	width: 100px;
+	height: 30px;
+	color: white;
+	background-color: red;
+	margin-left: auto;
+	margin-right: 10px;
+	border-radius: 10px; 
+}

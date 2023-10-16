@@ -1,0 +1,60 @@
+@charset "UTF-8";
+h2{
+	font-size: 32px;
+}
+li{
+	list-style-type: none;
+	font-size: 18px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+ul{
+	list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    padding: 0;
+}
+.continueBtn{
+	background-color: red;
+	color: white;
+	width: 350px;
+	height: 60px;
+	box-shadow: 0 1px 1px rgba(0,0,0,.25);
+    box-sizing: border-box;
+	border: none;
+	border-radius: 5px;
+    margin: 0 auto;
+    font-size: 25px;
+}
+.checkmark-group--icon{
+	align-self: flex-start;
+    color: #e50914;
+    flex: none;
+    height: 26px;
+    width: 26px;
+}
+.checkMarkGroup{
+	display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    text-align: left;
+}
+.checkMarkGroup1{
+	margin-left: 10px;
+	margin-bottom: 20px;
+	display: inline-block;
+	max-width: 300px;
+	vertical-align: middle;
+
+}
+.writeForm2-center{
+	max-width: 340px;
+	display: block;
+	--layout-container-side-padding: 32px;
+	padding: 20px var(--layout-container-side-padding) 60px;
+}
