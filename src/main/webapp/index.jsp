@@ -2,8 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:if test="${login == null }">
+	페이지 로딩
 	<script>
-		location.href="/NetFlex/account"
+		//location.href="/NetFlex/account"
 	</script>
 </c:if>
 <c:if test="${login != null }">
