@@ -51,8 +51,8 @@
 
                                 </div>
                             </div>
-<!-- 이메일/비밀번호 찾기 버튼--><button class="btn forgot-password-action-button btn-blue btn-large" type="button" onclick="location.href='/NetFlex/user/find_email_form'" autoComplete="off" tabindex="0" data-uia="action_forgot_password" style="background-color:#CD1039;">이메일 찾기</button>
-                            <button class="btn forgot-password-action-button btn-blue btn-large" type="button" onclick="location.href='/NetFlex/user/find_password_form'" autoComplete="off" tabindex="0" data-uia="action_forgot_password" style="background-color:#CD1039;">비밀번호 찾기</button>
+<!-- 이메일/비밀번호 찾기 버튼--><button class="btn forgot-password-action-button btn-blue btn-large" type="button" onclick="location.href='/NetFlex/account/find_email_form'" autoComplete="off" tabindex="0" data-uia="action_forgot_password" style="background-color:#CD1039;">이메일 찾기</button>
+                            <button class="btn forgot-password-action-button btn-blue btn-large" type="button" onclick="location.href='/NetFlex/account/find_password_form'" autoComplete="off" tabindex="0" data-uia="action_forgot_password" style="background-color:#CD1039;">비밀번호 찾기</button>
                         </div>
                     </div>                  
                 </div>
