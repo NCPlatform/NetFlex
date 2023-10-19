@@ -25,14 +25,13 @@ import admin.video.dao.VideoMyBatis;
 import admin.video.service.VideoServiceImpl;
 
 @Configuration
-@PropertySource("classpath:spring/db.properties")
 @EnableTransactionManagement
 public class SpringConfiguration {
 	
-	private @Value("${jdbc.driver}") String driver;
-	private @Value("${jdbc.url}") String url;
-	private @Value("${jdbc.username}") String username;
-	private @Value("${jdbc.password}") String password;
+	private String driver = "com.mysql.cj.jdbc.Driver";
+	private String url = "jdbc:mysql://db-iqk75-kr.vpc-pub-cdb.ntruss.com:3306/netflexdb?serverTimezone=Asia/Seoul";
+	private String username = "master";
+	private String password = "master!@#123";
 	
 	@Autowired
 	private ApplicationContext applicationContext;
@@ -51,7 +50,7 @@ public class SpringConfiguration {
 	public SqlSessionFactory sqlSessionFactory() throws Exception {
 		SqlSessionFactoryBean sqlsessionFactoryBean = new SqlSessionFactoryBean();
 		sqlsessionFactoryBean.setDataSource(dataSource());
-		sqlsessionFactoryBean.setConfigLocation(new ClassPathResource("spring/mybatis-config.xml"));
+		//sqlsessionFactoryBean.setConfigLocation(new ClassPathResource("spring/mybatis-config.xml"));
 		sqlsessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:*/dao/*Mapper.xml"));
 		return sqlsessionFactoryBean.getObject();
 	}
