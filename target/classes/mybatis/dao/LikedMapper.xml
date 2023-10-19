@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="likedSQL">
+	<select id="countLiked" resultType="int">
+ 		select count(*) from liked where seqMovie=#{seqMovie} and email=#{email} and seqNick=#{seqNick}
+ 	</select>
+	<insert id="liked">
+		insert into liked(seqMovie, email,seqNick) values(#{seqMovie}, #{email} ,#{seqNick})
+	</insert>
+	<delete id="unliked">
+		delete from liked where seqMovie=#{seqMovie} and email=#{email} and seqNick=#{seqNick}
+	</delete>
+	<update id="updateLikedCount">
+		update movie set liked=liked+#{count} where seqMovie=#{seqMovie}
+	</update>
+ </mapper>
