@@ -1,0 +1,43 @@
+@charset "UTF-8";
+h1{
+	font-size: 32px;
+	margin-bottom: 30px;
+}
+
+li{
+	list-style-type: none;
+	font-size: 18px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.continueBtn{
+	background-color: red;
+	color: white;
+	height: 60px;
+	box-shadow: 0 1px 1px rgba(0,0,0,.25);
+    box-sizing: border-box;
+	border: none;
+	border-radius: 5px;
+	margin-top: 30px;
+    font-size: 25px;
+    
+}
+
+.writeForm5{
+	box-sizing: border-box;
+    margin: 0 auto 15px;
+    max-width: 978px;
+}
+.writeForm5-center{
+	margin-top: 30px;
+	margin-bottom: 20px;
+	align-content: center;
+}
+.phoneNumber{
+	max-width: 150px;
+	width: 100%;
+}
+.phoneNumber1{
+	max-width: 250px;
+	width: 100%;
+}

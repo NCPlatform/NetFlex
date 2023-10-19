@@ -1,0 +1,80 @@
+@charset "UTF-8";
+li{
+	list-style: none;
+}
+.agreementBtn{
+	text-decoration: none;	
+}
+.agreementBtn:hover{
+	text-decoration: underline;		
+}
+.continueBtn{
+	background-color: red;
+	color: white;
+	width: 350px;
+	height: 60px;
+	box-shadow: 0 1px 1px rgba(0,0,0,.25);
+    box-sizing: border-box;
+	border: none;
+	border-radius: 5px;
+    margin: 0 auto;
+    font-size: 25px;
+}
+continueBtn1{
+	background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+    transition: position .5s ease-in;
+    width: 100%;
+}
+.naverPayLogo{
+	width: 50px;
+	height: 50px;
+}
+.writeForm4-center{
+	box-sizing: border-box;
+    margin: 0 auto 15px;
+    max-width: 978px;
+}
+.writeForm4-center1{
+	font-size: 13px;
+}
+.writeForm4-center2{
+    max-width: 440px;
+    text-align: left;	
+}
+.writeForm4-center2 label {
+    display: inline-block;
+    font-weight: bold; /* 라벨 텍스트를 굵게 설정하세요 */
+    vertical-align:top;
+    
+}
+
+.writeForm4-center2 .checkBox {
+    margin-right: 5px; /* 체크박스 간격을 설정하세요 */
+    position: relative;
+    top: 25px;
+    right: 20px;
+    transform : scale(1.5);
+    
+}
+
+.writeForm4-center2 .checkBox + label {
+    font-weight: normal; /* 체크박스 라벨 텍스트를 일반 스타일로 설정하세요 */
+}
+
+.writeForm4-center2 .agreementBtn {
+    color: #007bff; /* 링크 색상을 설정하세요 */
+    text-decoration: none; /* 밑줄을 제거합니다. 필요한 경우 설정하세요 */
+}
+.writeForm4-center3{
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}

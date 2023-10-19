@@ -7,11 +7,28 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-	<mvc:annotation-driven />
-	<mvc:resources location="/WEB-INF/js/" mapping="/js/**" />
-	<mvc:resources location="/WEB-INF/img/" mapping="/img/**" />
-	<mvc:resources location="/WEB-INF/storage/" mapping="/storage/**" />
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+		<property name="prefix" value="/WEB-INF" />
+		<property name="suffix" value=".jsp" />
+	</bean>
 	
-	<mvc:resources location="/bootstrap/" mapping="/bootstrap/**" />
+	<bean id = "multipartResolver" class = "org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name = "maxUploadSize" value = "5000000"/><!-- 5MB 크기 제한 -->
+	</bean>
+	
+	<bean id = "modelAndView" class = "org.springframework.web.servlet.ModelAndView"></bean>
+	
+	<bean id = "videoController" class = "admin.video.controller.VideoController">
+		<property name = "modelAndView">
+			<ref bean = "modelAndView"></ref>
+		</property>	
+	</bean>
+	
+	<context:component-scan base-package="user.controller" />
+	<context:component-scan base-package="account.controller" />
+	<context:component-scan base-package="admin.controller" />
+	
+	<mvc:annotation-driven />
+	<mvc:resources location="/WEB-INF/Asset/" mapping="/asset/**" />
 
 </beans>

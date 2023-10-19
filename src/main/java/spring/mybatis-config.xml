@@ -4,6 +4,18 @@
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+		<typeAlias type="user.bean.MemberShipDTO" alias="membership"/>
 		<typeAlias type="user.bean.UserDTO" alias="user"/>
+		<typeAlias type="user.bean.ReportDTO" alias="report"/>
+		<typeAlias type="user.bean.NicknameDTO" alias="nickname"/>
+		
+		<typeAlias type="user.bean.MovieDTO" alias="movie"/>
+		<typeAlias type="user.bean.MovieDTO" alias="liked"/>
+		<typeAlias type="user.bean.EpisodeDTO" alias="episode"/>
+		
+		<typeAlias type="admin.video.bean.VideoDTO" alias="video"/>
+		<typeAlias type="admin.video.bean.EpisodeDTO" alias="ep"/>
+		
+		<typeAlias type="user.bean.UserInsertDTO" alias="userInsert"/>
 	</typeAliases>
 </configuration>

@@ -1,0 +1,24 @@
+@charset "UTF-8";
+header {
+	display:flex;
+	justify-content: space-between;
+	height: 90px;
+	position: relative;
+	align-items: center;
+	border-bottom: 1px solid #e6e6e6;
+}
+.writeForm0_headerLogo{
+	width: 200px;
+	display: inline-block;
+    line-height: 90px;
+    vertical-align: middle;
+}
+.writeForm0_headerLoginBtn{
+	color: #333;
+    float: right;
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 90px;
+    margin: 0 3%;
+}
