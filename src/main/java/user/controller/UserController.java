@@ -23,7 +23,7 @@ import user.bean.NicknameDTO;
 import user.service.UserService;
 
 @Controller
-@RequestMapping("/NetFlex/movie")
+@RequestMapping("movie")
 public class UserController {
 	
 	@Autowired

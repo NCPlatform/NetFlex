@@ -2,13 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/WEB-INF/Account/headDefault.jsp" />
-<link rel="stylesheet" href="/NetFlex/asset/css/account/headerLogo.css" type="text/css"/>
-<link rel="stylesheet" href="/NetFlex/asset/css/account/writeForm0Background.css" type="text/css"/>
-<link rel="stylesheet" href="/NetFlex/asset/css/account/writeForm0.css" type="text/css"/>
+<link rel="stylesheet" href="asset/css/account/headerLogo.css" type="text/css"/>
+<link rel="stylesheet" href="asset/css/account/writeForm0Background.css" type="text/css"/>
+<link rel="stylesheet" href="asset/css/account/writeForm0.css" type="text/css"/>
 <jsp:include page="/WEB-INF/Account/nav.jsp" />
 
 <div class="writeForm0Background">
-	<img alt="write0배경화면" src="/NetFlex/asset/image/writeForm0Background.jpg">
+	<img alt="write0배경화면" src="asset/image/writeForm0Background.jpg">
 </div>
 
 <div class="writeForm0Info">
@@ -18,7 +18,7 @@
 	
 	<h3>시청할 준비가 되셨나요? 멤버십을 등록하거나 재시작하려면 이메일주소를 입력하세요.</h3>
 </div>
-<form id = "writeForm0" method="post" action="/NetFlex/account/emailVerify" style="text-align: center;">
+<form id = "writeForm0" method="post" action="account/emailVerify" style="text-align: center;">
 	<div class="table-container">
 		<table class="container" style="margin: auto;">
 		<tr>

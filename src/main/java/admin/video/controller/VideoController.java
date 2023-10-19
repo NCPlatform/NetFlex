@@ -25,7 +25,7 @@ import admin.video.service.VideoService;
 import user.bean.Paging;
 import admin.video.bean.userPaging;
 @Controller
-@RequestMapping(value = "/NetFlex/admin/video") // 협의 후 결정
+@RequestMapping(value = "admin/video") // 협의 후 결정
 public class VideoController {
 	@Autowired
 	private VideoService videoService;
