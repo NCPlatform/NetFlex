@@ -24,7 +24,7 @@ import user.bean.NicknameDTO;
 import user.bean.UserInsertDTO;
 
 @Controller
-@RequestMapping(value="account")
+@RequestMapping(value="/NetFlex/account")
 public class AccountController {
 	@Autowired
 	private AccountService accountService;
