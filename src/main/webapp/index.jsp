@@ -8,6 +8,6 @@
 </c:if>
 <c:if test="${login != null }">
 	<script>
-		location.href="/NetFlex/movie"
+		location.href="movie"
 	</script>
 </c:if>
