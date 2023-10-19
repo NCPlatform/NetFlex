@@ -157,9 +157,6 @@ $(function(){
 			
 		} else{
 			
-			alert($('.id').val());
-			alert($('.password').val());
-			
 			$.ajax({
 				type: 'post',
 				url:	'/NetFlex/account/login',

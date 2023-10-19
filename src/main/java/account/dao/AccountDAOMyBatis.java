@@ -39,8 +39,9 @@ public class AccountDAOMyBatis implements AccountDAO {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("email", email );
 		map.put("password", password);
-					
-		return sqlSession.selectOne("accountSQL.login", map);
+		int result = sqlSession.selectOne("accountSQL.login", map);
+		System.out.println(result);
+		return result;
 	}
 
 	@Override
