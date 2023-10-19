@@ -22,10 +22,12 @@ $('#start').click(function(){
 				return false;
 			}
 		},
-		error: function(e){
+		error: function(request,error){
 			Swal.fire('회원가입에 실패했습니다.');
-			console.log(e);
-			return false;
+			alert("code" + request.status + "\n message" + request.responseText + "\n error" + error);
+			console.log("code" + request.status + "\n message" + request.responseText + "\n error" + error);
+			//console.log(error);
+			
 		}
 	});
 	return false;
