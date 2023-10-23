@@ -4,15 +4,15 @@
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace = "videoSQL">
  	<!-- Videos -->
- 	<insert id = "upload" parameterType = "admin.video.bean.VideoDTO">
+ 	<insert id = "upload" parameterType = "video">
  		insert into movie(genrecode1, genrecode2, genrecode3, title, story, nation, director, actor, year, releasedate, thumbnailSrc, thumbnailSrcUrl) values (#{genrecode1}, #{genrecode2}, #{genrecode3}, #{title}, #{story}, #{nation}, #{director}, #{actor}, #{year}, #{releasedate}, #{thumbnailSrc}, #{thumbnailSrcUrl})
  	</insert>
  	
- 	<select id = "importSeq" parameterType = "HashMap" resultType = "int">
+ 	<select id = "importSeq" parameterType = "HashMap" resultType = "_int">
  		select max(${seqMovie}) as seqMovie from movie
  	</select>
  	
- 	<select id = "searchMovie" parameterType = "admin.video.bean.VideoDTO" resultType = "admin.video.bean.VideoDTO">
+ 	<select id = "searchMovie" parameterType = "video" resultType = "video">
  		select * from movie where title = #{title} order by seqMovie desc limit 1
  	</select>
  	
@@ -20,42 +20,42 @@
   		${sql}
   	</select>
   	
-  	<select id = "countAllVideos" resultType = "int">
+  	<select id = "countAllVideos" resultType = "_int">
   		select count(*) as count from movie 
   	</select>
   	
-  	<select id = "getVideoList" parameterType = "HashMap" resultType = "admin.video.bean.VideoDTO">
+  	<select id = "getVideoList" parameterType = "HashMap" resultType = "video">
   		select * from movie limit #{startNum}, 15 
   	</select>
   	
-  	<select id = "getVideoListbyName" parameterType = "HashMap" resultType = "admin.video.bean.VideoDTO">
+  	<select id = "getVideoListbyName" parameterType = "HashMap" resultType = "video">
   		select * from movie order by ${order} limit #{startNum}, 15
   	</select>
   	
   	<!-- Episodes -->
-  	<insert id = "addEpisodes" parameterType = "admin.video.bean.EpisodeDTO">
+  	<insert id = "addEpisodes" parameterType = "ep">
   		insert into `${seqMovie}` (ep, eptitle, epstory, runtime, thumbnail, grade, seqMovie, movieSrcUrl) values(#{ep}, #{eptitle}, #{epstory}, #{runtime}, #{thumbnail}, #{grade}, #{seqMovie}, #{movieSrcUrl})
   	</insert>
   	
-  	<select id = "getEpisodeList" parameterType = "HashMap" resultType = "admin.video.bean.EpisodeDTO">
+  	<select id = "getEpisodeList" parameterType = "HashMap" resultType = "ep">
   		select * from `${seqMovie}` where seqMovie = #{seqMovie}
   	</select> 
   	
   	<!-- videoUpdateForm -->
- 	<select id = "searchVideo" parameterType = "HashMap" resultType = "admin.video.bean.VideoDTO">
+ 	<select id = "searchVideo" parameterType = "HashMap" resultType = "video">
  		select * from movie where seqMovie = #{seqMovie}
  	</select>
  	
- 	<select id = "searchEpisode" parameterType = "HashMap" resultType = "admin.video.bean.EpisodeDTO">
+ 	<select id = "searchEpisode" parameterType = "HashMap" resultType = "ep">
  		select * from `${seqMovie}` where ep = #{epNum}
  	</select>
  	
  	<!-- Update -->
- 	<update id = "videoUpdate" parameterType = "admin.video.bean.VideoDTO">
+ 	<update id = "videoUpdate" parameterType = "video">
  		update movie set title = #{title}, story = #{story}, nation = #{nation}, director = #{director}, actor = #{actor}, year = #{year}, releasedate = #{releasedate}, genrecode1 = #{genrecode1}, genrecode2 = #{genrecode2}, genrecode3 = #{genrecode3}, thumbnailSrc = #{thumbnailSrc}, thumbnailSrcUrl = #{thumbnailSrcUrl} where seqMovie = #{seqMovie} 
  	</update>
  	
- 	<update id = "episodeUpdate" parameterType = "admin.video.bean.EpisodeDTO">
+ 	<update id = "episodeUpdate" parameterType = "ep">
  		update `${seqMovie}` set eptitle = #{eptitle}, epstory = #{epstory}, runtime = #{runtime}, thumbnail = #{thumbnail}, grade = #{grade}, seqMovie = #{seqMovie}, movieSrcUrl = #{movieSrcUrl} where ep = #{ep}
  	</update>
  	
@@ -72,7 +72,7 @@
  		${sql}
  	</select>
  	
- 	<select id="search" parameterType="String" resultType = "admin.video.bean.VideoDTO">
+ 	<select id="search" parameterType="String" resultType = "video">
 		select * from movie where title like "%${value}%" or actor like "%${value}%"
 	</select>
   	

@@ -5,28 +5,34 @@ KDT MID PROJECT > NetFlix Clone Coding
 
 <img src="https://github.com/NCPlatform/NetFlex/blob/main/src/main/webapp/WEB-INF/Asset/image/netflex.png?raw=true">
 
-<center>
+<div align="center">
 
 <b> :bookmark: Platform & Languages :bookmark: </b>
 
+<div>
 <img src="https://img.shields.io/badge/SpringLegacy-6DB33F?style=flat&logo=spring&logoColor=white"/>
 <img src="https://img.shields.io/badge/NaverCloud-03C75A?style=flat&logo=Naver&logoColor=white"/>
+</div>
+<div>
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white"/>
 <img src="https://img.shields.io/badge/CSS-1572B6?style=flat&logo=css3&logoColor=white"/>
 <img src="https://img.shields.io/badge/BootStrap-7952B3?style=flat&logo=bootstrap&logoColor=white"/>
 <img src="https://img.shields.io/badge/JQuery-0769AD?style=flat&logo=jquery&logoColor=white"/>
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white"/>
+</div>
 
 <b> :wrench: Tools :wrench: </b>
 
+<div>
 <img src="https://img.shields.io/badge/STS3-6DB33F?style=flat&logo=spring&logoColor=white"/>
 <img src="https://img.shields.io/badge/Apache%20Tomcat-F8DC75?style=flat&logo=Apache%20Tomcat&logoColor=white"/>
 <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white"/>
 <img src="https://img.shields.io/badge/Slack-4A154B?style=flat&logo=slack&logoColor=white"/>
 <img src="https://img.shields.io/badge/Notion-000000?style=flat&logo=notion&logoColor=white"/>
 <img src="https://img.shields.io/badge/Discord-5865F2?style=flat&logo=discord&logoColor=white"/>
+</div>
 
-</center>
+</div>
 
 ## Web Distribution Address
 
