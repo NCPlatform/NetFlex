@@ -3,11 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:if test="${login == null }">
 	<script>
-		location.href="/NetFlex/account"
+		location.href="account"
 	</script>
 </c:if>
 <c:if test="${login != null }">
 	<script>
-		location.href="/NetFlex/movie"
+		location.href="movie"
 	</script>
 </c:if>

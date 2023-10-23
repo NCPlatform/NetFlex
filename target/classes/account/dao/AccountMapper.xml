@@ -3,11 +3,11 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace = "accountSQL">
-  	<insert id = "insertUser" parameterType = "userInsert">
+  	<insert id = "insertUser" parameterType = "user.bean.UserInsertDTO">
 		insert into user(email,name,password,age,phone,seqMembership,membershipStartDate,membershipEndDate) values(#{email},#{name},#{password},${age},#{phone},${seqMembership},sysdate(),date_add(sysdate(),INTERVAL 1 MONTH))
 	</insert>
 	
-	<insert id = "insertNick" parameterType = "nickname">
+	<insert id = "insertNick" parameterType = "user.bean.NicknameDTO">
 		insert into nickname(email,nickname,genrecode1,genrecode2,genrecode3) values(#{email},#{nickname},${genrecode1},${genrecode2},${genrecode3})
 	</insert>
 	
@@ -30,7 +30,7 @@
 	</select>
 	
 	<!-- 비밀번호 변경 -->
-	<update id="update_pw" parameterType="user">
+	<update id="update_pw" parameterType="user.bean.UserDTO">
 		update user set password = #{password} where email = #{email}
 	</update>
 </mapper>
